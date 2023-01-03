@@ -137,3 +137,22 @@ p {
     text-decoration: underline;
     color: black;
 }
+
+ /* SHOPPINGCART2 */
+
+ .subYPrecioContenedor2 {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 1px gray;
+    padding: 20px;
+}
+
+.cpYCalcularEnvio {
+    padding: 10px;
+    border-bottom: solid 1px gray;
+}
+
+.calcularenvio {
+    padding: 5px;
+    color: rgb(59, 96, 100);
+}
