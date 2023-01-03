@@ -3,3 +3,64 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+main {
+    background-color: rgb(201, 228, 202);
+    font-family: 'Roboto', sans-serif;
+    padding: 20px
+}
+
+p {
+    font-size: 16px;
+}
+
+.h4yxContenedor {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.prodYSubContenedor {
+    display: flex;
+    justify-content: space-between;
+    border-color: black;
+    padding: 10px;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+}
+
+.imgYDescripContenedor {
+    display: flex;
+}
+
+.descripcionYPrecio {
+    align-self: center;
+    padding: 10px;
+}
+
+.descripcion, .precio, .agregarContenedor {
+    padding: 10px;
+}
+
+.agregarContenedor {
+    display: flex;
+}
+
+.cantidad {
+    align-self: center;
+    border: solid 1px black;
+    padding: 5px;
+}
+
+.sumarORestar {
+    padding: 8px
+}
+
+article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-trash {
+    align-self: center;
+}
