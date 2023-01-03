@@ -156,3 +156,14 @@ p {
     padding: 5px;
     color: rgb(59, 96, 100);
 }
+
+ /* SHOPPINGCART3 */
+
+ .textocarritocompras {
+    border: solid 1px rgb(59, 96, 100);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 12px;
+    background-color: rgb(135, 187, 162);
+ }
