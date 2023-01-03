@@ -65,3 +65,15 @@ p {
 .fa-trash {
     align-self: center;
 }
+
+.subYPrecioContenedor {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    padding: 20px;
+}
+
+.subtotal, .precio {
+    align-self: center;
+}
