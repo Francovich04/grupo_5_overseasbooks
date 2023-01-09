@@ -126,7 +126,17 @@ p {
     width: 200px;
     height: 30px;
     border: 5px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.botoncentrado {
     text-align: center;
+    padding: 20px;
+}
+
+.boton:hover {
+    background-color: rgb(128, 163, 146);
 }
 
 .textboton, .vermas {
