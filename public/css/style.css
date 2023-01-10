@@ -1,0 +1,179 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+main {
+    background-color: rgb(201, 228, 202);
+    font-family: 'Abel', sans-serif;
+    padding: 20px
+}
+
+p {
+    font-size: 18px;
+}
+
+.h4yxContenedor {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.prodYSubContenedor {
+    display: flex;
+    justify-content: space-between;
+    border-color: black;
+    padding: 10px;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+}
+
+.imgYDescripContenedor {
+    display: flex;
+}
+
+.descripcionYPrecio {
+    align-self: center;
+    padding: 10px;
+}
+
+.descripcion, .precio, .agregarContenedor {
+    padding: 5px;
+}
+
+.descripcion {
+    font-weight: bold;
+}
+
+.agregarContenedor {
+    display: flex;
+}
+
+.cantidad {
+    align-self: center;
+    border: solid 1px black;
+    padding: 5px;
+}
+
+.sumarORestar {
+    padding: 8px
+}
+
+.productos {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.fa-trash {
+    align-self: center;
+}
+
+.subYPrecioContenedor {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    padding: 20px;
+}
+
+.subtotal, .precio {
+    align-self: center;
+}
+
+.textocp {
+    padding: 10px;
+}
+
+.envio, .opcion, .retiro {
+    padding: 10px;
+}
+
+.opcion1Y2, .opcion3 {
+    border: solid 1px gray;
+    padding: 10px;
+}
+
+.opcion1, .opcion2, .opcion3 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.precioenvio, .precioretiro {
+    align-self: center;
+}
+
+.opcion1 {
+    border-bottom: solid 1px gray;
+}
+
+.iconoYopcion {
+    display: flex;
+}
+
+.totalprecio {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px;
+    border-top: solid 1px gray;
+}
+
+.boton {
+    background-color: rgb(135, 187, 162);
+    width: 200px;
+    height: 30px;
+    border: 5px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.botoncentrado {
+    text-align: center;
+    padding: 20px;
+}
+
+.boton:hover {
+    background-color: rgb(128, 163, 146);
+}
+
+.textboton, .vermas {
+    text-align: center;
+}
+
+.vermas {
+    text-decoration: underline;
+    color: black;
+}
+
+ /* SHOPPINGCART2 */
+
+ .subYPrecioContenedor2 {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 1px gray;
+    padding: 20px;
+}
+
+.cpYCalcularEnvio {
+    padding: 10px;
+    border-bottom: solid 1px gray;
+}
+
+.calcularenvio {
+    padding: 5px;
+    color: rgb(59, 96, 100);
+}
+
+ /* SHOPPINGCART3 */
+
+ .textocarritocompras {
+    border: solid 1px rgb(59, 96, 100);
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 12px;
+    background-color: rgb(135, 187, 162);
+ }
