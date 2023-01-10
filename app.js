@@ -18,3 +18,12 @@ app.get('/shoppingcart2', (req, res) => {
 app.get('/shoppingcart3', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/shoppingCart3.html'))
 })
+
+//Public Path, in this case, __dirname is the complete route where app.js is located
+//permite servir archivos estaticos desde public
+
+//using static files, middleware
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/home.html'));
+});
