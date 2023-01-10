@@ -105,6 +105,11 @@ header .userIcon {
    
 }
 
+.carrito {
+    text-decoration: none;
+    color: black;
+}
+
 .liHeader {
     margin: auto;
     width: 100%;
@@ -569,5 +574,10 @@ footer .bannersFooter {
  
 }
 
-
+.imagenlogo {
+    width: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    order: -1;
+ }
 
