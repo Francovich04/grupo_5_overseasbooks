@@ -275,7 +275,7 @@ header .userIcon {
     bottom: 135px;
     left: 25px; /* esto cambia en responsive */
     width: 50px;
-    z-index: 0;
+    z-index: 1; /* esto cambia en responsive */
 }
 
 .fa-circle-chevron-right {
@@ -287,7 +287,7 @@ header .userIcon {
     bottom: 135px;
     right: 25px; /* esto cambia en responsive */
     width: 50px;
-    z-index: 0;
+    z-index: 1; /* esto cambia en responsive */
 }
 
 
@@ -410,6 +410,7 @@ footer .bannersFooter {
    
         left: -2px; /* esto cambia en responsive */
         bottom: 150px;
+        z-index: 0;
   
     }
     
@@ -417,6 +418,7 @@ footer .bannersFooter {
   
         right: -2px; /* esto cambia en responsive */
         bottom: 150px;
+        z-index: 0;
       
     }
     
