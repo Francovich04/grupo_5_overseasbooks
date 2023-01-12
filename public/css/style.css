@@ -178,10 +178,3 @@ p {
     font-size: 16px;
     background-color: rgb(135, 187, 162);
  }
-
- .imagenlogo {
-    width: 100px;
-    max-width: 100px;
-    max-height: 100px;
-    order: -1;
- }
