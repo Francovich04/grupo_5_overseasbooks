@@ -11,7 +11,7 @@ main {
 }
 
 p {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .h4yxContenedor {
@@ -126,7 +126,7 @@ p {
     width: 200px;
     height: 30px;
     border: 5px;
-    padding: 10px;
+    padding-bottom: 4px;
     justify-content: center;
 }
 
@@ -141,6 +141,7 @@ p {
 
 .textboton, .vermas {
     text-align: center;
+    font-size: 16px;
 }
 
 .vermas {
@@ -174,6 +175,6 @@ p {
     text-align: center;
     padding: 10px;
     margin: 10px;
-    font-size: 12px;
+    font-size: 16px;
     background-color: rgb(135, 187, 162);
  }
