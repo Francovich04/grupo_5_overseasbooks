@@ -198,6 +198,10 @@ body {
     padding: 43px;
 }
 
+main {
+    background-color: white;
+}
+
 .productTitle {
     font-size: 18px;
 }
