@@ -1,9 +1,12 @@
 ¿Qué productos o servicios brindará nuestro sitio? 
 Libros
+
 ¿Quién será nuestra audiencia objetivo? 
 Lectores
+
 ¿Cómo ajustaremos nuestra oferta a ese público?
 Ofreciendo distintos tipos de categorias
+
 Referencias:
 https://www.elejandria.com/
 https://www.ventadelibros.com.ar/

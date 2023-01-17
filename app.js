@@ -31,3 +31,12 @@ app.get('/', (req, res) => {
 app.get('/productDetail', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/productDetail.html"));
 });
+
+app.get('/login', (req, res) => {
+    const ruta = path.join(__dirname, './views/login.html');
+   res.sendFile(ruta);
+})
+app.get('/register', (req, res) => {
+    const ruta = path.join(__dirname, './views/register.html');
+   res.sendFile(ruta);
+})
