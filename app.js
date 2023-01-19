@@ -40,3 +40,7 @@ app.get('/register', (req, res) => {
     const ruta = path.join(__dirname, './views/register.html');
    res.sendFile(ruta);
 })
+app.get('/passwordreset', (req, res) => {
+    const ruta = path.join(__dirname, './views/passwordreset.html');
+   res.sendFile(ruta);
+})
