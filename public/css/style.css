@@ -184,7 +184,7 @@ p {
 .body-login {
     font-family: proxima-nova, sans-serif;
     margin: 0;
-   background: url("/resources/overseasbooks\ \(1\).png");
+   background: url("/resources/fondoregister.png");
     background-size: cover;
     background-attachment: fixed;
 }
@@ -251,5 +251,51 @@ p{
         margin-top: 150px;
         border-radius: 2%;
     }
+}
+.body-password{
+    font-family: proxima-nova, sans-serif;
+    text-align: center;
+    margin: 0;
+    background: url("/resources/fondoregister.png");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+h1 {
+margin-top: 50px;
+}
+
+label {
+display: block;
+margin-bottom: 10px;
+}
+
+input[type="email"] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+input[type="submit"] {
+width: 100%;
+background-color: #87BBA2;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type="submit"]:hover {
+background-color: #55828B;
+}
+
+#message {
+margin-top: 20px;
+font-size: 18px;
 }
 
