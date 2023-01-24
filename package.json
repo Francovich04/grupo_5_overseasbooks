@@ -4,6 +4,8 @@
   "description": "¿Qué productos o servicios brindará nuestro sitio? \r Libros\r ¿Quién será nuestra audiencia objetivo? \r Lectores\r ¿Cómo ajustaremos nuestra oferta a ese público?\r Ofreciendo distintos tipos de categorias\r Referencias:\r https://www.elejandria.com/\r https://www.ventadelibros.com.ar/\r https://www.tematika.com/\r https://www.cuspide.com/\r https://www.libreriaboris.com.ar/\r Estos sitios fueron elegidos por que al menos cada uno presenta una funcionalidad interesante para replicar en nuestro propio proyecto",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +20,8 @@
   },
   "homepage": "https://github.com/Francovich04/grupo_5_overseasbooks#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
   }
 }
