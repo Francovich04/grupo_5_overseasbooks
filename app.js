@@ -2,10 +2,27 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const publicPath = path.resolve(__dirname, './public')
+const morgan = require("morgan");
+const routerMain = require('./src/routes/main');
+const routerLoginRegister = require('./src/routes/loginRegister');
+const routerProductDetail = require('./src/routes/productDetail');
+const routerShoppingCart = require('./src/routes/shoppingCart');
+const port = process.env.PORT || 3001;
 
-app.use(express.static(publicPath))
 
-app.listen (3001, () => console.log ('Servidor corriendo'));
+app.listen(port, () => console.log(`Server running in port ${port}...`));
+
+
+app.use(express.static(publicPath));
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false })); 
+app.use(express.json());
+app.use(routerMain, routerLoginRegister, routerProductDetail, routerShoppingCart);
+
+
+
+app.set("view engine", "ejs");
+
 
 app.get('/shoppingcart', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/shoppingCart.html'))
