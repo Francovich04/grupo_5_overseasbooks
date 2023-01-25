@@ -7,6 +7,10 @@ let libros = [
 
         titleEsp: "El Mensajero Secreto",
 
+        color: "pastelCeleste",
+        
+        productDetail: "/details",
+
         author: "Mandy Robotham",
 
         category: "Best Sellers",
@@ -22,6 +26,10 @@ let libros = [
         titleEng: "Babel",
 
         titleEsp: "Babel",
+
+        color: "pastelAmarillo",
+        
+        productDetail: "/details",
 
         author: "R. F. Kuang",
 
@@ -39,6 +47,10 @@ let libros = [
 
         titleEsp: "Lecciones en Química",
 
+        color: "pastelRojo",
+        
+        productDetail: "/details",
+
         author: "Bonnie Garmus",
 
         category: "Best Sellers",
@@ -54,6 +66,10 @@ let libros = [
         titleEng: "The Dark Stuff",
 
         titleEsp: "La Cosa Oscura",
+
+        color: "pastelVioleta",
+        
+        productDetail: "/details",
 
         author: "Paul Seiple",
 
@@ -71,6 +87,10 @@ let libros = [
 
         titleEsp: "Aire Magia",
 
+        color: "pastelCeleste",
+        
+        productDetail: "/details",
+
         author: "Astrea Taylor",
 
         category: "Best Sellers",
@@ -86,6 +106,10 @@ let libros = [
         titleEng: "An Immense World",
 
         titleEsp: "Un Mundo Inmenso",
+
+        color: "pastelVerde",
+        
+        productDetail: "/details",
 
         author: "Ed Yong",
 
@@ -103,6 +127,10 @@ let libros = [
 
         titleEsp: "Como Funciona el Mundo",
 
+        color: "pastelAzul",
+        
+        productDetail: "/details",
+
         author: "Vaclav Smil",
 
         category: "Science",
@@ -118,6 +146,10 @@ let libros = [
         titleEng: "Stolen Focus",
 
         titleEsp: "Foco Robado",
+
+        color: "pastelGris",
+        
+        productDetail: "/details",
 
         author: "Johann Hari",
 
@@ -135,6 +167,10 @@ let libros = [
 
         titleEsp: "Aliento",
 
+        color: "pastelAmarillo",
+        
+        productDetail: "/details",
+
         author: "James Nestor",
 
         category: "Science",
@@ -150,6 +186,10 @@ let libros = [
         titleEng: "The Song of the Cell",
 
         titleEsp: "La Canción Celular",
+
+        color: "pastelVioleta",
+        
+        productDetail: "/details",
 
         author: "Siddhartha Mukherjee",
 
@@ -167,6 +207,10 @@ let libros = [
 
         titleEsp: "Cuento de Hadas",
 
+        color: "pastelAzul",
+        
+        productDetail: "/details",
+
         author: "Stephen King",
 
         category: "Ficción",
@@ -182,6 +226,10 @@ let libros = [
         titleEng: "Bright Creatures",
 
         titleEsp: "Criaturas Inteligentes",
+
+        color: "pastelCeleste",
+        
+        productDetail: "/details",
 
         author: "Shelby Van Pelt",
 
@@ -199,6 +247,10 @@ let libros = [
 
         titleEsp: "Derechos Reservados",
 
+        color: "pastelAmarillo",
+        
+        productDetail: "/details",
+
         author: "Gregory Scott Katsoulis",
 
         category: "Ficción",
@@ -215,6 +267,10 @@ let libros = [
 
         titleEsp: "Libro de la Noche",
 
+        color: "pastelAzul",
+        
+        productDetail: "/details",
+
         author: "Holly Black",
 
         category: "Ficción",
@@ -230,6 +286,10 @@ let libros = [
         titleEng: "The Maid",
 
         titleEsp: "La criada",
+
+        color: "pastelRojo",
+        
+        productDetail: "/details",
 
         author: "Nita Prose",
 
