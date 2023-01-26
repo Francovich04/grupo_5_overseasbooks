@@ -1,11 +1,8 @@
 {
-  "dependencies": {
-    "express": "^4.18.2"
-  },
-  "name": "proyectofinal",
+  "name": "overseasbooks",
   "version": "1.0.0",
+  "description": "¿Qué productos o servicios brindará nuestro sitio? \r Libros\r ¿Quién será nuestra audiencia objetivo? \r Lectores\r ¿Cómo ajustaremos nuestra oferta a ese público?\r Ofreciendo distintos tipos de categorias\r Referencias:\r https://www.elejandria.com/\r https://www.ventadelibros.com.ar/\r https://www.tematika.com/\r https://www.cuspide.com/\r https://www.libreriaboris.com.ar/\r Estos sitios fueron elegidos por que al menos cada uno presenta una funcionalidad interesante para replicar en nuestro propio proyecto",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +17,7 @@
     "url": "https://github.com/Francovich04/grupo_5_overseasbooks/issues"
   },
   "homepage": "https://github.com/Francovich04/grupo_5_overseasbooks#readme",
-  "description": ""
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
