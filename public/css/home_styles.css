@@ -135,6 +135,8 @@ header .userIcon {
 
 /* MAIN */
 
+
+
 .carouselContainer .carousel {
     display: flex;
     flex-wrap: wrap;
@@ -434,18 +436,6 @@ footer .bannersFooter {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (min-width: 650px) {
 
     .carouselContainer .carousel .card {
@@ -530,17 +520,6 @@ footer .bannersFooter {
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

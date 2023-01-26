@@ -77,7 +77,7 @@ let libros = [
 
         price: 5.99,
 
-        img: "https://m.media-amazon.com/images/I/41sjsd8kD7L._AC_SY780_.jpg"
+        img: "https://m.media-amazon.com/images/I/51TFNdqkBpL.jpg"
     },
 
     {
@@ -117,7 +117,7 @@ let libros = [
 
         price: 12.99,
 
-        img: "https://m.media-amazon.com/images/I/51koyd-uMhL.jpg"
+        img: "https://images-na.ssl-images-amazon.com/images/I/51opFv0yLCL._AC_SX368_.jpg"
     },
 
     {
@@ -213,7 +213,7 @@ let libros = [
 
         author: "Stephen King",
 
-        category: "Ficción",
+        category: "Fiction",
 
         price: 34.99,
 
@@ -233,7 +233,7 @@ let libros = [
 
         author: "Shelby Van Pelt",
 
-        category: "Ficción",
+        category: "Fiction",
 
         price: 29.99,
 
@@ -253,7 +253,7 @@ let libros = [
 
         author: "Gregory Scott Katsoulis",
 
-        category: "Ficción",
+        category: "Fiction",
 
         price: 19.99,
 
@@ -273,7 +273,7 @@ let libros = [
 
         author: "Holly Black",
 
-        category: "Ficción",
+        category: "Fiction",
 
         price: 25.99,
 
@@ -293,7 +293,7 @@ let libros = [
 
         author: "Nita Prose",
 
-        category: "Ficción",
+        category: "Fiction",
 
         price: 28.99,
 
