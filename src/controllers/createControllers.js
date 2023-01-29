@@ -63,6 +63,17 @@ const editConfirm = (req,res) => {
 
     res.redirect('/');
     
+};
+
+const deleteBook = (req,res) => {
+   const idEliminar = req.params.id;
+
+  /* books = books.filter (e => e.id != idEliminar)  */
+ 
+ res.send("BORRANDO " + idEliminar); 
+
+ res.redirect('/'); 
+
 }
 
 
@@ -73,5 +84,6 @@ module.exports = {
     create,
     addBook,
     edit,
-    editConfirm
+    editConfirm,
+    deleteBook
 };
