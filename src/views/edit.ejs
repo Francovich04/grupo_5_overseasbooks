@@ -21,7 +21,7 @@
                     <div class="formFields">
 
                         <label class="labelForm" for="">ID</label>
-                        <input class="inputForm" type="text" name="id" id="" readonly="true" value="<%= edit.id %>">
+                        <input class="inputForm soloLectura" type="text" name="id" id="" readonly="true" value="<%= edit.id %>">
 
                     </div>
 
@@ -41,8 +41,18 @@
 
                     <div class="formFields">
 
-                        <label class="labelForm" for="">Color de Encabezado</label>
-                        <input class="inputForm" type="text" name="color" id="" value="<%= edit.color %>">
+                        <label class="labelForm" for="">Color de Encabezado Original</label>
+                        <input class="inputForm soloLectura" type="text" id="" readonly="true" value="<%= edit.color %>">
+                        <label class="labelForm" for="">Cambiar / Confirmar:</label>
+                        <select name="color" class="inputForm">
+                            <option value="pastelCeleste">Celeste</option>
+                            <option value="pastelAmarillo">Amarillo</option>
+                            <option value="pastelRojo">Rojo</option>
+                            <option value="pastelVioleta">Violeta</option>
+                            <option value="pastelVerde">Verde</option>
+                            <option value="pastelGris">Gris</option>
+                            <option value="pastelAzul">Azul</option>
+                        </select>
 
                     </div>
 
@@ -55,8 +65,14 @@
 
                     <div class="formFields">
 
-                        <label class="labelForm" for="">Categoria</label>
-                        <input class="inputForm" type="text" name="category" id="" value="<%= edit.category %>">
+                        <label class="labelForm" for="">Categoria Original</label>
+                        <input class="inputForm soloLectura" type="text" id="" readonly="true" value="<%= edit.category %>">
+                        <label class="labelForm" for="">Cambiar / Confirmar:</label>
+                        <select name="category" class="inputForm">
+                            <option value="Best Sellers">Best Sellers</option>
+                            <option value="Fiction">Ficción</option>
+                            <option value="Science">Ciencia</option>
+                        </select>
 
                     </div>
 
@@ -72,7 +88,7 @@
                     <div class="formFields">
 
                         <label class="labelForm" for="">Detalle</label>
-                        <input class="inputForm" type="text" name="productDetail" id="" value="<%= edit.productDetail %>" readonly="true">
+                        <input class="inputForm soloLectura" type="text" name="productDetail" id="" value="<%= edit.productDetail %>" readonly="true">
 
                     </div>
                     <div class="buttonFormContainer">
