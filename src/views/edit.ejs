@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs') %>
+
+    <body class="createBody">
+
+        <main>
+
+            <h1 class="createTitle">Editar Libro Existente</h1>
+
+            <div class="formContainer">
+                <form method="POST" action="/edit?_method=PUT" class="formulario">
+
+                    <div class="formFields">
+                        <img src="<%=edit.img %>" alt="imagen">
+                        <label class="labelForm" for="">Direccion de la Imagen</label>
+                        <input class="inputForm" type="text" name="img" id="" value="<%= edit.img %>">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">ID</label>
+                        <input class="inputForm" type="text" name="id" id="" readonly="true" value="<%= edit.id %>">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Titulo en Inglés</label>
+                        <input class="inputForm" type="text" name="titleEng" id="" value="<%= edit.titleEng %>">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Titulo en Español</label>
+                        <input class="inputForm" type="text" name="titleEsp" id="" value="<%= edit.titleEsp %>">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Color de Encabezado</label>
+                        <input class="inputForm" type="text" name="color" id="" value="<%= edit.color %>">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Autor/a</label>
+                        <input class="inputForm" type="text" name="author" id="" value="<%= edit.author %>">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Categoria</label>
+                        <input class="inputForm" type="text" name="category" id="" value="<%= edit.category %>">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Precio</label>
+                        <input class="inputForm" type="text" name="price" id="" value="<%= edit.price %>">
+
+                    </div>
+
+               
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Detalle</label>
+                        <input class="inputForm" type="text" name="productDetail" id="" value="<%= edit.productDetail %>" readonly="true">
+
+                    </div>
+                    <div class="buttonFormContainer">
+                        <button class="buttonForm" type="submit">Submit</button>
+                        <button class="buttonForm" type="reset">Reset</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </body>
+
+</html>

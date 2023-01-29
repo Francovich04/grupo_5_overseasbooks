@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs') %>
+
+    <body class="createBody">
+
+        <main>
+
+            <h1 class="createTitle">Cargar Libro Nuevo</h1>
+
+            <div class="formContainer">
+                <form method="POST" action="/create" class="formulario">
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Titulo en Inglés</label>
+                        <input class="inputForm" type="text" name="titleEng" id="">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Titulo en Español</label>
+                        <input class="inputForm" type="text" name="titleEsp" id="">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Color de Encabezado</label>
+                        <input class="inputForm" type="text" name="color" id="">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Autor/a</label>
+                        <input class="inputForm" type="text" name="author" id="">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Categoria</label>
+                        <input class="inputForm" type="text" name="category" id="">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Precio</label>
+                        <input class="inputForm" type="text" name="price" id="">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">URL Imagen</label>
+                        <input class="inputForm" type="text" name="img" id="">
+
+                    </div>
+
+                    <div class="formFields">
+
+                        <label class="labelForm" for="">Detalle</label>
+                        <input class="inputForm" type="text" name="productDetail" id="" value="/details" readonly="true">
+
+                    </div>
+                    <div class="buttonFormContainer">
+                        <button class="buttonForm" type="submit">Submit</button>
+                        <button class="buttonForm" type="reset">Reset</button>
+                    </div>
+
+                    <!-- Los nombres de los campos son los mismos que en la DB y NUNCA le damos al usuario la posiblidad de crear su ID eso lo hago yo. -->
+
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </body>
+
+</html>
