@@ -66,13 +66,19 @@ const editConfirm = (req,res) => {
 };
 
 const deleteBook = (req,res) => {
+
    const idEliminar = req.params.id;
 
-  /* books = books.filter (e => e.id != idEliminar)  */
- 
- res.send("BORRANDO " + idEliminar); 
+ for (var i = 0; i < books.length; i++) {
+    if (books[i].id == idEliminar) {
+        books.splice(i, 1);
+    }
+}
 
- res.redirect('/'); 
+
+ //cuando se elimina uno, pasa a faltar un ID, entonces create/"id que elimine" da error.
+
+res.redirect('/'); 
 
 }
 

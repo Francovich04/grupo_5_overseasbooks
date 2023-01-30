@@ -96,14 +96,17 @@
 
                     </div>
 
+                    <div class="buttonFormContainer">
+                        <button class="buttonForm" type="submit">Submit</button>
+                        <button class="buttonForm" type="reset">Reset</button>
+                       
                 </form>
 
-                <div class="buttonFormContainer">
-                    <button class="buttonForm" type="submit">Submit</button>
-                    <button class="buttonForm" type="reset">Reset</button>
-                    <form action="/edit/delete/<%= edit.id %>?_method=DELETE" method="POST">
-                        <button class="buttonForm" type="submit">Delete</button>
-                    </form>
+                <form action="/edit/delete/<%= edit.id %>?_method=DELETE" method="POST">
+                    <button class="buttonForm" type="submit">Delete</button>
+                </form>
+
+               
 
                 </div>
 
