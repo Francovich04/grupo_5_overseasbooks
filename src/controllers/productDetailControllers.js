@@ -1,7 +1,7 @@
 const path = require('path');
 
 const details = (req, res) => {
-    res.render(path.join(__dirname,'../views/productDetails.ejs'));
+    res.render(path.join(__dirname,'../views/productDetail.ejs'));
 }
 
 

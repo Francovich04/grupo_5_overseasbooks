@@ -1,553 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- Font Awesome Icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--  Google Icons Filled-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--  Google Icons Outline-->
-    <link
-        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-        rel="stylesheet">
-    <!--  Google Fonts Abel -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home_styles.css">
-    <title>Overseas</title>
-</head>
+<%- include('partials/head.ejs') %>
 
-<body>
+    <body>
 
-    <header>
-        <div class="hamburgesa">
-            <i class="fa-solid fa-bars"></i>
-        </div>
+        <%- include('partials/header.ejs') %>
 
-        <nav class="navBar">
-            <div class="contenedor">
-                <input class="searchBar" type="search" placeholder="Buscar...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            <%- include('partials/lowerNavBar.ejs') %>
 
-        </nav>
+                <%- include('partials/banner.ejs') %>
 
+                    <main>
 
+                        <% for (let i=0; i< categories.length; i++) {%> <!-- por cada cat mostra ESTO -->
 
-        <img class="logo" src="https://i.ibb.co/rZdLRfr/1-modified-1.png" alt="1-modified-1">
+                            <section class="cards">
 
-        <a href="/login"><span class="material-icons">
-            person
-            </span></a>
+                                <h2 class="cardSub">
 
         <a href="/cart" class="carrito"><span class="material-icons">
             shopping_cart
             </span></a>
             
+                                    <%= categories[i] %> <!-- aca mete la CAT que sale del array -->
 
-    </header>
+                                </h2>
 
-    <nav class="lowerNavBar">
-        <ul class="enlaces">
-            <li class="liHeader"><a href="">Best sellers</a></li>
-            <li class="liHeader"><a href="">Lanzamientos</a></li>
-            <li class="liHeader"><a href="">Recomendaciones</a></li>
-            <li class="liHeader"><a href="">Clásicos</a></li>
-            <li class="liHeader"><a href="">Mis Compras</a></li>
-        </ul>
-        </div>
+                                <article class="carouselContainer">
 
-    </nav>
+                                    <div class="arrows">
+                                        <i class="fa-solid fa-circle-chevron-left"></i>
+                                        <i class="fa-solid fa-circle-chevron-right"></i>
+                                    </div>
 
-    <section class="banner">
-        <img class="bannerImg" src="/images/banner.png" alt="Entregamos-en-el-dia">
-    </section>
+                                    <div class="carousel">
 
+                                        <% for (let j=0; j< allBooks.length; j++) {%>
+                                            <!-- por cada CAT ahora itera sobre el mopnton de libros q pase  -->
 
-    <main>
-        <section class="bestSellers">
+                                            <% if (allBooks[j].category==categories[i]) {%>
+                                                <!-- si algun libro es igual a la CAT que estoy iterando -->
 
-            <h2 class="cardSub">Best sellers</h2>
+                                                <div class="card">
 
-            <article class="carouselContainer">
-                <div class="arrows">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                </div>
+                                                    <div class="cardTop <%= allBooks[j].color %>">
+                                                        <a href="/details"><img class="bookCover"
+                                                                src="<%= allBooks[j].img %>" alt="libro"></a>
 
+                                                    </div>
 
+                                                    <div class="cardBottom">
 
-                <div class="carousel">
+                                                        <p class="tituloLibro">
+                                                            <%= allBooks[j].titleEsp %>
+                                                        </p>
+                                                        <p class="autorLibro">
+                                                            <%= allBooks[j].author %>
+                                                        </p>
+                                                        <p class="precioLibro">
+                                                            <%= allBooks[j].price %>
+                                                        </p>
 
-                    <div class="card">
+                                                    </div>
 
-                        <div class="cardTop pastelCeleste">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51fcXmG6g9L.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
+                                                    <a class="enlaceComprar" href="/shoppingcart2/1"><button
+                                                            class="botonComprar"><span class="material-icons-outlined">
+                                                                shopping_bag
+                                                            </span><span class="comprar">Comprar</span>
+                                                        </button></a>
 
-                        </div>
+                                                </div>
 
-                        <div class="cardBottom">
+                                                <%}%>
 
-                            <p class="tituloLibro">El Mensajero Secreto</p>
-                            <p class="autorLibro">Mandy Robotham</p>
-                            <p class="precioLibro">u$s 9.99</p>
+                                                    <%}%>
 
-                        </div>
+                                    </div>
 
-                        <a class="enlaceComprar" href="#"><button class="botonComprar"><span
-                                    class="material-icons-outlined">
-                                    shopping_bag
-                                </span><span class="comprar">Comprar</span>
-                            </button></a>
+                                </article>
 
-                    </div>
+                            </section>
 
-                    <div class="card">
+                            <%}%>
 
-                        <div class="cardTop pastelAmarillo">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51016lbT2fL._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
+                    </main>
 
-                        </div>
+                    <%- include('partials/footer.ejs') %>
 
-                        <div class="cardBottom">
+                        <%- include('partials/lowerFooter.ejs') %>
 
-                            <p class="tituloLibro">Babel</p>
-                            <p class="autorLibro">R. F. Kuang</p>
-                            <p class="precioLibro">u$s 14.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsiveTablet">
-
-                        <div class="cardTop pastelRojo">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/41sjsd8kD7L._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Lecciones en Química</p>
-                            <p class="autorLibro">Bonnie Garmus</p>
-                            <p class="precioLibro">u$s 8.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsiveDesktop">
-
-                        <div class="cardTop pastelVioleta">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51TFNdqkBpL.jpg"
-                                alt="libro"></a> <!-- 328 o 329 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">La Cosa Oscura</p>
-                            <p class="autorLibro">Paul Seiple</p>
-                            <p class="precioLibro">u$s 5.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsive1100">
-
-                        <div class="cardTop pastelCeleste">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51koyd-uMhL.jpg"
-                                alt="libro"></a> <!-- 328 o 329 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Aire Magia</p>
-                            <p class="autorLibro">Astrea Taylor</p>
-                            <p class="precioLibro">u$s 21.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </section>
-
-        <!--  NUEVA SECCION -->
-
-
-        <section class="bestSellers">
-
-            <h2 class="cardSub">Ciencia</h2>
-
-            <article class="carouselContainer">
-                <div class="arrows">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                </div>
-
-
-
-                <div class="carousel">
-
-                    <div class="card">
-
-                        <div class="cardTop pastelVerde">
-                            <a href="/productDetail"><img class="bookCover"
-                                src="https://images-na.ssl-images-amazon.com/images/I/51opFv0yLCL._AC_SX368_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Un Mundo Inmenso</p>
-                            <p class="autorLibro">Ed Yong</p>
-                            <p class="precioLibro">u$s 12.99</p>
-
-                        </div>
-
-                        <a class="enlaceComprar" href="#"><button class="botonComprar"><span
-                                    class="material-icons-outlined">
-                                    shopping_bag
-                                </span><span class="comprar">Comprar</span>
-                            </button></a>
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="cardTop pastelAzul">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/41+MkmjAu0L._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Como es el mundo</p>
-                            <p class="autorLibro">Vaclav Smil</p>
-                            <p class="precioLibro">u$s 11.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsiveTablet">
-
-                        <div class="cardTop pastelGris">
-                            <a href="/productDetail"><img class="bookCover"
-                                src="https://images-na.ssl-images-amazon.com/images/I/41JkN0wefOL._AC_SX368_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Foco Robado</p>
-                            <p class="autorLibro">Johann Hari</p>
-                            <p class="precioLibro">u$s 19.99</p>
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsiveDesktop">
-
-                        <div class="cardTop pastelAmarillo">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/413cAh3xCfL._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 329 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Respiración</p>
-                            <p class="autorLibro">James Nestor</p>
-                            <p class="precioLibro">u$s 9.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsive1100">
-
-                        <div class="cardTop pastelVioleta">
-                            <a href="/productDetail"><img class="bookCover"
-                                src="https://images-na.ssl-images-amazon.com/images/I/519CPWnyTIL._AC_SX368_.jpg"
-                                alt="libro"></a> <!-- 328 o 329 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">La cancion celular</p>
-                            <p class="autorLibro">Siddhartha Mukherjee</p>
-                            <p class="precioLibro">u$s 13.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </section>
-
-        <!--     NUEVA SECCION -->
-
-        <section class="bestSellers">
-
-            <h2 class="cardSub">Ficción</h2>
-
-            <article class="carouselContainer">
-                <div class="arrows">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                </div>
-
-
-
-                <div class="carousel">
-
-                    <div class="card">
-
-                        <div class="cardTop pastelAzul">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51ECRZXoGyL._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Cuento de Hadas</p>
-                            <p class="autorLibro">Stephen King</p>
-                            <p class="precioLibro">u$s 34.99</p>
-
-                        </div>
-
-                        <a class="enlaceComprar" href="#"><button class="botonComprar"><span
-                                    class="material-icons-outlined">
-                                    shopping_bag
-                                </span><span class="comprar">Comprar</span>
-                            </button></a>
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="cardTop pastelCeleste">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51fMaH1tRyL._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Criaturas Inteligentes</p>
-                            <p class="autorLibro">Shelby Van Pelt</p>
-                            <p class="precioLibro">u$s 29.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsiveTablet">
-
-                        <div class="cardTop pastelAmarillo">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51cYLMrs79L._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 239 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Derechos Reservados</p>
-                            <p class="autorLibro">Gregory Scott Katsoulis</p>
-                            <p class="precioLibro">u$s 19.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsiveDesktop">
-
-                        <div class="cardTop pastelAzul">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/51+WaMJkznL._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 329 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">Libro de la Noche</p>
-                            <p class="autorLibro">Holly Black</p>
-                            <p class="precioLibro">u$s 25.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                    <div class="card cardResponsive1100">
-
-                        <div class="cardTop pastelRojo">
-                            <a href="/productDetail"><img class="bookCover" src="https://m.media-amazon.com/images/I/41PzatfkdOL._AC_SY780_.jpg"
-                                alt="libro"></a> <!-- 328 o 329 x 500 SI O SI -->
-
-                        </div>
-
-                        <div class="cardBottom">
-
-                            <p class="tituloLibro">La Criada</p>
-                            <p class="autorLibro">Nita Prose</p>
-                            <p class="precioLibro">u$s 28.99</p>
-
-                        </div>
-
-                        <button class="botonComprar"><span class="material-icons-outlined">
-                                shopping_bag
-                            </span><span class="comprar">Comprar</span>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </section>
-
-
-    </main>
-
-    <footer>
-
-        <article class="equipo">
-            <h3>Equipo</h3>
-
-            <ul>
-                <li class="liFooter"> <a href="#" class="aFooter"> Quienes Somos</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Trabaja con Nosotros</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Contacto </a></li>
-            </ul>
-
-        </article>
-
-        <article class="legales">
-            <h3>Legales</h3>
-
-            <ul>
-                <li class="liFooter"> <a href="#" class="aFooter"> Terminos</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Cookies</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Reembolsos</a></li>
-            </ul>
-
-        </article>
-
-        <article class="bannersFooter">
-
-            <article class="contenedorImagenesFooter">
-                <img class="cardsFooter"
-                    src="https://www.psaparts.co.uk/i/icons/minimal-credit-card-icons-no-paypal.png" alt="cards">
-            </article>
-
-            <article class="contenedorImagenesFooter">
-                <img class="trustFooter"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Trustpilot_Logo_%282022%29.svg/1280px-Trustpilot_Logo_%282022%29.svg.png"
-                    alt="trustpilot">
-            </article>
-
-            <article class="contenedorImagenesFooter">
-                <img class="mediaFooter"
-                    src="https://iamdistrict54.com/wp-content/uploads/2020/05/facebook-twitter-instagram-logo-png-5.png"
-                    alt="media">
-            </article>
-
-        </article>
-
-    </footer>
-
-    <section class="lowerFooter">
-
-        <img class="logoTrust"
-            src="https://images.ctfassets.net/b7g9mrbfayuu/53sI9eT6ZOwB5ZegxFJMN0/e54e1f55e18423fd615a0deebe5697c0/Trustpilot_logo_Round_Star_BlueBG_420x420.png"
-            alt="trustLogo">
-        <img class="logoSocial"
-            src="https://iamdistrict54.com/wp-content/uploads/2020/05/facebook-twitter-instagram-logo-png-5.png"
-            alt="social">
-        <img class="logoCards" src="https://www.psaparts.co.uk/i/icons/minimal-credit-card-icons-no-paypal.png"
-            alt="cards">
-    </section>
-
-</body>
+    </body>
 
 </html>

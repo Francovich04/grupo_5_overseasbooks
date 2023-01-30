@@ -7,7 +7,9 @@ const routerMain = require('./src/routes/main');
 const routerLoginRegister = require('./src/routes/loginRegister');
 const routerProductDetail = require('./src/routes/productDetail');
 const routerShoppingCart = require('./src/routes/shoppingCart');
+const routerCreate = require('./src/routes/create');
 const port = process.env.PORT || 3001;
+const methodOverride = require('method-override');
 
 
 app.listen(port, () => console.log(`Server running in port ${port}...`));
@@ -17,7 +19,8 @@ app.use(express.static(publicPath));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.json());
-app.use(routerMain, routerLoginRegister, routerProductDetail, routerShoppingCart);
+app.use(methodOverride('_method'));
+app.use(routerMain, routerLoginRegister, routerProductDetail, routerShoppingCart, routerCreate);
 
 
 
@@ -25,15 +28,15 @@ app.set("view engine", "ejs");
 
 
 app.get('/shoppingcart', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart.html'))
+    res.render(path.resolve(__dirname, './views/shoppingCart.ejs'))
 })
 
-app.get('/shoppingcart2', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart2.html'))
-})
+/* app.get('/shoppingcart2', (req, res) => {
+    res.render(path.resolve(__dirname, '../views/shoppingCart2.ejs'))
+}) */
 
 app.get('/shoppingcart3', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart3.html'))
+    res.render(path.resolve(__dirname, './views/shoppingCart3.ejs'))
 })
 
 //Public Path, in this case, __dirname is the complete route where app.js is located
@@ -41,7 +44,7 @@ app.get('/shoppingcart3', (req, res) => {
 
 //using static files, middleware
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/home.html'));
 });
 
@@ -60,4 +63,4 @@ app.get('/register', (req, res) => {
 app.get('/passwordreset', (req, res) => {
     const ruta = path.join(__dirname, './views/passwordreset.html');
    res.sendFile(ruta);
-})
+}) */
