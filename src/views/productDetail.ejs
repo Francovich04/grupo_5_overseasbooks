@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--  Google Icons Outline-->
     <link
@@ -25,316 +26,183 @@
 </head>
 
 <body>
-    <header>
-        <div class="hamburgesa">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-
-        <nav class="navBar">
-            <div class="contenedor">
-                <input class="searchBar" type="search" placeholder="Buscar...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-        </nav>
-
-        <img class="logo" src="https://i.ibb.co/rZdLRfr/1-modified-1.png" alt="1-modified-1">
-
-        <span class="material-icons">
-            person
-            </span>
-
-        <a href="/shoppingcart3" class="carrito"><span class="material-icons">
-            shopping_cart
-            </span></a>
-            
-
-    <nav class="lowerNavBar">
-        <ul class="enlaces">
-            <li class="liHeader"><a href="">Best sellers</a></li>
-            <li class="liHeader"><a href="">Lanzamientos</a></li>
-            <li class="liHeader"><a href="">Recomendaciones</a></li>
-            <li class="liHeader"><a href="">Clásicos</a></li>
-            <li class="liHeader"><a href="">Mis Compras</a></li>
-        </ul>
-    </nav>
-    </header>
-
-    <main>
-        <section>
-            <div class="contenedor">
-                <div class="columna-a-derecha">
-                    <h1 class="productTitle">
-                        The Successful Mind: Tools to Living a Purposeful, Productive, and Happy Life
-                    </h1>
-                    <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span>(99)</span>
-                    </div>
-                    <div class="columna-a-izquierda">
-                        <div class="compartirIcono">
-                            <span class="material-symbols-outlined">
-                                share
-                            </span>
-                        </div>
-                        <div class="divImagen">
-                            <img class="imagenProducto" src="/img/images/theSuccessfulMind1.jpg" alt="imagen">
-                        </div>
-                    </div>
-
-                    <div class="format">
-                        <div class="fisico">
-                            <span>Físico</span>
-                            <br>
-                            <span class="precio">$3400</span>
-                        </div>
-                        <div class="digital">
-                            <span>Digital</span>
-                            <br>
-                            <span class="precio">$1200</span>
-                        </div>
-                    </div>
-        </section>
-        <br>
-        <div class="line"></div>
-        <div class="contenedor">
-            <div class="price">
-                <h2>$1200</h2>
-            </div>
-            <div class="deliveryDate">
-                <p>
-                    <i class="fa-solid fa-truck"></i>
-                    Llega el <strong>Miércoles, 11 de Enero</strong>
-                </p>
-            </div>
-            <div class="deliveryLocation">
-                <p>
-                    <i class="fa-solid fa-location-dot"></i>
-                    Enviar a Buenos Aires, Argentina
-                </p>
-            </div>
-            <div class="stockDisponible">
-                <p>
-                    Stock Disponible
-                </p>
-            </div>
-            <div class="cantidad">
-                <span>Cantidad:</span>
-                <div>
-                    <span class="cantNumero">1</span>
-                    <span class="cantDisponible">(43 disponibles)</span>
-                </div>
-            </div>
-            <div class="divBotonCarrito">
-                <button type="submit" class="botonCarrito">
-                    <span class="botonCarritoInterior">Añadir al carrito</span>
-                </button>
-            </div>
-            <div class="divBotonCompra">
-                <button type="submit" class="botonCompra">
-                    <span class="botonInterior">Comprar ahora</span>
-                </button>
-            </div>
+    <%- include('partials/header.ejs') %>
+        <%- include('partials/lowerNavBar.ejs') %>
             <br>
-            <div class="transaccionSegura">
-                <i class="fa-solid fa-lock"></i>
-                <span>Compra Protegida</span>
-            </div>
-        </div>
-      
-        <!-- Haciendo carousel de libros recomendados -->
-        <div class="contenedor">
-            <h2>Libros que podrían gustarte</h2>
-        </div>
-        <div class="carousel">
-            <ol role="list" width="2310px">
-                <a href="#">
-                    <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
-                        <div>
-                            <a href="#" style="text-decoration: none; text-decoration-style: none;">
-                                <div>
-                                    <img src="/img/images/41eXS4ov5sL._SY291_BO1,204,203,200_QL40_FMwebp_.webp" alt=""
-                                        style="max-height: 150px;">
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="tituloLibro">Crush Your Kriptonite</div>
-                                <div class="rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="reviews">318 reviews</div>
-                                <div class="precio">$ 3500</div>
-                            </a>
-                        </div>
-                    </li>
-                </a>
-                <a href="#">
-                    <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
-                        <div>
-                            <a href="#" style="text-decoration: none; text-decoration-style: none;">
-                                <div>
-                                    <img src="/img/images/41Wj88kCdgL._SY291_BO1,204,203,200_QL40_FMwebp_.webp" alt=""
-                                        style="max-height: 150px;">
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="tituloLibro">Mystic and the Secret of ...</div>
-                                <div class="rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                </div>
-                                <div class="reviews">251 reviews</div>
-                                <div class="precio">$ 3300</div>
-                            </a>
-                        </div>
-                    </li>
-                </a>
-                <a href="#">
-                    <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
-                        <div>
-                            <a href="#" style="text-decoration: none; text-decoration-style: none;">
-                                <div>
-                                    <img src="/img/images/B08N9P9MDQ.01._SCLZZZZZZZ_SX500_.jpg" alt=""
-                                        style="max-height: 150px;">
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="tituloLibro">Productivity Is For Robots</div>
-                                <div class="rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="reviews">272 reviews</div>
-                                <div class="precio">$ 2600</div>
-                            </a>
-                        </div>
-                    </li>
-                </a>
-                <a href="#">
-                    <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
-                        <div>
-                            <a href="#" style="text-decoration: none; text-decoration-style: none;">
-                                <div>
-                                    <img src="/img/images/atomichabits.webp" alt="imagenProducto"
-                                        style="max-height: 150px;">
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="tituloLibro">Atomic Habits. A book by James ...</div>
-                                <div class="rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="reviews">647 reviews</div>
-                                <div class="precio">$ 2800</div>
-                            </a>
-                        </div>
-                    </li>
-                </a>
-            </ol>
-        </div>
+            <br>
 
-        <!-- Sección Resumen del Libro -->
-        <div class="cajaResumen">
+            <main>
+                
+                <section>
+                    <div class="contenedor">
+                        <div class="columna-a-derecha">
+                            <h1 class="productTitle">
+                                <%= book.titleEng %>
+                            </h1>
+                            <div class="rating">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span>(99)</span>
+                            </div>
+                            <div class="columna-a-izquierda">
+                                <div class="compartirIcono">
+                                    <span class="material-symbols-outlined">
+                                        share
+                                    </span>
+                                </div>
+                                <div class="divImagen">
+                                    <img class="imagenProducto" src="<%= book.img %>" alt="imagen">
+                                </div>
+                            </div>
 
-            <section class="resumenLibro">
-                <div class="resumenTitulo">
-                    <span>Resumen del Libro</span>
+                            <!-- <div class="format">
+                                <div class="fisico">
+                                    <span>Físico</span>
+                                    <br>
+                                    <span class="precio">$3400</span>
+                                </div>
+                                <div class="digital">
+                                    <span>Digital</span>
+                                    <br>
+                                    <span class="precio">$1200</span>
+                                </div>
+                            </div> -->
+                        </section>
+                       
+                <br>
+                <div class="line"></div>
+                <br>
+                <div class="contenedor">
+                    <div class="price">
+                        <h2>$<%= book.price %></h2>
+                    </div>
+                    <div class="deliveryDate">
+                        <p>
+                            <i class="fa-solid fa-truck"></i>
+                            Llega el <strong>Miércoles, 11 de Enero</strong>
+                        </p>
+                    </div>
+                    <div class="deliveryLocation">
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Enviar a Buenos Aires, Argentina
+                        </p>
+                    </div>
+                    <div class="stockDisponible">
+                        <p>
+                            Stock Disponible
+                        </p>
+                    </div>
+                    <div class="cantidad">
+                        <span class="cantidadTexto">Cantidad:</span>
+                        <div class="divCantidad">
+                            <form action="">
+                                <span class="cantNumero"><input type="number" max="50" value="1"></span>
+                            </form>
+                            <span class="cantDisponible">(43 disponibles)</span>
+                        </div>
+                    </div>
+                    <div class="divBotonCarrito">
+                        <button type="submit" class="botonCarrito">
+                            <span class="botonCarritoInterior">Añadir al carrito</span>
+                        </button>
+                    </div>
+                    <div class="divBotonCompra">
+                            <a href="/cart">
+                            <button type="submit" class="botonCompra">
+                                <a href="/cart" style="text-decoration:none;color:black"><span class="botonInterior">Comprar ahora</span></a>
+                            </button>
+                        </a>
+                        </div>
+                    <br>
+                    <div class="transaccionSegura">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Compra Protegida</span>
+                    </div>
                 </div>
-                <p>
-                    <span class="pNegrita">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repudiandae aspernatur voluptatibus.
-                    </span>
-                </p>
-                <p>
-                    <span class="pNegrita">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cum totam provident neque deleniti
-                        repellendus accusantium quas ipsam, dolor esse quaerat similique quia perspiciatis, consequuntur
-                        voluptates quo, numquam facere incidunt.
-                    </span>
-                </p>
-                <p>
-                    <span class="pNormal">
-                        Saepe, praesentium. Necessitatibus laudantium tempora dolor veritatis.
-                    </span>
-                </p>
-        </div>
-    </main>
-    <!-- Footer Uli -->
-    <footer>
 
-        <article class="equipo">
-            <h3>Equipo</h3>
+         
 
-            <ul>
-                <li class="liFooter"> <a href="#" class="aFooter"> Quienes Somos</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Trabaja con Nosotros</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Contacto </a></li>
-            </ul>
+                <!-- Haciendo carousel de libros recomendados -->
 
-        </article>
 
-        <article class="legales">
-            <h3>Legales</h3>
+                <div class="contenedor">
+                    <h2>Libros que podrían gustarte</h2>
+                    <br>
+                </div>
 
-            <ul>
-                <li class="liFooter"> <a href="#" class="aFooter"> Terminos</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Cookies</a></li>
-                <li class="liFooter"> <a href="#" class="aFooter"> Reembolsos</a></li>
-            </ul>
+                
+                <div class="carousel">
+                    <ol role="list" width="2310px">
+                        <% for(let i = 0; i < (allBooks.length >= 4 ? 4 : allBooks.length); i++){%>
 
-        </article>
+                            <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
+                                <div>
+                                    <a href="/details/<%= allBooks[i].id %>" style="text-decoration: none; text-decoration-style: none;">
+                                        <div>
+                                            <img src="<%= allBooks[i].img %>"
+                                                alt="" style="max-height: 150px;">
+                                        </div>
+                                    </a>
+                                    <a href="/details/<%= allBooks[i].id %>">
+                                        <div class="tituloLibro"> <%= allBooks[i].titleEng %></div>
+                                        <div class="rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="reviews">318 reviews</div>
+                                        <div class="precio">$ <%= allBooks[i].price %></div>
+                                    </a>
+                                </div>
+                            </li>
 
-        <article class="bannersFooter">
+                        <% } %>
+                    </ol>
+                </div> 
 
-            <article class="contenedorImagenesFooter">
-                <img class="cardsFooter"
-                    src="https://www.psaparts.co.uk/i/icons/minimal-credit-card-icons-no-paypal.png" alt="cards">
-            </article>
+                
 
-            <article class="contenedorImagenesFooter">
-                <img class="trustFooter"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Trustpilot_Logo_%282022%29.svg/1280px-Trustpilot_Logo_%282022%29.svg.png"
-                    alt="trustpilot">
-            </article>
+                <!-- Sección Resumen del Libro -->
+                <div class="cajaResumen">
 
-            <article class="contenedorImagenesFooter">
-                <img class="mediaFooter"
-                    src="https://iamdistrict54.com/wp-content/uploads/2020/05/facebook-twitter-instagram-logo-png-5.png"
-                    alt="media">
-            </article>
+                    <section class="resumenLibro">
+                        <div class="resumenTitulo">
+                            <span>Resumen del Libro</span>
+                        </div>
+                        <p>
+                            <span class="pNegrita">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repudiandae aspernatur
+                                voluptatibus.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="pNegrita">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cum totam provident
+                                neque deleniti
+                                repellendus accusantium quas ipsam, dolor esse quaerat similique quia perspiciatis,
+                                consequuntur
+                                voluptates quo, numquam facere incidunt.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="pNormal">
+                                Saepe, praesentium. Necessitatibus laudantium tempora dolor veritatis.
+                            </span>
+                        </p>
+                    </section>
+                    <br>
+                </div>
+            </main>
+            <!-- Footer Uli -->
+            <%- include('partials/footer.ejs') %>
+                <%- include('partials/lowerFooter.ejs') %>
 
-        </article>
-
-    </footer>
-
-    <section class="lowerFooter">
-
-        <img class="logoTrust"
-            src="https://images.ctfassets.net/b7g9mrbfayuu/53sI9eT6ZOwB5ZegxFJMN0/e54e1f55e18423fd615a0deebe5697c0/Trustpilot_logo_Round_Star_BlueBG_420x420.png"
-            alt="trustLogo">
-        <img class="logoSocial"
-            src="https://iamdistrict54.com/wp-content/uploads/2020/05/facebook-twitter-instagram-logo-png-5.png"
-            alt="social">
-        <img class="logoCards" src="https://www.psaparts.co.uk/i/icons/minimal-credit-card-icons-no-paypal.png"
-            alt="cards">
-    </section>
 </body>
 
 </html>

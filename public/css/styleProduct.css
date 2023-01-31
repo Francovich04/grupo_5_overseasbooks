@@ -23,11 +23,11 @@ header {
     align-items: center;
     background-color: #e4efe4;
     padding: 10px;
-    
+
 }
 
 header .navBar {
-   
+
     display: flex;
     justify-content: center;
     flex-basis: 200px;
@@ -37,10 +37,10 @@ header .navBar {
 header .navBar .searchBar {
     display: flex;
     width: 100%;
-    
+
     height: 30px;
-   padding-right: 32px;
-   padding-left: 10px;
+    padding-right: 32px;
+    padding-left: 10px;
 
 }
 
@@ -54,7 +54,7 @@ header .navBar .fa-magnifying-glass {
 header .contenedor {
     position: relative;
     width: 100%;
-    max-width: 350px; 
+    max-width: 350px;
 }
 
 
@@ -89,28 +89,28 @@ header .userIcon {
 
 
 
-  .lowerNavBar {
+.lowerNavBar {
     display: none;
-  }
+}
 
-  .enlaces {
+.enlaces {
     display: flex;
-   justify-content: space-around;
-   list-style: none;
-   flex-grow: 3;
-   height: 50px;
-   text-align: center;
-   font-size: 17px;
-   margin: 0px !important;
-   padding: 0px !important;
-   
+    justify-content: space-around;
+    list-style: none;
+    flex-grow: 3;
+    height: 50px;
+    text-align: center;
+    font-size: 17px;
+    margin: 0px !important;
+    padding: 0px !important;
+
 }
 
 .lowerNavBar .enlaces a {
     text-decoration: none;
     justify-content: center;
-  
-   
+
+
 }
 
 .carrito {
@@ -123,16 +123,16 @@ header .userIcon {
     width: 100%;
     padding: 10px;
     background-color: #C9E4CA;
-    
+
 }
 
 .liHeader:hover {
     background-color: #3B6064;
     transition: 0.3s;
-    
+
 }
 
-.liHeader:hover a{
+.liHeader:hover a {
     color: white;
     transition: 0.3s;
 }
@@ -142,7 +142,7 @@ header .userIcon {
 
 
 body {
-    
+
     font-style: normal;
     font-weight: 400;
 }
@@ -175,7 +175,13 @@ body {
 
 
 .productTitle {
-    font-size: 18px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.contenedor .rating {
+    text-align: center;
+    margin-top: 4px;
 }
 
 
@@ -205,6 +211,9 @@ body {
     background-color: #e4efe4;
 }
 
+.price {
+    margin-bottom: 2px;
+}
 
 .line {
     border-bottom: 1px solid #DDD;
@@ -223,12 +232,20 @@ body {
     font-weight: 600;
     font-size: 16px;
     color: rgba(0, 0, 0, .9);
+    margin-bottom: 10px;
+}
+
+.divCantidad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cantidad {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     background-color: #e4efe4;
     border-radius: 6px;
     color: rgba(0, 0, 0, .9);
@@ -242,16 +259,36 @@ body {
     width: 100%;
 }
 
+.cantidadTexto {
+    position: relative;
+    top: 2px;
+}
+
 .cantNumero {
     font-weight: 600;
     margin-left: 6px !important;
     color: rgba(0, 0, 0, .9);
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cantNumero input {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .cantDisponible {
     color: rgba(0, 0, 0, .7);
     margin-left: 16px !important;
     max-width: 100%;
+    position: relative;
+    top: 1px;
 }
 
 divBotonCompra,
@@ -323,7 +360,7 @@ divBotonCompra,
 
 
 .cajaResumen {
-    margin: 0 5px 4px 0 !important;
+    margin: 0 5px 10px 0 !important;
     border-bottom: #DDD solid 1px;
 }
 
@@ -358,7 +395,6 @@ li.carouselCard::marker {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 0 5px 30px 0 !important;
 }
 
 .carousel a {
@@ -376,6 +412,7 @@ li.carouselCard::marker {
 .carousel .rating {
     color: rgba(0, 0, 0, .9);
     font-size: 14px;
+
 }
 
 .carousel .reviews {
@@ -454,13 +491,15 @@ li.carouselCard::marker {
     .contenedor {
         max-width: 780px;
         max-height: 760px;
-        margin:auto !important;
+        margin: auto !important;
     }
 
     .resumenLibro {
         max-width: 780px;
         max-height: 760px;
-        margin:auto;
+        margin: 15px 0;
+        margin: auto;
+        margin-bottom: 15px;
     }
 
 }
@@ -475,7 +514,7 @@ footer {
     height: 200px;
     background-color: #364958;
     padding: 20px;
-    justify-content:space-around;
+    justify-content: space-around;
     position: relative;
 }
 
