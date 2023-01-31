@@ -19,6 +19,7 @@ Que deberíamos dejar de hacer:
 Es muy temprano para formular esto en nuestra opinion.
 
 RETROSPECTIVA SPRINT 3:
+
 Que hicimos bien:
 
 Nos asignamos las tareas ordenadamente.
