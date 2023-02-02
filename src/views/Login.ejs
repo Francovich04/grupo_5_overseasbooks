@@ -6,10 +6,12 @@
 	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 	<link rel="stylesheet" href="/css/style.css">
+
 	
 
 </head>  
 <body class="body-login">
+    <%- include('partials/header.ejs') %>
     <form class="formulario">
     
     <h1 class="h1-login">Login</h1>
@@ -34,6 +36,9 @@
          <p>¿Olvidaste tu contraseña? <a class="link" href="/passwordreset">Recuperala aqui </a></p>
      </div>
     </form>
+    <%- include('partials/footer.ejs') %>
+
+    <%- include('partials/lowerFooter.ejs') %>
 </body>
 </html>
 
