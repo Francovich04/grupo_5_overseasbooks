@@ -68,17 +68,15 @@ const editConfirm = (req,res) => {
 };
 
 const deleteBook = (req,res) => {
-
-   const idEliminar = req.params.id;
-
- for (var i = 0; i < books.length; i++) {
-    if (books[i].id == idEliminar) {
-        books.splice(i, 1);
+    const idEliminar = req.params.id;
+    let exists = false
+    for (var i = 0; i < books.length; i++) {
+        if (books[i].id == idEliminar) {
+            books.splice(i, 1);
+            exists = true;
         break;
-    } else {
-        res.send("NO DELETE")
-    }
-}
+    }}
+if (!exists) res.send("NO DELETE")
 
 
  //cuando se elimina uno, pasa a faltar un ID, entonces create/"id que elimine" da error.
