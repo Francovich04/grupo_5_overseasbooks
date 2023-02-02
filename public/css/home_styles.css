@@ -55,7 +55,7 @@ header .contenedor {
 
 
 header .logo {
-    width: 20%;
+    width: 80%;
     max-width: 100px;
     max-height: 100px;
     order: -1;
@@ -384,7 +384,7 @@ footer .bannersFooter {
     width: 140px;
 }
 
-/* MEDIA RULES */
+/* MEDIA RULES HOME */
 
 
 @media screen and (min-width: 560px) {

@@ -7,7 +7,9 @@
         <main>
 
             <h1 class="createTitle">Editar Libro Existente</h1>
+            <% if (edit) { %>
 
+           
             <div class="formContainer">
                 <form method="POST" action="/edit?_method=PUT" class="formulario">
 
@@ -110,7 +112,12 @@
 
                 </div>
 
+                <%} else {%>
+                    <h2>LIBRO NO EXISTE</h2>
+                    <%}%>
+
             </div>
+
 
         </main>
 
