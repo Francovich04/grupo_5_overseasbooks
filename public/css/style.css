@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 
-main {
+.main {
     background-color: rgb(201, 228, 202);
     font-family: 'Abel', sans-serif;
     padding: 20px
 }
 
-p {
+.p {
     font-size: 20px;
 }
 

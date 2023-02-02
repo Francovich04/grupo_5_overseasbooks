@@ -28,15 +28,15 @@ app.set("view engine", "ejs");
 
 
 /* app.get('/shoppingcart', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart.html'))
-})
+    res.render(path.resolve(__dirname, './views/shoppingCart.ejs'))
+}) */
 
-app.get('/shoppingcart2', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart2.html'))
-})
+/* app.get('/shoppingcart2', (req, res) => {
+    res.render(path.resolve(__dirname, '../views/shoppingCart2.ejs'))
+}) */
 
-app.get('/shoppingcart3', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart3.html'))
+/* app.get('/shoppingcart3', (req, res) => {
+    res.render(path.resolve(__dirname, './views/shoppingCart3.ejs'))
 }) */
 
 //Public Path, in this case, __dirname is the complete route where app.js is located

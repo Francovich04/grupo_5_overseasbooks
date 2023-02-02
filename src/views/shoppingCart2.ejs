@@ -5,102 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overseas</title>
-    <link rel='stylesheet' href="/css/style.css">
-    <link rel="stylesheet" href="/css/home_styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href="/css/style.css">
+    <link rel="stylesheet" href="/css/home_styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="hamburgesa">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    
-        <nav class="navBar">
-            <div class="contenedor">
-                <input class="searchBar" type="search" placeholder="Buscar...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-    
-        </nav>
-    
-    
-    
-        <a href="/" class="imagenlogo" style="width:200px;"><img class="logo" src="https://i.ibb.co/rZdLRfr/1-modified-1.png" alt="1-modified-1"></a>
-    
-        <span class="material-icons">
-            person
-            </span>
-    
-        <a href="/shoppingcart3" class="carrito"><span class="material-icons">
-            shopping_cart
-            </span></a>
-            
-    
-    </header>
-    
-    <nav class="lowerNavBar">
-      <ul class="enlaces">
-          <li class="liHeader"><a href="">Best sellers</a></li>
-          <li class="liHeader"><a href="">Lanzamientos</a></li>
-          <li class="liHeader"><a href="">Recomendaciones</a></li>
-          <li class="liHeader"><a href="">Clásicos</a></li>
-          <li class="liHeader"><a href="">Mis Compras</a></li>
-      </ul>
-      </div>
-    
-    </nav>
-    <main>
+    <%- include('partials/header.ejs') %>
+
+            <%- include('partials/lowerNavBar.ejs') %>
+    <main class="main">
         <div class="h4yxContenedor">
           <h3>Carrito de compras</h3>
           <i class="fa-solid fa-x"></i>
         </div>
       
           <div class="prodYSubContenedor">
-              <p class="prod">PRODUCTO</p>
-              <p class="sub">SUBTOTAL</p>
+              <p class="prod p">PRODUCTO</p>
+              <p class="sub p">SUBTOTAL</p>
           </div>
       
           <article class="productos">
             <div class="imgYDescripContenedor">
               <div class="imagen">
-                  <img src="/images/libro.jpg">
+                  <img src="<%=buy.img %>">
               </div>
               <div class="descripcionYPrecio">
-                  <p class="descripcion">Harry Potter y la piedra filosofal</p>
-                  <p class="precio">$2999</p>
-                  <div class="agregarContenedor">
-                      <div class="cantidad">
-                          <p>1</p>
-                      </div>
-                      <div class="sumarORestar">
-                          <p>+</p>
-                          <p>-</p>
-                      </div>
-                  </div>
+                  <p class="descripcion p"><%= buy.titleEsp%></p>
+                  <p class="precio p">$<%= buy.price%></p>
               </div>
             </div>
             <i class="fa-solid fa-trash"></i>
           </article>
           <article>
-              <div class="subYPrecioContenedor2">
-                  <h5 class="subtotal">Subtotal (sin envio)</h5>
-                  <p class="precio">$2999</p>
-              </div>
-              <div class="cpYCalcularEnvio">
-              <input type="number" placeholder="Codigo postal"> <button type="submit" class="calcularenvio">CALCULAR ENVIO</button>
-              </div>
           </article>
           <article>
             <div class="totalprecio">
                 <h3>Total:</h3>
-                <h3>$2900</h3>
+                <h3>$<%= buy.price%></h3>
             </div>
             <div class="botoncentrado"><button type="submit" class="boton"><h4 class="textboton">INICIAR COMPRA</h4></button></div>
-            <a href="a"><p class="vermas">VER MAS PRODUCTOS</p></a>
+            <a href="/"><p class="vermas" p>VER MAS PRODUCTOS</p></a>
         </article>
     </main>
+    <%- include('partials/footer.ejs') %>
+
+    <%- include('partials/lowerFooter.ejs') %>
 </body>
 </html>

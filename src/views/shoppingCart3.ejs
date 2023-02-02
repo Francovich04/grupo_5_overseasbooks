@@ -14,47 +14,11 @@
 </head>
 <body>
 
-  <header>
-    <div class="hamburgesa">
-        <i class="fa-solid fa-bars"></i>
-    </div>
+    <%- include('partials/header.ejs') %>
 
-    <nav class="navBar">
-        <div class="contenedor">
-            <input class="searchBar" type="search" placeholder="Buscar...">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
+    <%- include('partials/lowerNavBar.ejs') %>
 
-    </nav>
-
-
-
-    <a href="/" class="logo"><img class="imglogo" src="https://i.ibb.co/rZdLRfr/1-modified-1.png" alt="1-modified-1"></a>
-
-    <span class="material-icons">
-        person
-        </span>
-
-    <a href="/shoppingcart3" class="carrito"><span class="material-icons">
-        shopping_cart
-        </span></a>
-        
-
-</header>
-
-<nav class="lowerNavBar">
-    <ul class="enlaces">
-        <li class="liHeader"><a href="">Best sellers</a></li>
-        <li class="liHeader"><a href="">Lanzamientos</a></li>
-        <li class="liHeader"><a href="">Recomendaciones</a></li>
-        <li class="liHeader"><a href="">Clásicos</a></li>
-        <li class="liHeader"><a href="">Mis Compras</a></li>
-    </ul>
-    </div>
-
-</nav>
-
-  <main>
+  <main class="main">
       <article>
         <div class="h4yxContenedor">
           <h3>Carrito de compras</h3>
@@ -63,14 +27,17 @@
       </article>
       <article>
           <div class="prodYSubContenedor">
-              <p class="prod">PRODUCTO</p>
-              <p class="sub">SUBTOTAL</p>
+              <p class="prod p">PRODUCTO</p>
+              <p class="sub p">SUBTOTAL</p>
           </div>
       </article>
       <article>
-        <p class="textocarritocompras">El carrito de compras esta vacio</p>
+        <p class="textocarritocompras p">El carrito de compras esta vacio</p>
       </article>
       <div class="botoncentrado"><button type="submit" class="boton"><h4 class="textboton">INICIAR COMPRA</h4></button></div>
+      <a href="/"><p class="vermas p">VER PRODUCTOS</p></a>
+      <%- include('partials/footer.ejs') %>
+      <%- include('partials/lowerFooter.ejs') %>
   </main>
 </body>
 </html>
