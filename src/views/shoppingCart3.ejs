@@ -18,7 +18,7 @@
 
     <%- include('partials/lowerNavBar.ejs') %>
 
-  <main>
+  <main class="main">
       <article>
         <div class="h4yxContenedor">
           <h3>Carrito de compras</h3>
@@ -27,15 +27,15 @@
       </article>
       <article>
           <div class="prodYSubContenedor">
-              <p class="prod">PRODUCTO</p>
-              <p class="sub">SUBTOTAL</p>
+              <p class="prod p">PRODUCTO</p>
+              <p class="sub p">SUBTOTAL</p>
           </div>
       </article>
       <article>
-        <p class="textocarritocompras">El carrito de compras esta vacio</p>
+        <p class="textocarritocompras p">El carrito de compras esta vacio</p>
       </article>
       <div class="botoncentrado"><button type="submit" class="boton"><h4 class="textboton">INICIAR COMPRA</h4></button></div>
-      <a href="/"><p class="vermas">VER PRODUCTOS</p></a>
+      <a href="/"><p class="vermas p">VER PRODUCTOS</p></a>
       <%- include('partials/footer.ejs') %>
       <%- include('partials/lowerFooter.ejs') %>
   </main>
