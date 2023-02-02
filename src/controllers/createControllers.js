@@ -41,7 +41,9 @@ const edit = (req,res) => {
 
     const {id} = req.params;
     const edit = books.find ( e => e.id == id);
-    res.render(path.join(__dirname,'../views/edit.ejs'), {edit});
+    /* if (!edit)res.send("NO EDIT"); */
+    res.render(path.join(__dirname,'../views/edit.ejs'), {edit}); 
+
     
     
 }
@@ -72,6 +74,9 @@ const deleteBook = (req,res) => {
  for (var i = 0; i < books.length; i++) {
     if (books[i].id == idEliminar) {
         books.splice(i, 1);
+        break;
+    } else {
+        res.send("NO DELETE")
     }
 }
 
