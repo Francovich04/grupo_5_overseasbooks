@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/* EMPIEZA CSS JUANA */
+
 .main {
     background-color: rgb(201, 228, 202);
     font-family: 'Abel', sans-serif;
@@ -181,6 +183,9 @@
     background-color: rgb(135, 187, 162);
  }
 
+ /* TERMINA CSS JUANA */
+ /* EMPIEZA CSS FRAN */
+
 /* codigo login y register */
 
 .body-login {
@@ -301,12 +306,16 @@ margin-top: 20px;
 font-size: 18px;
 }
 
+/* TERMINA CSS FRAN */
+
+/* EMPIEZA CSS ULI */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Abel', sans-serif;
 }
+
 
 /* HEADER */
 
@@ -885,7 +894,7 @@ footer .bannersFooter {
    
  }
 
- .formulario {
+ .form {
     width: 300px;
     display: flex;
     flex-wrap: nowrap;
@@ -939,7 +948,9 @@ footer .bannersFooter {
     background-color: rgb(181, 181, 181)
  }
 
- /* CSS DAVID */
+ /* TERMINA CSS ULI */
+
+ /* EMPIEZA CSS DAVID */
 
  /* * {
     margin: 0px;
@@ -1315,4 +1326,6 @@ li.carouselCard::marker {
     }
 
 }
+
+/* TERMINA CSS DAVID */
 
