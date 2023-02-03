@@ -11,12 +11,12 @@
 
            
             <div class="formContainer">
-                <form method="POST" action="/edit?_method=PUT" class="form">
+                <form method="POST" action="/edit?_method=PUT" class="form" enctype="multipart/form-data">
 
                     <div class="formFields">
                         <img src="<%=edit.img %>" alt="imagen">
                         <label class="labelForm" for="">Direccion de la Imagen</label>
-                        <input class="inputForm" type="text" name="img" id="" value="<%= edit.img %>">
+                        <input class="inputForm" type="file" name="img" id="" value="<%= edit.img %>">
 
                     </div>
 

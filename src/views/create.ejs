@@ -9,7 +9,7 @@
             <h1 class="createTitle">Cargar Libro Nuevo</h1>
 
             <div class="formContainer">
-                <form method="POST" action="/create" class="form">
+                <form method="POST" action="/create" class="form" enctype="multipart/form-data">
 
                     <div class="formFields">
 
@@ -71,7 +71,7 @@
                     <div class="formFields">
 
                         <label class="labelForm" for="">URL Imagen</label>
-                        <input class="inputForm" type="text" name="img" id="">
+                        <input class="inputForm" type="file" name="img" id="">
 
                     </div>
 

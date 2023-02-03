@@ -18,6 +18,14 @@ const addBook = (req, res) => {
 
     } = req.body;
 
+const imagen = req.file ? req.file.filename : '';
+let newImage;
+
+    if (imagen.length > 0) {
+
+        newImage = `images/products/${imagen}`
+    }
+
     const newId = books[books.length -1].id + 1;
 
     const obj = {
@@ -28,7 +36,7 @@ const addBook = (req, res) => {
         author,
         category,
         price,
-        img,
+        img: newImage,
         productDetail
     }
 
@@ -50,9 +58,11 @@ const edit = (req,res) => {
 
 const editConfirm = (req,res) => {
 
+    const imagen = req.file ? req.file.filename : '';
+    let newImage;
+
     books.forEach(e => {
         if (e.id == req.body.id) {
-            e.img = req.body.img;
             e.titleEng = req.body.titleEng;
             e.titleEsp = req.body.titleEsp;
             e.color = req.body.color;
@@ -60,6 +70,10 @@ const editConfirm = (req,res) => {
             e.category = req.body.category;
             e.price = req.body.price;
             e.productDetail = req.body.productDetail;
+            if (imagen.length > 0) {
+                newImage = `images/products/${imagen}`
+                e.img = newImage;
+            }
         }
     })
 
