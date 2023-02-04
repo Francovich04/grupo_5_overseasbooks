@@ -18,6 +18,14 @@ const addBook = (req, res) => {
 
     } = req.body;
 
+const imagen = req.file ? req.file.filename : '';
+let newImage;
+
+    if (imagen.length > 0) {
+
+        newImage = `images/products/${imagen}`
+    }
+
     const newId = books[books.length -1].id + 1;
 
     const obj = {
@@ -28,7 +36,7 @@ const addBook = (req, res) => {
         author,
         category,
         price,
-        img,
+        img: newImage,
         productDetail
     }
 
@@ -41,16 +49,20 @@ const edit = (req,res) => {
 
     const {id} = req.params;
     const edit = books.find ( e => e.id == id);
-    res.render(path.join(__dirname,'../views/edit.ejs'), {edit});
+    /* if (!edit)res.send("NO EDIT"); */
+    res.render(path.join(__dirname,'../views/edit.ejs'), {edit}); 
+
     
     
 }
 
 const editConfirm = (req,res) => {
 
+    const imagen = req.file ? req.file.filename : '';
+    let newImage;
+
     books.forEach(e => {
         if (e.id == req.body.id) {
-            e.img = req.body.img;
             e.titleEng = req.body.titleEng;
             e.titleEsp = req.body.titleEsp;
             e.color = req.body.color;
@@ -58,6 +70,10 @@ const editConfirm = (req,res) => {
             e.category = req.body.category;
             e.price = req.body.price;
             e.productDetail = req.body.productDetail;
+            if (imagen.length > 0) {
+                newImage = `images/products/${imagen}`
+                e.img = newImage;
+            }
         }
     })
 
@@ -66,14 +82,15 @@ const editConfirm = (req,res) => {
 };
 
 const deleteBook = (req,res) => {
-
-   const idEliminar = req.params.id;
-
- for (var i = 0; i < books.length; i++) {
-    if (books[i].id == idEliminar) {
-        books.splice(i, 1);
-    }
-}
+    const idEliminar = req.params.id;
+    let exists = false
+    for (var i = 0; i < books.length; i++) {
+        if (books[i].id == idEliminar) {
+            books.splice(i, 1);
+            exists = true;
+        break;
+    }}
+if (!exists) res.send("NO DELETE")
 
 
  //cuando se elimina uno, pasa a faltar un ID, entonces create/"id que elimine" da error.
