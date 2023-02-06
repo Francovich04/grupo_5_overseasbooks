@@ -1,6 +1,6 @@
 const express = require('express');
 const routerCreate = express.Router();
-const {create, addBook, edit, editConfirm, deleteBook} = require('../controllers/createControllers');
+const { create, addBook, edit, editConfirm, deleteBook } = require('../controllers/createControllers');
 const multer = require('multer');
 const path = require('path');
 
@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage});
+const upload = multer({ storage });
 
 const validations = [
     body('titleEng').notEmpty().withMessage('Escribí el titulo en Inglés'),
@@ -28,15 +28,15 @@ const validations = [
     body('img').custom((value, { req }) => {
         let file = req.file;
         let validExtensions = ['.jpg', '.jpeg', '.png'];
-       
+
         if (!file) {
             throw new Error('Debes subir una imagen');
         } else {
             let fileExtension = path.extname(file.originalname);
             if (!validExtensions.includes(fileExtension)) {
-    
+
                 throw new Error(`Los formatos válidos son ${validExtensions.join(', ')}`);
-    
+
             }
 
         }

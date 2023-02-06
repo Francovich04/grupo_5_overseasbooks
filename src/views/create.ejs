@@ -14,183 +14,152 @@
                     <div class="formFields">
 
                         <label class="labelForm" for="">Titulo en Inglés</label>
-                        <input 
-                        type="text" 
-                        name="titleEng" 
-                        id=""
-                        class="inputForm  <%= locals.errors && errors.titleEng ? 'is-invalid' : null %>"
-             value="<%= locals.oldData ? oldData.titleEng : null %>">
+                        <input type="text" name="titleEng" id=""
+                            class="inputForm  <%= locals.errors && errors.titleEng ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.titleEng : null %>">
 
-             <% if (locals.errors && errors.titleEng) {%>
-                <div class="text_errors">
-                   <%= errors.titleEng.msg %>
-                </div>
+                        <% if (locals.errors && errors.titleEng) {%>
+                            <div class="text_errors">
+                                <%= errors.titleEng.msg %>
+                            </div>
 
-            <% } %>
+                            <% } %>
 
                     </div>
 
                     <div class="formFields">
 
                         <label class="labelForm" for="">Titulo en Español</label>
-                        <input 
-                        type="text" 
-                        name="titleEsp" 
-                        id=""
-                        class="inputForm  <%= locals.errors && errors.titleEsp ? 'is-invalid' : null %>"
-             value="<%= locals.oldData ? oldData.titleEsp : null %>">
+                        <input type="text" name="titleEsp" id=""
+                            class="inputForm  <%= locals.errors && errors.titleEsp ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.titleEsp : null %>">
 
-             <% if (locals.errors && errors.titleEsp) {%>
-                <div class="text_errors">
-                   <%= errors.titleEsp.msg %>
-                </div>
+                        <% if (locals.errors && errors.titleEsp) {%>
+                            <div class="text_errors">
+                                <%= errors.titleEsp.msg %>
+                            </div>
 
-            <% } %>
+                            <% } %>
                     </div>
 
                     <div class="formFields">
 
                         <label class="labelForm" for="">Color de Encabezado</label>
-                        <select 
-                        name="color" 
-                        class="inputForm  <%= locals.errors && errors.color ? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.color : null %>">
+                        <select name="color"
+                            class="inputForm  <%= locals.errors && errors.color ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.color : null %>">
 
-                        <option value="">Elegi un color de tarjeta</option>
+                            <option value="">Elegi un color de tarjeta</option>
 
-                        <% 
+                            <% let colours=[ 'pastelCeleste' , 'pastelAmarillo' , 'pastelRojo' , 'pastelVioleta'
+                                , 'pastelVerde' , 'pastelGris' , 'pastelAzul' , ] %>
 
-                            let colours = [
-                            'pastelCeleste',
-                            'pastelAmarillo',
-                            'pastelRojo',
-                            'pastelVioleta',
-                            'pastelVerde',
-                            'pastelGris',
-                            'pastelAzul',
-                            ]
 
-                            %>
 
-           
-
-                            <% for (const oneColour of colours) { %>
-                                <option 
-                                value="<%= oneColour %>"
-                                <%= locals.oldData && (oneColour == oldData.color) ? 'selected' : null %>
-                                > <%= oneColour %> </option>
-                                <% } %>
+                                <% for (const oneColour of colours) { %>
+                                    <option value="<%= oneColour %>" <%=locals.oldData && (oneColour==oldData.color)
+                                        ? 'selected' : null %>
+                                        > <%= oneColour %>
+                                    </option>
+                                    <% } %>
 
                         </select>
 
                         <% if (locals.errors && errors.color) {%>
                             <div class="text_errors">
-                               <%= errors.color.msg %>
-                               <% } %>
-                        
-                       
+                                <%= errors.color.msg %>
+                                    <% } %>
 
-                    </div>
 
-                    <div class="formFields">
 
-                        <label class="labelForm" for="">Autor/a</label>
-                        <input 
-                        type="text" 
-                        name="author" 
-                        id=""
-                        class="inputForm  <%= locals.errors && errors.author ? 'is-invalid' : null %>"
-             value="<%= locals.oldData ? oldData.author : null %>">
+                            </div>
 
-             <% if (locals.errors && errors.author) {%>
-                <div class="text_errors">
-                   <%= errors.author.msg %>
-                </div>
+                            <div class="formFields">
 
-            <% } %>
-                    </div>
+                                <label class="labelForm" for="">Autor/a</label>
+                                <input type="text" name="author" id=""
+                                    class="inputForm  <%= locals.errors && errors.author ? 'is-invalid' : null %>"
+                                    value="<%= locals.oldData ? oldData.author : null %>">
 
-                    <div class="formFields">
+                                <% if (locals.errors && errors.author) {%>
+                                    <div class="text_errors">
+                                        <%= errors.author.msg %>
+                                    </div>
 
-                        <label class="labelForm" for="">Categoria</label>
-                        <select 
-                        name="category" 
-                        class="inputForm  <%= locals.errors && errors.category ? 'is-invalid' : null %>"
-             value="<%= locals.oldData ? oldData.category : null %>">
+                                    <% } %>
+                            </div>
 
-                            <option value="">Elegi una categoría</option>
+                            <div class="formFields">
 
-                            <% 
+                                <label class="labelForm" for="">Categoria</label>
+                                <select name="category"
+                                    class="inputForm  <%= locals.errors && errors.category ? 'is-invalid' : null %>"
+                                    value="<%= locals.oldData ? oldData.category : null %>">
 
-                            let categories = [
-                            'Best Sellers',
-                            'Fiction',
-                            'Science']
+                                    <option value="">Elegi una categoría</option>
 
-                            %>
+                                    <% let categories=[ 'Best Sellers' , 'Fiction' , 'Science' ] %>
 
-                            <% for (const oneCategory of categories) { %>
-                                <option 
-                                value="<%= oneCategory %>"
-                                <%= locals.oldData && (oneCategory == oldData.category) ? 'selected' : null %>
-                                > <%= oneCategory %> </option>
-                                <% } %>
+                                        <% for (const oneCategory of categories) { %>
+                                            <option value="<%= oneCategory %>" <%=locals.oldData &&
+                                                (oneCategory==oldData.category) ? 'selected' : null %>
+                                                > <%= oneCategory %>
+                                            </option>
+                                            <% } %>
 
-                        </select>
-                       
-                        <% if (locals.errors && errors.category) {%>
-                            <div class="text_errors">
-                               <%= errors.category.msg %>
-                               <% } %>
-                        
+                                </select>
 
-                    </div>
+                                <% if (locals.errors && errors.category) {%>
+                                    <div class="text_errors">
+                                        <%= errors.category.msg %>
+                                            <% } %>
 
-                    <div class="formFields">
 
-                        <label class="labelForm" for="">Precio</label>
-                        <input 
-                        type="text" 
-                        name="price" 
-                        id=""
-                        class="inputForm  <%= locals.errors && errors.price ? 'is-invalid' : null %>"
-             value="<%= locals.oldData ? oldData.price : null %>">
+                                    </div>
 
-             <% if (locals.errors && errors.price) {%>
-                <div class="text_errors">
-                   <%= errors.price.msg %>
-                </div>
+                                    <div class="formFields">
 
-            <% } %>
-                    </div>
+                                        <label class="labelForm" for="">Precio</label>
+                                        <input type="text" name="price" id=""
+                                            class="inputForm  <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+                                            value="<%= locals.oldData ? oldData.price : null %>">
 
-                    <div class="formFields">
+                                        <% if (locals.errors && errors.price) {%>
+                                            <div class="text_errors">
+                                                <%= errors.price.msg %>
+                                            </div>
 
-                        <label class="labelForm" for="">Imagen</label>
-                        <input class="inputForm" type="file" name="img" id="">
+                                            <% } %>
+                                    </div>
 
-                        <% if (locals.errors && errors.img) { %>
+                                    <div class="formFields">
 
-                            <div class="text_errors">
-                                <%= errors.img.msg %>
-                             </div>
+                                        <label class="labelForm" for="">Imagen</label>
+                                        <input class="inputForm" type="file" name="img" id="">
 
-                      <%  } %>
+                                        <% if (locals.errors && errors.img) { %>
 
-                    </div>
+                                            <div class="text_errors">
+                                                <%= errors.img.msg %>
+                                            </div>
 
-                    <div class="formFields">
+                                            <% } %>
 
-                        <label class="labelForm" for="">Detalle</label>
-                        <input class="inputForm soloLectura" type="text" name="productDetail" id="" value="/details" readonly="true">
+                                    </div>
 
-                    </div>
-                    <div class="buttonFormContainer">
-                        <button class="buttonForm" type="submit">Submit</button>
-                        <button class="buttonForm" type="reset">Reset</button>
-                    </div>
+                                    <div class="formFields">
 
-                    <!-- Los nombres de los campos son los mismos que en la DB y NUNCA le damos al usuario la posiblidad de crear su ID eso lo hago yo. -->
+                                        <label class="labelForm" for="">Detalle</label>
+                                        <input class="inputForm soloLectura" type="text" name="productDetail" id=""
+                                            value="/details" readonly="true">
+
+                                    </div>
+                                    <div class="buttonFormContainer">
+                                        <button class="buttonForm" type="submit">Submit</button>
+                                        <button class="buttonForm" type="reset">Reset</button>
+                                    </div>
+
+                                    <!-- Los nombres de los campos son los mismos que en la DB y NUNCA le damos al usuario la posiblidad de crear su ID eso lo hago yo. -->
 
 
                 </form>
