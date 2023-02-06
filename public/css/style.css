@@ -948,6 +948,17 @@ footer .bannersFooter {
     background-color: rgb(181, 181, 181)
  }
 
+ .is-invalid {
+    background-color: #eeb0a5;
+ }
+
+ .text_errors {
+    margin-top: 5px;
+    color: #ffffff;
+  
+    border-radius: 5px;
+ }
+
  /* TERMINA CSS ULI */
 
  /* EMPIEZA CSS DAVID */

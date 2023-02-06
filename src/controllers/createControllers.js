@@ -1,11 +1,24 @@
 const path = require('path');
 const books = require('../database/libros');
+const { validationResult } = require('express-validator');
 
 const create = (req, res) => {
     res.render(path.join(__dirname,'../views/create.ejs'));
 }
 
 const addBook = (req, res) => {
+
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length > 0) {
+        return  res.render(path.join(__dirname,'../views/create.ejs'), { 
+        errors: resultValidation.mapped(),
+        oldData: req.body
+    })
+
+    }
+   
+
     const {
         titleEng,
         titleEsp,
