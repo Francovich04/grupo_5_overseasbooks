@@ -8,7 +8,7 @@
     <main class="main">
         <div class="h4yxContenedor">
           <h3>Carrito de compras</h3>
-          <i class="fa-solid fa-x"></i>
+          <a href="/"><i class="fa-solid fa-x laCruz"></i></a>
         </div>
       
           <div class="prodYSubContenedor">
@@ -26,7 +26,7 @@
                   <p class="precio p">$<%= buy.price%></p>
               </div>
             </div>
-            <i class="fa-solid fa-trash"></i>
+            <a href = '/cart' class="fa-solid fa-trash"></a>
           </article>
           <article>
           </article>
@@ -35,6 +35,48 @@
                 <h3>Total:</h3>
                 <h3>$<%= buy.price%></h3>
             </div>
+            <article>
+              <p class="textocp">Entregas para el codigo postal: <input type="number" placeholder="ej. 1426"></p>
+              <h4 class="envio"><i class="fa-solid fa-truck"></i> Envio a domicilio</h4>
+              <div class="opcion1Y2">
+                  <div class="opcion1">
+                      <div class="iconoYopcion">   
+                          <input type="radio" name="opcion">
+                          <div class="opcion">
+                              <h4>Opcion 1</h4>
+                              <p>Llega el viernes</p>
+                          </div>            
+                      </div>
+                      <h4 class="precioenvio">$500</h4>
+                  </div>
+                  <div class="opcion2">
+                      <div class="iconoYopcion">   
+                          <input type="radio" name="opcion">
+                          <div class="opcion">
+                              <h4>Opcion 2</h4>
+                              <p>Llega el martes</p>
+                          </div>            
+                      </div>
+                      <h4 class="precioenvio">$400</h4>
+                  </div>
+              </div>
+              <h4 class="retiro"><i class="fa-solid fa-location-dot"></i></i> Retirar por</h4>
+              <div class="opcion3">
+                  <div class="iconoYopcion">   
+                      <input type="radio" name="opcion">
+                      <div class="opcion">
+                          <h4>Punto de retiro</h4>
+                          <p>Retiras el sabado</p>
+                      </div>            
+                  </div>
+                  <h4 class="precioretiro">$200</h4>
+              </div>
+          </article>
+          <article>
+              <div class="totalprecio">
+                  <h3>Total:</h3>
+                  <h3>$3500</h3>
+              </div>
             <div class="botoncentrado"><button type="submit" class="boton"><h4 class="textboton">INICIAR COMPRA</h4></button></div>
             <a href="/"><p class="vermas" p>VER MAS PRODUCTOS</p></a>
         </article>

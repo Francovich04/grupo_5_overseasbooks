@@ -42,6 +42,10 @@
     padding: 10px;
 }
 
+.laCruz, .login, .fa-trash {
+    color: black;
+}
+
 .descripcion, .precio, .agregarContenedor {
     padding: 5px;
 }
