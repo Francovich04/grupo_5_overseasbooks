@@ -247,7 +247,7 @@ p{
     text-align: center;
 }
 .link{
-    text-decoration: none;
+    text-decoration: underline;
       color: #1a2537;
     font-weight: 600;
 }
