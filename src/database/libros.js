@@ -18,6 +18,8 @@ let libros = [
         price: 9.99,
 
         img: "https://m.media-amazon.com/images/I/51fcXmG6g9L.jpg"
+
+        /* img: "images/products/id1-secret-messenger.jpeg" */
     },
 
     {
@@ -307,3 +309,4 @@ let libros = [
 
 
 module.exports = libros;
+
