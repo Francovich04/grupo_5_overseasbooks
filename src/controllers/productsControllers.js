@@ -88,6 +88,10 @@ const edit = (req, res) => {
 
 const editConfirm = (req, res) => {
 
+    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+
+let books = JSON.parse(booksJSON);
+
     const imagen = req.file ? req.file.filename : '';
     let newImage;
 
@@ -118,15 +122,6 @@ const deleteBook = (req, res) => {
     let books = JSON.parse(booksJSON);
 
     const idEliminar = req.params.id;
-   /*  let exists = false
-    for (var i = 0; i < books.length; i++) {
-        if (books[i].id == idEliminar) {
-            books.splice(i, 1);
-            exists = true;
-            break;
-        }
-    }
-    if (!exists) res.send("NO DELETE") */
 
     books = books.filter((book) => book.id !=idEliminar)
 
@@ -141,7 +136,23 @@ const deleteBook = (req, res) => {
 
 }
 
+const detailsById = (req, res) => {
+    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
 
+let books = JSON.parse(booksJSON);
+    let idBook = req.params.id;
+    const detailBook = books.find(book => book.id == idBook)
+    const filterBooks = books.filter((book) => {
+        return book.category == detailBook.category && book.id != detailBook.id;
+    }) ;
+    res.render(path.join(__dirname, '../views/productDetail'), { allBooks: filterBooks, book : detailBook});
+};
+
+const database = (req, res) => {
+    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+    let books = JSON.parse(booksJSON);
+    res.send(books);
+}
 
 
 
@@ -150,5 +161,7 @@ module.exports = {
     addBook,
     edit,
     editConfirm,
-    deleteBook
+    deleteBook,
+    detailsById,
+    database
 };

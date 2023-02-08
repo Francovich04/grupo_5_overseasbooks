@@ -1,6 +1,6 @@
 const express = require('express');
-const routerCreate = express.Router();
-const { create, addBook, edit, editConfirm, deleteBook } = require('../controllers/createControllers');
+const routerProducts = express.Router();
+const { create, addBook, edit, editConfirm, deleteBook, detailsById, database } = require('../controllers/productsControllers');
 const multer = require('multer');
 const path = require('path');
 
@@ -46,12 +46,16 @@ const validations = [
 ]
 
 
-routerCreate.get('/create', create);
-routerCreate.post('/create', upload.single('img'), validations, addBook);
+routerProducts.get('/products/create', create);
+routerProducts.post('/products/create', upload.single('img'), validations, addBook);
 
-routerCreate.get('/edit/:id', edit);
-routerCreate.put('/edit/', upload.single('img'), editConfirm);
+routerProducts.get('/products/edit/:id', edit);
+routerProducts.put('/products/edit/', upload.single('img'), editConfirm);
 
-routerCreate.delete('/edit/delete/:id', deleteBook)
+routerProducts.delete('/products/edit/delete/:id', deleteBook)
 
-module.exports = routerCreate;
+routerProducts.get('/products/details/:id', detailsById);
+
+routerProducts.get('/database', database);
+
+module.exports = routerProducts;

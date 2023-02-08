@@ -11,7 +11,7 @@
 
            
             <div class="formContainer">
-                <form method="POST" action="/edit?_method=PUT" class="form" enctype="multipart/form-data">
+                <form method="POST" action="/products/edit?_method=PUT" class="form" enctype="multipart/form-data">
 
                     <div class="formFields">
                         <img src="<%=edit.img %>" alt="imagen">
@@ -104,7 +104,7 @@
                        
                 </form>
 
-                <form action="/edit/delete/<%= edit.id %>?_method=DELETE" method="POST">
+                <form action="/products/edit/delete/<%= edit.id %>?_method=DELETE" method="POST">
                     <button class="buttonForm" type="submit">Delete</button>
                 </form>
 
