@@ -42,8 +42,22 @@
     padding: 10px;
 }
 
-.laCruz, .login, .fa-trash {
-    color: black;
+.laCruz, .fa-trash {
+    color: #000000;
+}
+
+.login {
+    color: rgb(54, 73, 88);
+}
+
+.textdecoration {
+    text-decoration: none;
+}
+
+.fa-regular, .fa-user {
+    position: relative;
+    bottom: 0.15rem;
+    color: rgb(54, 73, 88)
 }
 
 .descripcion, .precio, .agregarContenedor {
@@ -425,9 +439,11 @@ header .userIcon {
    
 }
 
+
+
 .carrito {
     text-decoration: none;
-    color: black;
+    color: rgb(54, 73, 88)
 }
 
 .liHeader {
@@ -938,8 +954,8 @@ footer .bannersFooter {
     border-radius: 5px;
  }
 
- .createBody {
-    background-color: #8383ac;
+.createBody {
+    background-color: #8383ac
  }
 
  .createTitle {
