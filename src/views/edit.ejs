@@ -11,7 +11,7 @@
 
            
             <div class="formContainer">
-                <form method="POST" action="/products/edit?_method=PUT" class="form" enctype="multipart/form-data">
+                <form method="POST" action="/products/edit/<%= edit.id%>?_method=PUT" class="form" enctype="multipart/form-data">
 
                     <div class="formFields">
                         <img src="<%=edit.img %>" alt="imagen">

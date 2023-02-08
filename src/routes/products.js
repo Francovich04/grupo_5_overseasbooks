@@ -50,7 +50,7 @@ routerProducts.get('/products/create', create);
 routerProducts.post('/products/create', upload.single('img'), validations, addBook);
 
 routerProducts.get('/products/edit/:id', edit);
-routerProducts.put('/products/edit/', upload.single('img'), editConfirm);
+routerProducts.put('/products/edit/:id', upload.single('img'), editConfirm);
 
 routerProducts.delete('/products/edit/delete/:id', deleteBook)
 

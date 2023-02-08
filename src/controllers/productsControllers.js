@@ -88,7 +88,7 @@ const edit = (req, res) => {
 
 const editConfirm = (req, res) => {
 
-    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
 
 let books = JSON.parse(booksJSON);
 
@@ -96,7 +96,7 @@ let books = JSON.parse(booksJSON);
     let newImage;
 
     books.forEach(e => {
-        if (e.id == req.body.id) {
+        if (e.id == req.params.id) {
             e.titleEng = req.body.titleEng;
             e.titleEsp = req.body.titleEsp;
             e.color = req.body.color;
@@ -110,6 +110,10 @@ let books = JSON.parse(booksJSON);
             }
         }
     })
+
+    booksJSON = JSON.stringify(books);
+
+    fs.writeFileSync(path.join(__dirname,'../data/libros.json'), booksJSON)
 
     res.redirect('/');
 
