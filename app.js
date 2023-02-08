@@ -22,7 +22,6 @@ app.use(methodOverride('_method'));
 app.use(routerMain, routerLoginRegister, routerShoppingCart, routerProducts);
 
 
-
 app.set("view engine", "ejs");
 
 
