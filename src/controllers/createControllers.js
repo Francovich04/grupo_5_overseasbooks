@@ -1,5 +1,13 @@
 const path = require('path');
-const books = require('../database/libros');
+/* const books = require('../database/libros'); */
+
+let fs = require('fs');
+
+let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+
+let books = JSON.parse(booksJSON);
+
+
 const { validationResult } = require('express-validator');
 
 const create = (req, res) => {
@@ -7,6 +15,10 @@ const create = (req, res) => {
 }
 
 const addBook = (req, res) => {
+
+    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+
+let books = JSON.parse(booksJSON);
 
     const resultValidation = validationResult(req);
 
@@ -55,6 +67,11 @@ const addBook = (req, res) => {
 
     books.push(obj);
 
+   booksJSON = JSON.stringify(books);
+
+    fs.writeFileSync(path.join(__dirname,'../data/libros.json'), booksJSON);
+
+
     res.redirect('/')
 }
 
@@ -95,8 +112,13 @@ const editConfirm = (req, res) => {
 };
 
 const deleteBook = (req, res) => {
+
+    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+
+    let books = JSON.parse(booksJSON);
+
     const idEliminar = req.params.id;
-    let exists = false
+   /*  let exists = false
     for (var i = 0; i < books.length; i++) {
         if (books[i].id == idEliminar) {
             books.splice(i, 1);
@@ -104,7 +126,13 @@ const deleteBook = (req, res) => {
             break;
         }
     }
-    if (!exists) res.send("NO DELETE")
+    if (!exists) res.send("NO DELETE") */
+
+    books = books.filter((book) => book.id !=idEliminar)
+
+    booksJSON = JSON.stringify(books);
+
+    fs.writeFileSync(path.join(__dirname,'../data/libros.json'), booksJSON);
 
 
     //cuando se elimina uno, pasa a faltar un ID, entonces create/"id que elimine" da error.
