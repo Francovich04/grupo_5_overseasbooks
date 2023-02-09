@@ -18,10 +18,12 @@ const main = (req, res) => {
     res.render(path.join(__dirname,'../views/home.ejs'), {'allBooks': books, categories: ["Best Sellers", "Science", "Fiction"]});
 }
 
-const database = (req, res) => {
+/* const database = (req, res) => {
+    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+    let books = JSON.parse(booksJSON);
     res.send(books);
-}
+} */
 
-module.exports = {main, database};
+module.exports = {main};
 
     
