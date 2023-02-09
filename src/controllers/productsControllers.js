@@ -48,7 +48,7 @@ let books = JSON.parse(booksJSON);
 
     if (imagen.length > 0) {
 
-        newImage = `images/products/${imagen}`
+        newImage = `/images/products/${imagen}`
     }
 
     const newId = books[books.length - 1].id + 1;
@@ -105,7 +105,7 @@ let books = JSON.parse(booksJSON);
             e.price = req.body.price;
             e.productDetail = req.body.productDetail;
             if (imagen.length > 0) {
-                newImage = `images/products/${imagen}`
+                newImage = `/images/products/${imagen}`
                 e.img = newImage;
             }
         }

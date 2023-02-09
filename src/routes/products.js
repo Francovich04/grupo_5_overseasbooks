@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
         cb(null, path.join(__dirname, '../../public/images/products'))
     },
     filename: (req, file, cb) => {
-        const newFile = `product-${Date.now()}_img${path.extname(file.originalname)}`
+        const newFile = `/product-${Date.now()}_img${path.extname(file.originalname)}`
         cb(null, newFile)
     }
 });
