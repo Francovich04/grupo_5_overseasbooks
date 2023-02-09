@@ -1,6 +1,13 @@
 const express = require('express');
 const routerProducts = express.Router();
-const { create, addBook, edit, editConfirm, deleteBook, detailsById, database } = require('../controllers/productsControllers');
+const { create, 
+    addBook, 
+    edit, 
+    editConfirm, 
+    deleteBook, 
+    detailsById, 
+    database, 
+    editView } = require('../controllers/productsControllers');
 const multer = require('multer');
 const path = require('path');
 
@@ -49,6 +56,7 @@ const validations = [
 routerProducts.get('/products/create', create);
 routerProducts.post('/products/create', upload.single('img'), validations, addBook);
 
+routerProducts.get('/products/edit/', editView)
 routerProducts.get('/products/edit/:id', edit);
 routerProducts.put('/products/edit/:id', upload.single('img'), editConfirm);
 

@@ -158,7 +158,14 @@ const database = (req, res) => {
     res.send(books);
 }
 
+const editView = (req, res) => {
+    
+    let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
+    let books = JSON.parse(booksJSON);
+    
+    res.render(path.join(__dirname,'../views/editView.ejs'), {'allBooks': books, categories: ["Best Sellers", "Science", "Fiction"]});
 
+}
 
 module.exports = {
     create,
@@ -167,5 +174,6 @@ module.exports = {
     editConfirm,
     deleteBook,
     detailsById,
-    database
+    database,
+    editView
 };

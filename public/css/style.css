@@ -979,6 +979,18 @@ footer .bannersFooter {
     border-radius: 5px;
  }
 
+ .editViewSubtitle {
+    font-size: 30px;
+ }
+
+ .editViewBody{
+    background-color: #f0fcb1;
+ }
+
+ .editViewCards {
+    background-color: white;
+ }
+
  /* TERMINA CSS ULI */
 
  /* EMPIEZA CSS DAVID */
