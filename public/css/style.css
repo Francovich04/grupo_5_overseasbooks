@@ -234,7 +234,7 @@ input[type="file"]{
     font-size: 20px;
     width: 82%;
     padding: 10px;
-    border: none;
+    border: 1px solid black; /* Soy Uli, tuve que cambiar el borde, o hay que ponerle clase a los input y no llamarlos directamente. */
 }
 .input-contenedor{
     margin-bottom: 15px;
@@ -905,14 +905,13 @@ footer .bannersFooter {
  .formContainer {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    
-   
+    align-items: center; 
+    flex-direction:column; /* cambio 10/2/22 Uli */
+    padding: 20px; 
  }
 
  .form {
-    width: 100vw;
+    width: 50vw; /* cambio 10/2/22 Uli */
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -979,7 +978,8 @@ footer .bannersFooter {
 
  .soloLectura {
     color: rgb(96, 96, 96);
-    background-color: rgb(181, 181, 181)
+    background-color: rgb(181, 181, 181);
+    
  }
 
  .is-invalid {
@@ -1003,6 +1003,46 @@ footer .bannersFooter {
 
  .editViewCards {
     background-color: white;
+ }
+
+ .editImage { /* cambio 10/2/22 Uli */
+    border-radius: 5px;
+    width: 40%;
+ }
+
+ .editImageContainer { /* cambio 10/2/22 Uli */
+ 
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 50px;
+ }
+
+
+
+ .editFormContainer { /* cambio 10/2/22 Uli */
+   
+    width: 50vw;
+    background-color: white;
+ }
+
+
+ .editMain { /* cambio 10/2/22 Uli */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: absolute;
+    right: -170px;
+    background-color:  #e4efe4;;
+ }
+
+ .editBody { /* cambio 10/2/22 Uli */
+    background-color:  #e4efe4;
+ }
+ 
+ .inputNoBorder {
+    border-color: white !important;
  }
 
  /* TERMINA CSS ULI */
@@ -1160,6 +1200,7 @@ footer .bannersFooter {
     height: 25px;
     text-align: center;
     font-weight: bold;
+    
 }
 
 .cantDisponible {
