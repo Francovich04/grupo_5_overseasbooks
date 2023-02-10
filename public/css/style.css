@@ -988,7 +988,7 @@ footer .bannersFooter {
 
  .text_errors {
     margin-top: 5px;
-    color: #ffffff;
+    color: #fb5f5f;
   
     border-radius: 5px;
  }
@@ -1044,6 +1044,13 @@ footer .bannersFooter {
  .inputNoBorder {
     border-color: white !important;
  }
+
+
+ input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
  /* TERMINA CSS ULI */
 
