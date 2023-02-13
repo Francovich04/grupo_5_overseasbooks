@@ -236,15 +236,27 @@ input[type="file"]{
     padding: 10px;
     border: 1px solid black; /* Soy Uli, tuve que cambiar el borde, o hay que ponerle clase a los input y no llamarlos directamente. */
 }
+
+.text-danger {
+    color: red;
+}
+
 .input-contenedor{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     border: 1px solid #aaa;
 }
+
+.input {
+    border: none;
+}
+
 .icon{
     min-width: 50px;
     text-align: center;
     color: #999;
 }
+
 .button{
     border: none;
     width: 100%;
