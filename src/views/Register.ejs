@@ -4,38 +4,37 @@
      
 <body class="body-login">
     <%- include('partials/header.ejs') %>
- <form class="formulario">
+ <form class="formulario" method="POST" action="/register" enctype="multipart/form-data">
     
     <h1 class="h1-login">Registrate</h1>
      <div class="contenedor">
      
      <div class="input-contenedor">
-         <i class="fas fa-user icon"></i>
-         <input type="text" placeholder="Nombre">
-         
-         </div>
+        <i class="fas fa-user icon"></i>
+        <input type="text" placeholder="Nombre" name="nombre">
+    </div>
 
-         <div class="input-contenedor">
-            <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Apellido">
+    <div class="input-contenedor">
+        <i class="fas fa-user icon"></i>
+        <input type="text" placeholder="Apellido" name="apellido">
             
-            </div>
+    </div>
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico">
+         <input type="text" placeholder="Correo Electronico" name="email">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
+         <input type="password" placeholder="Contraseña" name="password">
 
          </div>
 
          <div class="input-contenedor">
             <i class="fa-solid fa-image icon"></i>
-             <input type="file" placeholder="imagen">
+             <input type="file" placeholder="imagen" name="avatar">
          
          </div>
          <input type="submit" value="Registrate" class="button">
