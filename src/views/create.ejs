@@ -2,19 +2,19 @@
 <html lang="en">
 <%- include('partials/head.ejs') %>
 
-    <body class="createBody">
+    <body class="createBody editBody">
 
         <%- include('partials/header.ejs') %> 
         <%- include('partials/lowerNavBar.ejs') %>
 
-        <main class="mainform">
+        <main class="mainform editMain">
 
             <h1 class="createTitle">Cargar Libro Nuevo</h1>
 
-            <div class="formContainer">
-                <form method="POST" action="/products/create" class="form" enctype="multipart/form-data">
+            <div class="formContainer editFormContainer">
+                <form method="POST" action="/products/create" class="form editForm" enctype="multipart/form-data">
 
-                    <div class="formFields">
+                    <div class="formFields editFormFields">
 
                         <label class="labelForm" for="">Titulo en Inglés</label>
                         <input type="text" name="titleEng" id=""
@@ -123,7 +123,7 @@
                                     <div class="formFields">
 
                                         <label class="labelForm" for="">Precio</label>
-                                        <input type="text" name="price" id=""
+                                        <input type="number" name="price" id=""
                                             class="inputForm  <%= locals.errors && errors.price ? 'is-invalid' : null %>"
                                             value="<%= locals.oldData ? oldData.price : null %>">
 
@@ -138,7 +138,7 @@
                                     <div class="formFields">
 
                                         <label class="labelForm" for="">Imagen</label>
-                                        <input class="inputForm" type="file" name="img" id="">
+                                        <input class="inputForm inputNoBorder" type="file" name="img" id="">
 
                                         <% if (locals.errors && errors.img) { %>
 
