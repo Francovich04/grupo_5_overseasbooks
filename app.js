@@ -9,6 +9,9 @@ const routerShoppingCart = require('./src/routes/shoppingCart');
 const routerProducts = require('./src/routes/products');
 const port = process.env.PORT || 3001;
 const methodOverride = require('method-override');
+const session = require('express-session')
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
+const cookies = require('cookie-parser')
 
 
 app.listen(port, () => console.log(`Server running in port ${port}...`));
@@ -19,6 +22,13 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({
+    secret: "It's a secret",
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(userLoggedMiddleware)
+app.use(cookies());
 app.use(routerMain, routerLoginRegister, routerShoppingCart, routerProducts);
 
 

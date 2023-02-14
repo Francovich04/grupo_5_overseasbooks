@@ -16,6 +16,8 @@
     <img class="logo" src="/images/logo.png" alt="1-modified-1">
 </a>
 
+<% if(!locals.isLogged) { %>
+
     <a href="/register" class='login'><span class="fa-regular fa-user">
     </span></a>
     <a href="/register" class="textdecoration"><p>Registrate</p></a>
@@ -24,6 +26,8 @@
         person
         </span></a>
         <a href="/login" class="textdecoration"><p>Inicia sesion</p></a>
+
+        <% } else { %>
 
     <a href="/cart" class="carrito"><span class="material-icons">
         shopping_cart
@@ -39,6 +43,12 @@
 
     </span></a>
     <a href="/products/edit/" class="textdecoration"><p>Edita</p></a>
+
+    <a href="a"><span>
+        <img src="/images/avatars/<%= locals.userLogged.avatar %>" style="width:40px;">
+        </span></a>
+        <a href="/" class="textdecoration"><p>Hi, <%= locals.userLogged.nombre  %></p></a>
+        <% } %>
 
 
 </header>

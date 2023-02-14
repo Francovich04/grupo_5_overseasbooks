@@ -4,6 +4,7 @@ const {login, register, passwordreset, processRegister, processLogin} = require(
 const multer = require('multer')
 const path = require('path')
 const { body } = require('express-validator')
+const guestMiddleware = require('../middlewares/guestMiddleware')
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -40,9 +41,9 @@ const validations1 = [
     body('password').notEmpty().withMessage("Debes escribir tu contraseña")
 ]
 
-routerLoginRegister.get('/login', login );
+routerLoginRegister.get('/login', guestMiddleware, login );
 routerLoginRegister.post('/login', validations1, processLogin);
-routerLoginRegister.get('/register', register);
+routerLoginRegister.get('/register', guestMiddleware, register);
 routerLoginRegister.post('/register', upload.single('avatar'), validations, processRegister);
 routerLoginRegister.get('/passwordreset', passwordreset);
 
