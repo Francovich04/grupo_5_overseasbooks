@@ -4,7 +4,7 @@
     
 <body class="body-login">
     <%- include('partials/header.ejs') %>
-    <form class="formulario">
+    <form class="formulario" method="POST" action="/login">
     
     <h1 class="h1-login">Login</h1>
      <div class="contenedor">
@@ -13,15 +13,23 @@
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico">
-         
+         <input type="text" placeholder="Correo Electronico" name="email" value="<%= locals.oldData ? oldData.email : null %>">
          </div>
+         <% if (locals.errors && errors.email) { %>
+            <div class="text-danger">
+                <%= errors.email.msg %>
+            </div>
+            <% } %>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
-         
+         <input type="password" placeholder="Contraseña" name="password">
          </div>
+         <% if (locals.errors && errors.password) { %>
+            <div class="text-danger">
+                <%= errors.password.msg %>
+            </div>
+            <% } %>
          <input type="submit" value="Login" class="button">
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="/Register">Registrate</a></p>
