@@ -13,7 +13,7 @@
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico" name="email" value="<%= locals.oldData ? oldData.email : null %>">
+         <input class="input-register" type="text" placeholder="Correo Electronico" name="email" value="<%= locals.oldData ? oldData.email : null %>">
          </div>
          <% if (locals.errors && errors.email) { %>
             <div class="text-danger">
@@ -23,7 +23,7 @@
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña" name="password">
+         <input  class="input-register" type="password" placeholder="Contraseña" name="password">
          </div>
          <% if (locals.errors && errors.password) { %>
             <div class="text-danger">

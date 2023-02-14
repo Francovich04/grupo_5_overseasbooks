@@ -223,18 +223,28 @@
     margin-top: 150px;
     padding: 3px;
 }
+
 .h1-login{
     text-align: center;
     color: #1a2537;
     font-size: 40px;
 }
+.input-register[type="text"],
+.input-register[type="password"],
+.input-register[type="file"]{
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none; 
+    text-align:start;
+}
 input[type="text"],
 input[type="password"],
 input[type="file"]{
     font-size: 20px;
-    width: 82%;
+    width: 100%;
     padding: 10px;
-    border: 1px solid black; /* Soy Uli, tuve que cambiar el borde, o hay que ponerle clase a los input y no llamarlos directamente. */
+    border: 1px solid #aaa;
 }
 
 .text-danger {
@@ -243,8 +253,10 @@ input[type="file"]{
 
 .input-contenedor{
     margin-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 2px;
     border: 1px solid #aaa;
+    position: relative;
+    border-radius: 0.200rem;
 }
 
 .input {
@@ -252,9 +264,10 @@ input[type="file"]{
 }
 
 .icon{
-    min-width: 50px;
+    min-width: 20px;
     text-align: center;
     color: #999;
+    vertical-align: bottom;
 }
 
 .button{
@@ -920,6 +933,7 @@ footer .bannersFooter {
     align-items: center; 
     flex-direction:column; /* cambio 10/2/22 Uli */
     padding: 20px; 
+    border-radius: 6px;
  }
 
  .form {
@@ -929,7 +943,7 @@ footer .bannersFooter {
     flex-direction: column;
     align-items: normal;
     justify-content: space-between;
-    padding-left: 50px;
+    padding-left: 50px; 
    
  }
 
@@ -977,6 +991,10 @@ footer .bannersFooter {
     padding-top: 1px;
     background-color: rgb(201, 228, 202);
     border-radius: 3px;
+}
+.formulario-crear{
+    background: #fff;
+    padding: 3px;
 }
 
 /* .formFields {
@@ -1035,7 +1053,6 @@ footer .bannersFooter {
 
  .editFormContainer { /* cambio 10/2/22 Uli */
    
-    width: 50vw;
     background-color: white;
  }
 
@@ -1044,9 +1061,8 @@ footer .bannersFooter {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    position: absolute;
-    right: -170px;
     background-color:  #e4efe4;;
+    align-content: center;
  }
 
  .editBody { /* cambio 10/2/22 Uli */
