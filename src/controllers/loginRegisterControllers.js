@@ -1,5 +1,7 @@
 const path = require('path');
-const { validationResult }= require('express-validator')
+const { validationResult } = require('express-validator')
+const User = require('../models/User')
+const bcryptjs = require('bcryptjs')
 
 const login = (req, res) => {
     res.render(path.join(__dirname,'../views/login.ejs'));
@@ -18,15 +20,46 @@ const processRegister = (req, res) => {
             oldData: req.body
         });
     }
+
+    let userinDB = User.findByField('email', req.body.email);
+
+    if (userinDB) {
+        return res.render(path.join(__dirname,'../views/register.ejs'), {
+            errors: {email: {msg: 'Este email ya esta registrado'}},
+            oldData: req.body
+        });
+    }
+
+    let userToCreate = {
+        ...req.body,
+        password: bcryptjs.hashSync(req.body.password, 10),
+        avatar: req.file.filename
+    }
+    let userCreated = User.create(userToCreate);
+
+    return res.redirect('/login')
 }
 const processLogin = (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
+        console.log(resultValidation.errors)
         return res.render(path.join(__dirname,'../views/login.ejs'), {
             errors: resultValidation.mapped(),
             oldData: req.body
         });
     }
+
+    let userToLogin = User.findByField('email', req.body.email);
+    /* return res.send(userToLogin); */
+
+    if (userToLogin) {
+
+    } else {
+    res.render(path.join(__dirname,'../views/login.ejs'), {
+        errors: {email: {msg: 'El email ingresado no esta registrado'}},
+        oldData: req.body
+    });
+}
 }
 
 

@@ -51,7 +51,7 @@
 
          <div class="input-contenedor">
             <i class="fa-solid fa-image icon"></i>
-             <input type="file" placeholder="imagen" name="avatar">
+             <input type="file" placeholder="imagen" name="avatar" value="<%= locals.oldData ? oldData.avatar : null %>">
          </div>
 
          <% if (locals.errors && errors.avatar) { %>

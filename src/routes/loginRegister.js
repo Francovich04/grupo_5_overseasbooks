@@ -33,8 +33,15 @@ const validations = [
     })
 ]
 
+const validations1 = [
+    body('email')
+       .notEmpty().withMessage("Debes escribir tu email").bail()
+       .isEmail().withMessage("Debes escribir un formato de email valido"),
+    body('password').notEmpty().withMessage("Debes escribir tu contraseña")
+]
+
 routerLoginRegister.get('/login', login );
-routerLoginRegister.post('/login', validations, processLogin );
+routerLoginRegister.post('/login', validations1, processLogin);
 routerLoginRegister.get('/register', register);
 routerLoginRegister.post('/register', upload.single('avatar'), validations, processRegister);
 routerLoginRegister.get('/passwordreset', passwordreset);

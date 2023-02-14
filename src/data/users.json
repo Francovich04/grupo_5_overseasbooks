@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1,
+  "nombre": "Juana",
+  "apellido": "Mayorga",
+  "email": "juanamayorga2001@gmail.com",
+  "password": "$2a$10$ge0JzyVsoJ3oOgdhAuwFQOGXE08eAj16rBuEesV.gt7qTC4ghkbg.",
+  "avatar": "/product-1676314571080_img.png"
+ },
+ {
+  "id": 2,
+  "nombre": "Pilar",
+  "apellido": "Anzoátegui",
+  "email": "pilipilar2002@gmail.com",
+  "password": "$2a$10$DQ4TJzg6GEqrm5rkiEHpZeb.0KXETMeKGlaEcCu1lX20h3P4VOvU6",
+  "avatar": "/product-1676327080547_img.png"
+ }
+]
