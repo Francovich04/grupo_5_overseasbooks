@@ -35,3 +35,23 @@ Juntarnos mas seguido para que cada uno tenga un update de como venimos con nues
 Que deberiamos dejar de hacer:
 
 Pedir menos ayuda a los profesores.
+
+RETROSPECTIVA SPRINT 4:
+
+Que hicimos bien:
+
+Nos asignamos las tareas ordenadamente.
+
+Nos hemos juntado al menos una vez por semana, a veces dos. 
+
+Que hicimos mal:
+
+Podriamos haber manejado mejor los tiempos.
+
+Que deberiamos empezar a hacer:
+
+Tratar de ganarle al deadline, como para tratar de adelantar un poco. 
+
+Que deberiamos dejar de hacer:
+
+Pedir menos ayuda a los profesores.
