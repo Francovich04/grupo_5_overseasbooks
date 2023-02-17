@@ -14,5 +14,21 @@
   "email": "pilipilar2002@gmail.com",
   "password": "$2a$10$DQ4TJzg6GEqrm5rkiEHpZeb.0KXETMeKGlaEcCu1lX20h3P4VOvU6",
   "avatar": "/product-1676327080547_img.png"
+ },
+ {
+  "id": 3,
+  "nombre": "Ulises",
+  "apellido": "Hernandez",
+  "email": "uleesays@gmail.com",
+  "password": "$2a$10$FUrcNughvLgGx9GyiMqk5eeyYiPbnlOfO05exaE9IcBY9w97vhBZS",
+  "avatar": "/product-1676645481960_img.jpg"
+ },
+ {
+  "id": 4,
+  "nombre": "Test",
+  "apellido": "test",
+  "email": "test@test.com",
+  "password": "$2a$10$c.rD8UJyov2cOSgt.SX1dOf/tINQWs2457YCjKXm1YS5uf.EhMl7y",
+  "avatar": "/product-1676656625566_img.png"
  }
 ]
