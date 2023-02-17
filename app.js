@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(userLoggedMiddleware)
-app.use(routerMain, routerLoginRegister, routerShoppingCart, routerProducts);
+app.use(routerMain, routerLoginRegister, routerProducts);
 
 
 app.set("view engine", "ejs");

@@ -7,9 +7,12 @@ const { create,
     deleteBook, 
     detailsById, 
     database, 
-    editView } = require('../controllers/productsControllers');
+    editView,
+    shoppingCart,
+    buy } = require('../controllers/productsControllers');
 const multerMiddleware = require('../middlewares/multerMiddleware');
 const validations = require('../validations/allValidations');
+const authMiddleware = require('../middlewares/authMiddleware')
 
 
 routerProducts.get('/products/create', create);
@@ -24,5 +27,9 @@ routerProducts.delete('/products/edit/delete/:id', deleteBook)
 routerProducts.get('/products/details/:id', detailsById);
 
 routerProducts.get('/database', database);
+
+routerProducts.get('/products/cart', authMiddleware, shoppingCart );
+
+routerProducts.get('/products/cart/:id', authMiddleware, buy);
 
 module.exports = routerProducts;
