@@ -37,7 +37,7 @@ const processRegister = (req, res) => {
     }
     let userCreated = User.create(userToCreate);
 
-    return res.redirect('/login')
+    return res.redirect('/user/login')
 }
 const processLogin = (req, res) => {
     const resultValidation = validationResult(req);
@@ -61,7 +61,7 @@ const processLogin = (req, res) => {
                 res.cookie('userEmail', req.body.email, {maxAge: (1000000 * 90) * 4})
             }
 
-            return res.redirect('/')
+            return res.redirect('/user/profile')
         }
         return res.render(path.join(__dirname,'../views/login.ejs'), {
             errors: {password: {msg: 'La contraseña ingresada no es correcta'}},
@@ -75,4 +75,16 @@ const processLogin = (req, res) => {
 }
 }
 
-module.exports = {login, register, passwordreset, processRegister, processLogin};
+const userProfile = (req, res) => {
+    return res.render(path.join(__dirname,'../views/userProfile.ejs'), {
+        user: req.session.userLogged
+    });
+}
+
+const userLogout = (req, res) =>{
+    res.clearCookie('userEmail');
+    req.session.destroy();
+    return res.redirect('/')
+}
+
+module.exports = {login, register, passwordreset, processRegister, processLogin, userProfile, userLogout};

@@ -8,8 +8,4 @@ routerShoppingCart.get('/cart', authMiddleware, shoppingCart );
 
 routerShoppingCart.get('/shoppingcart2/:id', authMiddleware, buy);
 
-/* routerShoppingCart.get('/shoppingcart2', (req, res) => {
-    res.render(path.resolve(__dirname, '../views/shoppingCart2.ejs'))
-}) */
-
 module.exports = routerShoppingCart;

@@ -1462,3 +1462,41 @@ li.carouselCard::marker {
 
 /* TERMINA CSS DAVID */
 
+/* PROFILE CSS */
+
+.mainprofile {
+    margin: 200px
+}
+
+.profilecontenedor {
+    justify-content: space-around;
+    background-color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    display: flex;
+    border-radius: 4px;
+}
+
+.datosprofile {
+    align-self: center;
+}
+
+.dato {
+    display: flex;
+    padding: 9px;
+}
+
+.nombre, .apellido, .email {
+    align-self: center;
+    padding-left: 4px;
+}
+
+.nombreh4, .apellidoh4, .emailh4 {
+    color:#3B6064;
+    text-decoration: underline;
+}
+
+.botonlogout {
+    padding: 5px;
+    border-color: 1px solid #3B6064;
+}

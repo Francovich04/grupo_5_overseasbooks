@@ -30,5 +30,21 @@
   "email": "test@test.com",
   "password": "$2a$10$c.rD8UJyov2cOSgt.SX1dOf/tINQWs2457YCjKXm1YS5uf.EhMl7y",
   "avatar": "/product-1676656625566_img.png"
+ },
+ {
+  "id": 5,
+  "nombre": "prueba",
+  "apellido": "prueba",
+  "email": "prueba@prueaba.com",
+  "password": "$2a$10$2LwXfY3eAFPJZuZmTzBJ/e97kqLAuhbv79XQ/0uGpctvz1eGWyzf.",
+  "avatar": "/product-1676670189019_img.png"
+ },
+ {
+  "id": 6,
+  "nombre": "Prueba2",
+  "apellido": "Prueba2",
+  "email": "prueba2@prueba.com",
+  "password": "$2a$10$yl9Ujg8Uhcigz2bF51pux.53Fbvq7BwQwyxGvgK4noRELpY1U0YSi",
+  "avatar": "/product-1676673516679_img.png"
  }
 ]

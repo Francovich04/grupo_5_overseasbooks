@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %>
+
+    <body class="createBody editBody">
+
+        <%- include('partials/header.ejs') %> 
+        <%- include('partials/lowerNavBar.ejs') %>
+
+        <main class="mainprofile">
+            <div class="profilecontenedor">
+                <div class="datosprofile">
+                <div class="dato"><h3 class="nombreh4">Nombre: <h4 class="nombre"> <%= user.nombre %></h4></h3></div>
+                <div class="dato"><h3 class="apellidoh4">Apellido: <h4 class="apellido"> <%= user.apellido %></h4></h3></div>
+                <div class="dato"><h3 class="emailh4">Email: <h4 class="email"> <%= user.email %></h4></h3></div>
+                <div class="dato"><a href="/user/logout"><button class="botonlogout"><h3>Cerrar sesion</h3></button></a></div>
+                </div>
+                <div>
+                <img src="/images/avatars/<%= user.avatar %>" style="width:200px;">
+                </div>
+            </div>
+        </main>
+
+
+        <%- include('partials/footer.ejs') %>
+
+    
+    </body>
+</html>

@@ -4,7 +4,7 @@
      
 <body class="body-login">
     <%- include('partials/header.ejs') %>
- <form class="formulario" method="POST" action="/register" enctype="multipart/form-data">
+ <form class="formulario" method="POST" action="/user/register" enctype="multipart/form-data">
     
     <h1 class="h1-login">Registrate</h1>
      <div class="contenedor">
@@ -62,7 +62,7 @@
 
          <input type="submit" value="Registrate" class="button">
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿Ya tienes una cuenta?<a class="link" href="login">Iniciar Sesion</a></p>
+         <p>¿Ya tienes una cuenta?<a class="link" href="/user/login">Iniciar Sesion</a></p>
      </div>
     </form>
     <%- include('partials/footer.ejs') %>

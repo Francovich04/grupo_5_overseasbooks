@@ -4,7 +4,7 @@
     
 <body class="body-login">
     <%- include('partials/header.ejs') %>
-    <form class="formulario" method="POST" action="/login">
+    <form class="formulario" method="POST" action="/user/login">
     
     <h1 class="h1-login">Login</h1>
      <div class="contenedor">
@@ -33,8 +33,8 @@
             <label><input type="checkbox" name="botonremember"> Recordar mi usuario</label>
          <input type="submit" value="Login" class="button">
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿No tienes una cuenta? <a class="link" href="/Register">Registrate</a></p>
-         <p>¿Olvidaste tu contraseña? <a class="link" href="/passwordreset">Recuperala aqui </a></p>
+         <p>¿No tienes una cuenta? <a class="link" href="/user/register">Registrate</a></p>
+         <p>¿Olvidaste tu contraseña? <a class="link" href="/user/passwordreset">Recuperala aqui </a></p>
      </div>
     </form>
     <%- include('partials/footer.ejs') %>

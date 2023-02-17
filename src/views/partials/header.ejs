@@ -18,14 +18,14 @@
 
 <% if(!locals.isLogged) { %>
 
-    <a href="/register" class='login'><span class="fa-regular fa-user">
+    <a href="/user/register" class='login'><span class="fa-regular fa-user">
     </span></a>
-    <a href="/register" class="textdecoration"><p>Registrate</p></a>
+    <a href="/user/register" class="textdecoration"><p>Registrate</p></a>
 
-    <a href="/login" class='login'><span class="material-icons">
+    <a href="/user/login" class='login'><span class="material-icons">
         person
         </span></a>
-        <a href="/login" class="textdecoration"><p>Inicia sesion</p></a>
+        <a href="/user/login" class="textdecoration"><p>Inicia sesion</p></a>
 
         <% } else { %>
 
@@ -44,10 +44,10 @@
     </span></a>
     <a href="/products/edit/" class="textdecoration"><p>Edita</p></a>
 
-    <a href="/"><span>
+    <a href="/user/profile"><span>
         <img src="/images/avatars/<%= locals.userLogged.avatar %>" style="width:40px;">
         </span></a>
-        <a href="/" class="textdecoration"><p>Hi, <%= locals.userLogged.nombre  %></p></a>
+        <a href="/user/profile" class="textdecoration"><p>Hi, <%= locals.userLogged.nombre  %></p></a>
         <% } %>
 
 
