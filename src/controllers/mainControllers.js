@@ -10,7 +10,10 @@ const main = (req, res) => {
     let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
     let books = JSON.parse(booksJSON);
     
-    res.render(path.join(__dirname,'../views/home.ejs'), {'allBooks': books, categories: ["Best Sellers", "Science", "Fiction"]});
+    res.render(path.join(__dirname,'../views/home.ejs'), {
+        'allBooks': books, 
+        categories: ["Best Sellers", "Science", "Fiction",]
+    });
 }
 
 
