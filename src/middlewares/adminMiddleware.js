@@ -1,18 +1,14 @@
 const User = require('../models/User')
+const path = require('path');
 
-function adminMiddleware (req, res, next) {
-
-    res.locals.isAdmin = false
-
-    let userAdmin = User.findByField('admin', true);
-
-    if (userAdmin == req.session.userLogged) {
-        res.locals.isAdmin = true
-        console.log(userAdmin);
+function adminMiddleware(req, res, next) {
+    if (res.locals.isAdmin) {
+        next();
+        
     } else {
-        console.log('este usuario no es admin')
+        res.render(path.join(__dirname,'../views/forbidden.ejs'))
+        // res.redirect('/')
     }
-    next()
 }
 
 module.exports = adminMiddleware;
