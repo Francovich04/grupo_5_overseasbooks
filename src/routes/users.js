@@ -12,9 +12,10 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const multerMiddleware = require('../middlewares/multerMiddleware');
 const validations = require('../validations/allValidations');
+const adminMiddleware = require('../middlewares/adminMiddleware')
 
 routerLoginRegister.get('/user/login', guestMiddleware, login);
-routerLoginRegister.post('/user/login', validations.emailValidations, processLogin);
+routerLoginRegister.post('/user/login', validations.emailValidations, adminMiddleware, processLogin);
 routerLoginRegister.get('/user/register', guestMiddleware, register);
 routerLoginRegister.post('/user/register', multerMiddleware.usersUpload.single('avatar'), validations.userValidations, processRegister);
 routerLoginRegister.get('/user/passwordreset', passwordreset);

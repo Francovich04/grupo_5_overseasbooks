@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 /* EMPIEZA CSS JUANA */
@@ -477,6 +478,8 @@ header .userIcon {
     width: 100%;
     padding: 10px;
     background-color: #C9E4CA;
+    font-size: 20px;
+    font-weight: bolder;
     
 }
 
@@ -1500,3 +1503,4 @@ li.carouselCard::marker {
     padding: 5px;
     border-color: 1px solid #3B6064;
 }
+
