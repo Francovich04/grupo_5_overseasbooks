@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs') %>
+
+<body class="body">
+    <%- include('partials/header.ejs') %>
+        <%- include('partials/lowerNavBar.ejs') %>
+            <br>
+            <br>
+
+            <main>
+                
+                <section>
+                    <div class="contenedor">
+                        <div class="columna-a-derecha">
+                            <h1 class="productTitle">
+                                <%= book.titleEng %>
+                            </h1>
+                            <div class="rating">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span>(99)</span>
+                            </div>
+                            <div class="columna-a-izquierda">
+                                <div class="compartirIcono">
+                                    <span class="material-symbols-outlined">
+                                        share
+                                    </span>
+                                </div>
+                                <div class="divImagen">
+                                    <img class="imagenProducto" src="<%= book.img %>" alt="imagen">
+                                </div>
+                            </div>
+
+                            <!-- <div class="format">
+                                <div class="fisico">
+                                    <span>Físico</span>
+                                    <br>
+                                    <span class="precio">$3400</span>
+                                </div>
+                                <div class="digital">
+                                    <span>Digital</span>
+                                    <br>
+                                    <span class="precio">$1200</span>
+                                </div>
+                            </div> -->
+                        </section>
+                       
+                <br>
+                <div class="line"></div>
+                <br>
+                <div class="contenedor">
+                    <div class="price">
+                        <h2>$<%= book.price %></h2>
+                    </div>
+                    <div class="deliveryDate">
+                        <p>
+                            <i class="fa-solid fa-truck"></i>
+                            Llega el <strong>Miércoles, 11 de Enero</strong>
+                        </p>
+                    </div>
+                    <div class="deliveryLocation">
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Enviar a Buenos Aires, Argentina
+                        </p>
+                    </div>
+                    <div class="stockDisponible">
+                        <p>
+                            Stock Disponible
+                        </p>
+                    </div>
+                    <div class="cantidad">
+                        <span class="cantidadTexto">Cantidad:</span>
+                        <div class="divCantidad">
+                            <form action="">
+                                <span class="cantNumero"><input type="number" max="50" value="1"></span>
+                            </form>
+                            <span class="cantDisponible">(43 disponibles)</span>
+                        </div>
+                    </div>
+                    <div class="divBotonCarrito">
+                        <button type="submit" class="botonCarrito">
+                            <span class="botonCarritoInterior">Añadir al carrito</span>
+                        </button>
+                    </div>
+                    <div class="divBotonCompra">
+                            <a href="/products/cart/<%= book.id %>">
+                            <button type="submit" class="botonCompra">
+                                <a href="/products/cart/<%= book.id %>" style="text-decoration:none;color:black"><span class="botonInterior">Comprar ahora</span></a>
+                            </button>
+                        </a>
+                        </div>
+                    <br>
+                    <div class="transaccionSegura">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Compra Protegida</span>
+                    </div>
+                </div>
+
+         
+
+                <!-- Haciendo carousel de libros recomendados -->
+
+
+                <div class="contenedor">
+                    <h2>Libros que podrían gustarte</h2>
+                    <br>
+                </div>
+
+                
+                <div class="carousel">
+                    <ol role="list" width="2310px">
+                        <% for(let i = 0; i < (allBooks.length >= 4 ? 4 : allBooks.length); i++){%>
+
+                            <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
+                                <div>
+                                    <a href="/products/details/<%= allBooks[i].id %>" style="text-decoration: none; text-decoration-style: none;">
+                                        <div>
+                                            <img src="<%= allBooks[i].img %>"
+                                                alt="" style="max-height: 150px;">
+                                        </div>
+                                    </a>
+                                    <a href="/products/details/<%= allBooks[i].id %>">
+                                        <div class="tituloLibro"> <%= allBooks[i].titleEng %></div>
+                                        <div class="rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="reviews">318 reviews</div>
+                                        <div class="precio">$ <%= allBooks[i].price %></div>
+                                    </a>
+                                </div>
+                            </li>
+
+                        <% } %>
+                    </ol>
+                </div> 
+
+                
+
+                <!-- Sección Resumen del Libro -->
+                <div class="cajaResumen">
+
+                    <section class="resumenLibro">
+                        <div class="resumenTitulo">
+                            <span>Resumen del Libro</span>
+                        </div>
+                        <p>
+                            <span class="pNegrita">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repudiandae aspernatur
+                                voluptatibus.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="pNegrita">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cum totam provident
+                                neque deleniti
+                                repellendus accusantium quas ipsam, dolor esse quaerat similique quia perspiciatis,
+                                consequuntur
+                                voluptates quo, numquam facere incidunt.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="pNormal">
+                                Saepe, praesentium. Necessitatibus laudantium tempora dolor veritatis.
+                            </span>
+                        </p>
+                    </section>
+                    <br>
+                </div>
+            </main>
+            <!-- Footer Uli -->
+            <%- include('partials/footer.ejs') %>
+                <%- include('partials/lowerFooter.ejs') %>
+
+</body>
+
+</html>

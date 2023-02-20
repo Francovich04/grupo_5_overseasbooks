@@ -2,28 +2,32 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const publicPath = path.resolve(__dirname, './public')
+const morgan = require("morgan");
+const routerMain = require('./src/routes/main');
+const routerLoginRegister = require('./src/routes/users');
+const routerProducts = require('./src/routes/products');
+const port = process.env.PORT || 3001;
+const methodOverride = require('method-override');
+const session = require('express-session')
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
+const cookies = require('cookie-parser')
 
-app.use(express.static(publicPath))
 
-app.listen (3001, () => console.log ('Servidor corriendo'));
+app.listen(port, () => console.log(`Server running in port ${port}...`));
 
-app.get('/shoppingcart', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart.html'))
-})
+app.use(session({
+    secret: "It's a secret",
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(cookies());
+app.use(express.static(publicPath));
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false })); 
+app.use(express.json());
+app.use(methodOverride('_method'));
+app.use(userLoggedMiddleware)
+app.use(routerMain, routerLoginRegister, routerProducts);
 
-app.get('/shoppingcart2', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart2.html'))
-})
 
-app.get('/shoppingcart3', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/shoppingCart3.html'))
-})
-
-//Public Path, in this case, __dirname is the complete route where app.js is located
-//permite servir archivos estaticos desde public
-
-//using static files, middleware
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/home.html'));
-});
+app.set("view engine", "ejs");
