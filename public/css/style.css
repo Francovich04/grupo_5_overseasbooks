@@ -185,3 +185,134 @@ p {
     max-height: 100px;
     order: -1;
  }
+
+
+ /* Header Uli */
+
+ /* HEADER */
+
+header {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4efe4;
+    padding: 10px;
+    
+}
+
+header .navBar {
+   
+    display: flex;
+    justify-content: center;
+    flex-basis: 200px;
+    flex-grow: 4;
+}
+
+header .navBar .searchBar {
+    display: flex;
+    width: 100%;
+    
+    height: 30px;
+   padding-right: 32px;
+   padding-left: 10px;
+
+}
+
+
+header .navBar .fa-magnifying-glass {
+    position: absolute;
+    right: 1rem;
+    top: 0.40rem;
+}
+
+header .contenedor {
+    position: relative;
+    width: 100%;
+    max-width: 350px; 
+}
+
+
+
+
+header .logo {
+    width: 20%;
+    max-width: 100px;
+    max-height: 100px;
+    order: -1;
+}
+
+header .searchBar {
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+header .hamburgesa {
+    order: 1;
+}
+
+header .userIcon {
+    order: 1;
+}
+
+.banner .bannerImg {
+    width: 100%;
+    position: relative;
+    top: -4px;
+}
+
+
+
+  .lowerNavBar {
+    display: none;
+  }
+
+  .enlaces {
+    display: flex;
+   justify-content: space-around;
+   list-style: none;
+   flex-grow: 3;
+   height: 50px;
+   text-align: center;
+   font-size: 17px;
+   
+}
+
+.lowerNavBar .enlaces a {
+    text-decoration: none;
+    justify-content: center;
+  
+   
+}
+
+.carrito {
+    text-decoration: none;
+    color: black;
+}
+
+.liHeader {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    background-color: #C9E4CA;
+    
+}
+
+.liHeader:hover {
+    background-color: #3B6064;
+    transition: 0.3s;
+    
+}
+
+.liHeader:hover a{
+    color: white;
+    transition: 0.3s;
+}
+
+.imglogo {
+    width: 100%;
+}
