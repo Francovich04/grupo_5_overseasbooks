@@ -87,4 +87,5 @@ const userLogout = (req, res) =>{
     return res.redirect('/')
 }
 
+
 module.exports = {login, register, passwordreset, processRegister, processLogin, userProfile, userLogout};
