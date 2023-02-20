@@ -5,7 +5,6 @@ const publicPath = path.resolve(__dirname, './public')
 const morgan = require("morgan");
 const routerMain = require('./src/routes/main');
 const routerLoginRegister = require('./src/routes/users');
-const routerShoppingCart = require('./src/routes/shoppingCart');
 const routerProducts = require('./src/routes/products');
 const port = process.env.PORT || 3001;
 const methodOverride = require('method-override');
@@ -28,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(userLoggedMiddleware)
-app.use(routerMain, routerLoginRegister, routerShoppingCart, routerProducts);
+app.use(routerMain, routerLoginRegister, routerProducts);
 
 
 app.set("view engine", "ejs");
