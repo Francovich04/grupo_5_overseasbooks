@@ -23,9 +23,8 @@ routerLoginRegister.post('/user/login', validations.emailValidations, userLogged
 routerLoginRegister.get('/user/register', guestMiddleware, register);
 routerLoginRegister.post('/user/register', multerMiddleware.usersUpload.single('avatar'), validations.userValidations, processRegister);
 routerLoginRegister.get('/user/passwordreset', passwordreset);
-routerLoginRegister.get('/user/profile', adminMiddleware, userProfile );
-routerLoginRegister.get('/user/logout', userLogout)
-
+routerLoginRegister.get('/user/profile', userProfile);
+routerLoginRegister.get('/user/logout', userLogout);
 
 
 module.exports = routerLoginRegister;
