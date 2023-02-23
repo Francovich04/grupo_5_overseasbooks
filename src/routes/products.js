@@ -12,21 +12,23 @@ const { create,
     buy } = require('../controllers/productsControllers');
 const multerMiddleware = require('../middlewares/multerMiddleware');
 const validations = require('../validations/allValidations');
-const authMiddleware = require('../middlewares/authMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 
-routerProducts.get('/products/create', authMiddleware,create);
-routerProducts.post('/products/create', multerMiddleware.productsUpload.single('img'), validations.productValidations, addBook);
 
-routerProducts.get('/products/edit/', authMiddleware, editView)
-routerProducts.get('/products/edit/:id', authMiddleware, edit);
-routerProducts.put('/products/edit/:id', multerMiddleware.productsUpload.single('img'), editConfirm);
+routerProducts.get('/products/create', adminMiddleware,authMiddleware,create);
+routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img'), validations.productValidations, addBook);
 
-routerProducts.delete('/products/edit/delete/:id', deleteBook)
+routerProducts.get('/products/edit/', adminMiddleware,authMiddleware, editView);
+routerProducts.get('/products/edit/:id', adminMiddleware,authMiddleware, edit);
+routerProducts.put('/products/edit/:id',multerMiddleware.productsUpload.single('img'), editConfirm);
+
+routerProducts.delete('/products/edit/delete/:id', adminMiddleware,deleteBook);
 
 routerProducts.get('/products/details/:id', detailsById);
 
-routerProducts.get('/database', database);
+routerProducts.get('/database',adminMiddleware, database);
 
 routerProducts.get('/products/cart', authMiddleware, shoppingCart );
 
