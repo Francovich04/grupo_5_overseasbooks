@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overseas</title>
-    <link rel='stylesheet' href="/css/style.css">
-    <link rel="stylesheet" href="/css/home_styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-</head>
+  <%- include('partials/head.ejs') %>
 <body>
 
     <%- include('partials/header.ejs') %>
-
     <%- include('partials/lowerNavBar.ejs') %>
 
   <main class="main">
+
       <article>
         <div class="h4yxContenedor">
           <h3>Carrito de compras</h3>
@@ -36,8 +25,10 @@
       </article>
       <div class="botoncentrado"><button type="submit" class="boton"><h4 class="textboton">INICIAR COMPRA</h4></button></div>
       <a href="/"><p class="vermas p">VER PRODUCTOS</p></a>
+
       <%- include('partials/footer.ejs') %>
       <%- include('partials/lowerFooter.ejs') %>
+
   </main>
 </body>
 </html>

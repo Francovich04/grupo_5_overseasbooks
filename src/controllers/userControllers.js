@@ -37,7 +37,7 @@ const processRegister = (req, res) => {
     }
     let userCreated = User.create(userToCreate);
 
-    return res.redirect('/login')
+    return res.redirect('/user/login')
 }
 const processLogin = (req, res) => {
     const resultValidation = validationResult(req);
@@ -52,8 +52,22 @@ const processLogin = (req, res) => {
     let userToLogin = User.findByField('email', req.body.email);
     /* return res.send(userToLogin); */
 
-    if (userToLogin) {
 
+    if (userToLogin) {
+        let comparePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
+        if (comparePassword) {
+            req.session.userLogged = userToLogin
+
+            if (req.body.botonremember) {
+                res.cookie('userEmail', req.body.email, {maxAge: (1000000 * 90) * 4})
+            }
+
+            return res.redirect('/user/profile')
+        }
+        return res.render(path.join(__dirname,'../views/login.ejs'), {
+            errors: {password: {msg: 'La contraseña ingresada no es correcta'}},
+            oldData: req.body
+        });
     } else {
     res.render(path.join(__dirname,'../views/login.ejs'), {
         errors: {email: {msg: 'El email ingresado no esta registrado'}},
@@ -62,5 +76,17 @@ const processLogin = (req, res) => {
 }
 }
 
+const userProfile = (req, res) => {
+    return res.render(path.join(__dirname,'../views/userProfile.ejs'), {
+        user: req.session.userLogged
+    });
+}
 
-module.exports = {login, register, passwordreset, processRegister, processLogin};
+const userLogout = (req, res) =>{
+    res.clearCookie('userEmail');
+    req.session.destroy();
+    return res.redirect('/')
+}
+
+
+module.exports = {login, register, passwordreset, processRegister, processLogin, userProfile, userLogout};
