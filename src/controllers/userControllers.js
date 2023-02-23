@@ -52,6 +52,7 @@ const processLogin = (req, res) => {
     let userToLogin = User.findByField('email', req.body.email);
     /* return res.send(userToLogin); */
 
+
     if (userToLogin) {
         let comparePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
         if (comparePassword) {
@@ -86,5 +87,6 @@ const userLogout = (req, res) =>{
     req.session.destroy();
     return res.redirect('/')
 }
+
 
 module.exports = {login, register, passwordreset, processRegister, processLogin, userProfile, userLogout};
