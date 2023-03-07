@@ -22,13 +22,26 @@ let books = JSON.parse(booksJSON);
 
     const resultValidation = validationResult(req);
 
+ /*    if (resultValidation.errors.length > 0) {
+        return res.render(path.join(__dirname, '../views/create.ejs'), {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        })
+
+    } */
+
     if (resultValidation.errors.length > 0) {
+        if (req.file){
+            fs.unlinkSync(path.join(__dirname, '../../public/images/products', req.file.filename))
+        }
         return res.render(path.join(__dirname, '../views/create.ejs'), {
             errors: resultValidation.mapped(),
             oldData: req.body
         })
 
     }
+
+
 
 
     const {

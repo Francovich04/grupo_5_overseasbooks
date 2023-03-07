@@ -1,5 +1,5 @@
 const path = require('path');
-const { body } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 const productValidations = [
     body('titleEng').notEmpty().withMessage('Escribí el titulo en Inglés'),
@@ -8,24 +8,26 @@ const productValidations = [
     body('author').notEmpty().withMessage('Escribí un autor'),
     body('category').notEmpty().withMessage('Seleciona una categoría'),
     body('price').notEmpty().withMessage('Escribí un precio válido'),
-    body('img').custom((value, { req }) => {
+     body('img').custom((value, { req }) => {
         let file = req.file;
         let validExtensions = ['.jpg', '.jpeg', '.png'];
 
         if (!file) {
             throw new Error('Debes subir una imagen');
+            return false; 
         } else {
             let fileExtension = path.extname(file.originalname);
             if (!validExtensions.includes(fileExtension)) {
 
                 throw new Error(`Los formatos válidos son ${validExtensions.join(', ')}`);
+                return false; 
 
             }
 
         }
 
         return true;
-    })
+    }) 
 ]
 
 const userValidations = [
@@ -51,8 +53,10 @@ const emailValidations = [
     body('password').notEmpty().withMessage("Debes escribir tu contraseña")
 ]
 
+
 module.exports = {
     productValidations,
     userValidations,
-    emailValidations
+    emailValidations,
+    eval
 }
