@@ -18,7 +18,7 @@ const adminMiddleware = require('../middlewares/adminMiddleware');
 
 
 routerProducts.get('/products/create', adminMiddleware,authMiddleware,create);
-routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img'), validations.productValidations, addBook);
+routerProducts.post('/products/create', validations.productValidations, multerMiddleware.productsUpload.single('img'), addBook);
 
 routerProducts.get('/products/edit/', adminMiddleware,authMiddleware, editView);
 routerProducts.get('/products/edit/:id', adminMiddleware,authMiddleware, edit);
