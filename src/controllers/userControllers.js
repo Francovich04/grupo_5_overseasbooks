@@ -1,7 +1,8 @@
+const fs = require('fs');
 const path = require('path');
-const { validationResult } = require('express-validator')
-const User = require('../models/User')
-const bcryptjs = require('bcryptjs')
+const { validationResult } = require('express-validator');
+const User = require('../models/User');
+const bcryptjs = require('bcryptjs');
 
 const login = (req, res) => {
     res.render(path.join(__dirname,'../views/login.ejs'));
@@ -15,11 +16,17 @@ const passwordreset= (req, res) => {
 const processRegister = (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
+        if (req.file){
+            fs.unlinkSync(path.join(__dirname, '../../public/images/avatars', req.file.filename))
+        }
         return res.render(path.join(__dirname,'../views/register.ejs'), {
             errors: resultValidation.mapped(),
             oldData: req.body
         });
     }
+
+   
+
 
     let userinDB = User.findByField('email', req.body.email);
 
