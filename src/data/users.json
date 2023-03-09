@@ -5,7 +5,8 @@
   "apellido": "Mayorga",
   "email": "juanamayorga2001@gmail.com",
   "password": "$2a$10$ge0JzyVsoJ3oOgdhAuwFQOGXE08eAj16rBuEesV.gt7qTC4ghkbg.",
-  "avatar": "/product-1676314571080_img.png"
+  "avatar": "/product-1676314571080_img.png",
+  "admin":true
  },
  {
   "id": 2,
@@ -13,7 +14,9 @@
   "apellido": "Anzoátegui",
   "email": "pilipilar2002@gmail.com",
   "password": "$2a$10$DQ4TJzg6GEqrm5rkiEHpZeb.0KXETMeKGlaEcCu1lX20h3P4VOvU6",
-  "avatar": "/product-1676327080547_img.png"
+  "avatar": "/product-1676327080547_img.png",
+  "admin":false
+
  },
  {
   "id": 3,
@@ -21,7 +24,8 @@
   "apellido": "Hernandez",
   "email": "uleesays@gmail.com",
   "password": "$2a$10$FUrcNughvLgGx9GyiMqk5eeyYiPbnlOfO05exaE9IcBY9w97vhBZS",
-  "avatar": "/product-1676645481960_img.jpg"
+  "avatar": "/product-1676645481960_img.jpg",
+  "admin":false
  },
  {
   "id": 4,
@@ -29,7 +33,8 @@
   "apellido": "test",
   "email": "test@test.com",
   "password": "$2a$10$c.rD8UJyov2cOSgt.SX1dOf/tINQWs2457YCjKXm1YS5uf.EhMl7y",
-  "avatar": "/product-1676656625566_img.png"
+  "avatar": "/product-1676656625566_img.png",
+  "admin":false
  },
  {
   "id": 5,
@@ -37,7 +42,8 @@
   "apellido": "prueba",
   "email": "prueba@prueaba.com",
   "password": "$2a$10$2LwXfY3eAFPJZuZmTzBJ/e97kqLAuhbv79XQ/0uGpctvz1eGWyzf.",
-  "avatar": "/product-1676670189019_img.png"
+  "avatar": "/product-1676670189019_img.png",
+  "admin":false
  },
  {
   "id": 6,
@@ -45,6 +51,7 @@
   "apellido": "Prueba2",
   "email": "prueba2@prueba.com",
   "password": "$2a$10$yl9Ujg8Uhcigz2bF51pux.53Fbvq7BwQwyxGvgK4noRELpY1U0YSi",
-  "avatar": "/product-1676673516679_img.png"
+  "avatar": "/product-1676673516679_img.png",
+  "admin":false
  }
 ]

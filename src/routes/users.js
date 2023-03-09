@@ -19,7 +19,7 @@ const adminMiddleware = require('../middlewares/adminMiddleware');
 
 routerLoginRegister.get('/user/login', guestMiddleware, login);
 routerLoginRegister.post('/user/login', validations.emailValidations, userLoggedMiddleware, processLogin);
-routerLoginRegister.post('/user/login', validations.emailValidations, userLoggedMiddleware, processLogin);
+// routerLoginRegister.post('/user/login', validations.emailValidations, userLoggedMiddleware, processLogin);
 routerLoginRegister.get('/user/register', guestMiddleware, register);
 routerLoginRegister.post('/user/register', multerMiddleware.usersUpload.single('avatar'), validations.userValidations, processRegister);
 routerLoginRegister.get('/user/passwordreset', passwordreset);
