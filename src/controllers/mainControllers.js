@@ -69,7 +69,10 @@ let mainControllers = {
                 .then(function (users) {
                     res.render(path.join(__dirname, '../views/vistaPruebaAutores'), { users });
                 })
-            },
+            }
+
+            
+        
     
 };
 
