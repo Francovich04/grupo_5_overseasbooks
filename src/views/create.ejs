@@ -14,21 +14,7 @@
             <div class="formContainer editFormContainer">
                 <form method="POST" action="/products/create" class="formulario-crear" enctype="multipart/form-data">
 
-                    <div class="formFields editFormFields">
-
-                        <label class="labelForm" for="">Titulo en Inglés</label>
-                        <input type="text" name="titleEng" id=""
-                            class="inputForm  <%= locals.errors && errors.titleEng ? 'is-invalid' : null %>"
-                            value="<%= locals.oldData ? oldData.titleEng : null %>">
-
-                        <% if (locals.errors && errors.titleEng) {%>
-                            <div class="text_errors">
-                                <%= errors.titleEng.msg %>
-                            </div>
-
-                            <% } %>
-
-                    </div>
+                 
 
                     <div class="formFields">
 

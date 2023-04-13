@@ -11,9 +11,17 @@
 <body>
 
     <% for (let i=0; i < books.length; i++) { %>
+
+        <%= books[i].id %>
+        <%= books[i].title %>
         <%= books[i].title %>
         <%= books[i].author_id %>
+        <%= books[i].category_id %>
+        <%= books[i].description %>
+        <%= books[i].stock %>
+        <%= books[i].price %>
         <%= books[i].authors.name %>
+       <img src="<%= books[i].img %>"> 
         <%= books[i].categories.category %>
             <% } %>
 

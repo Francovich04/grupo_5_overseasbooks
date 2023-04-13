@@ -40,7 +40,10 @@ let mainControllers = {
         )
             .then(function (books) {
                 res.render(path.join(__dirname, '../views/vistaPruebaAutores'), { books });
+                
+                
             })
+          
     },
 
     listCategories : (req, res) => {
@@ -80,12 +83,38 @@ let mainControllers = {
 const main = (req, res) => {
     
     let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json'));
-    let books = JSON.parse(booksJSON);
+    let books =  db.Book.findAll(
+        {
+            include: [
+                {association: "categories"},
+                {association: "authors"}
+                ],
+
+            order: [
+                ['id', "DESC"]
+            ],
+            // limit : 100
+        }
+    )
+        .then((books) => {
+            const allBooks = books.map(book => {
+                return {
+                    id : book.id,
+                    titleEsp : book.title,
+                    color : 'red',
+                    img : book.img,
+                    description : book.description,
+                    price : book.price,
+                    author : book.authors.name,
+                    category : book.categories.category
+                }
+            })
+            res.render(path.join(__dirname,'../views/home.ejs'), {
+                'allBooks': allBooks, 
+                categories: ["Best Sellers", "Science", "Fiction"]
+            });
+        })
     
-    res.render(path.join(__dirname,'../views/home.ejs'), {
-        'allBooks': books, 
-        categories: ["Best Sellers", "Science", "Fiction",]
-    });
 }
 
 
