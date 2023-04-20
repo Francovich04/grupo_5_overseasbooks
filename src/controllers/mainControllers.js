@@ -101,7 +101,7 @@ const main = (req, res) => {
                 return {
                     id : book.id,
                     titleEsp : book.title,
-                    color : 'red',
+                    color : book.color,
                     img : book.img,
                     description : book.description,
                     price : book.price,

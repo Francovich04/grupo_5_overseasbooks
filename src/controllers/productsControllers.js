@@ -267,34 +267,8 @@ let productsControllers = {
 
     },
 
-    // // BULK CREATE SEQUELIZE NO FUNCIONA AÚN
-
-    // bulkCreateSeq : (req, res) => {
-    //     Promise.all([
-    //         db.Author.findOrCreate({
-    //             where: { name: req.body.author },
-    //         }),
-    //         db.Category.findOrCreate({ where: { category: req.body.category } })
-
-    //     ])
-    //         .then(([authors, categories]) => {
-    //             // console.log(authors[0]);
-
-    //             db.Book.bulkCreate([
-    //                 {category_id: categories[0].id,author_id: authors[0].id,titleEsp:"The Secret Messenger",color : "pastelCeleste",description:"/details",author:"Mandy Robotham",category:"Best Sellers",price:"14.99",img:"/images/products//product-1676652093764_img.jpeg"},{category_id: categories[0].id,author_id: authors[0].id,titleEsp:"Babel",color : "pastelCeleste",description:"/details",author:"R. F. Kuang",category:"Best Sellers",price:"14.99",img:"/images/products/id2-babel.jpg"}
-    //             ]);
-    //         })
-    //         .then((book) => {
-    //             return res.json({ message: 'Artículos creados con éxito' });
-    //         })
-    //         .catch((error) => {
-    //             // console.log(error);
-    //             res.status(500).json({ error: 'Error al crear libro' });
-    //         })
-    //     }
-
     
-    // Vista de edición conjunta
+    // Vista de edición múltiple
 
     editViewSeq: (req, res) => {
         db.Book.findAll(
