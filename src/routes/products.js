@@ -9,29 +9,34 @@ const { create,
     database, 
     editView,
     shoppingCart,
-    buy } = require('../controllers/productsControllers');
+    buy,
+    productsControllers
+ } = require('../controllers/productsControllers');
 const multerMiddleware = require('../middlewares/multerMiddleware');
 const validations = require('../validations/allValidations');
 const authMiddleware = require('../middlewares/authMiddleware');
 const adminMiddleware = require('../middlewares/adminMiddleware');
+const { mainControllers } = require('../controllers/mainControllers');
 
 
+// Saco middlewares para probar ruta get de "create" productos (adminMiddleware,authMiddleware)
+routerProducts.get('/products/create',create);
+routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img') ,validations.productValidations,productsControllers.createBookSeq);
 
-routerProducts.get('/products/create', adminMiddleware,authMiddleware,create);
-routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img') ,validations.productValidations,addBook);
+routerProducts.get('/products/edit/', /*adminMiddleware,authMiddleware,*/ productsControllers.editViewSeq);
 
-routerProducts.get('/products/edit/', adminMiddleware,authMiddleware, editView);
-routerProducts.get('/products/edit/:id', adminMiddleware,authMiddleware, edit);
-routerProducts.put('/products/edit/:id',multerMiddleware.productsUpload.single('img'), editConfirm);
+routerProducts.get('/products/edit/:id', /*adminMiddleware,authMiddleware,*/ productsControllers.editBookSeq);
+routerProducts.post('/products/edit/:id',multerMiddleware.productsUpload.single('img'), productsControllers.updateBookSeq);
+// adminMiddleware poner middleware linea de abajo
+routerProducts.delete('/products/edit/delete/:id', productsControllers.deleteBookSeq);
 
-routerProducts.delete('/products/edit/delete/:id', adminMiddleware,deleteBook);
-
-routerProducts.get('/products/details/:id', detailsById);
+routerProducts.get('/products/details/:id', productsControllers.detailCompleto);
 
 routerProducts.get('/database',adminMiddleware, database);
 
 routerProducts.get('/products/cart', authMiddleware, shoppingCart );
 
 routerProducts.get('/products/cart/:id', authMiddleware, buy);
+
 
 module.exports = routerProducts;

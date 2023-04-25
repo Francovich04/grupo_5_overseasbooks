@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const path = require('path')
@@ -11,6 +12,7 @@ const methodOverride = require('method-override');
 const session = require('express-session')
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
 const cookies = require('cookie-parser')
+
 
 
 app.listen(port, () => console.log(`Server running in port ${port}...`));

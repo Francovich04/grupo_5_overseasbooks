@@ -10,12 +10,13 @@
             <br>
 
             <main>
-                
+                <% for (let i=0; i < books.length; i++) { %>
+                    <% if(idBook == books[i].id){ %>
                 <section>
                     <div class="contenedor">
                         <div class="columna-a-derecha">
                             <h1 class="productTitle">
-                                <%= book.titleEng %>
+                                <%= books[i].title %>
                             </h1>
                             <div class="rating">
                                 <span class="fa fa-star checked"></span>
@@ -32,7 +33,7 @@
                                     </span>
                                 </div>
                                 <div class="divImagen">
-                                    <img class="imagenProducto" src="<%= book.img %>" alt="imagen">
+                                    <img class="imagenProducto" src="<%= books[i].img %>" alt="imagen">
                                 </div>
                             </div>
 
@@ -55,7 +56,7 @@
                 <br>
                 <div class="contenedor">
                     <div class="price">
-                        <h2>$<%= book.price %></h2>
+                        <h2>$<%= books[i].price %></h2>
                     </div>
                     <div class="deliveryDate">
                         <p>
@@ -80,7 +81,7 @@
                             <form action="">
                                 <span class="cantNumero"><input type="number" min="0" max="50" value="1"></span>
                             </form>
-                            <span class="cantDisponible">(43 disponibles)</span>
+                            <span class="cantDisponible">(<%= books[i].stock %> disponibles)</span>
                         </div>
                     </div>
                     <div class="divBotonCarrito">
@@ -89,9 +90,9 @@
                         </button>
                     </div>
                     <div class="divBotonCompra">
-                            <a href="/products/cart/<%= book.id %>">
+                            <a href="/products/cart/<%= books[i].id %>">
                             <button type="submit" class="botonCompra">
-                                <a href="/products/cart/<%= book.id %>" style="text-decoration:none;color:black"><span class="botonInterior">Comprar ahora</span></a>
+                                <a href="/products/cart/<%= books[i].id %>" style="text-decoration:none;color:black"><span class="botonInterior">Comprar ahora</span></a>
                             </button>
                         </a>
                         </div>
@@ -101,6 +102,8 @@
                         <span>Compra Protegida</span>
                     </div>
                 </div>
+                <% } %>
+                <% } %>
 
          
 
@@ -112,21 +115,21 @@
                     <br>
                 </div>
 
-                
+                <!-- Colocar script carousel aquí -->
                 <div class="carousel">
                     <ol role="list" width="2310px">
-                        <% for(let i = 0; i < (allBooks.length >= 4 ? 4 : allBooks.length); i++){%>
+                        <% for(let i = 0; i < (books.length >= 4 ? 4 : books.length); i++){%>
 
                             <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
                                 <div>
-                                    <a href="/products/details/<%= allBooks[i].id %>" style="text-decoration: none; text-decoration-style: none;">
+                                    <a href="/products/details/<%= books[i].id %>" style="text-decoration: none; text-decoration-style: none;">
                                         <div>
-                                            <img src="<%= allBooks[i].img %>"
+                                            <img src="<%= books[i].img %>"
                                                 alt="" style="max-height: 150px;">
                                         </div>
                                     </a>
-                                    <a href="/products/details/<%= allBooks[i].id %>">
-                                        <div class="tituloLibro"> <%= allBooks[i].titleEng %></div>
+                                    <a href="/products/details/<%= books[i].id %>">
+                                        <div class="tituloLibro"> <%= books[i].title %></div>
                                         <div class="rating">
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
@@ -135,12 +138,11 @@
                                             <span class="fa fa-star"></span>
                                         </div>
                                         <div class="reviews">318 reviews</div>
-                                        <div class="precio">$ <%= allBooks[i].price %></div>
+                                        <div class="precio">$ <%= books[i].price %></div>
                                     </a>
                                 </div>
                             </li>
-
-                        <% } %>
+                            <% } %>
                     </ol>
                 </div> 
 
@@ -153,6 +155,7 @@
                         <div class="resumenTitulo">
                             <span>Resumen del Libro</span>
                         </div>
+                        
                         <p>
                             <span class="pNegrita">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repudiandae aspernatur
