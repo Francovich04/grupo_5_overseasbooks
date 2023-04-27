@@ -2,7 +2,7 @@ const path = require('path');
 /* const books = require('../database/libros'); */
 
 
-let db = require('../../grupo_5_overseasbooks/models');
+let db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let fs = require('fs');
