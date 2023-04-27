@@ -5,7 +5,7 @@ let fs = require('fs');
 /* let booksJSON = fs.readFileSync(path.join(__dirname,'../data/libros.json')); */
 
 
-let db = require('../../grupo_5_overseasbooks/models');
+let db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 
