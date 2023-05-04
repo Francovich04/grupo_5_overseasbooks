@@ -47,7 +47,7 @@
                               <p>Llega el viernes</p>
                           </div>            
                       </div>
-                      <h4 class="precioenvio">$500</h4>
+                      <h4 class="precioenvio">$<%= buy.shippingPrice1 %> </h4>
                   </div>
                   <div class="opcion2">
                       <div class="iconoYopcion">   
@@ -57,7 +57,7 @@
                               <p>Llega el martes</p>
                           </div>            
                       </div>
-                      <h4 class="precioenvio">$400</h4>
+                      <h4 class="precioenvio">$<%=buy.shippingPrice2 %></h4>
                   </div>
               </div>
               <h4 class="retiro"><i class="fa-solid fa-location-dot"></i></i> Retirar por</h4>
@@ -69,7 +69,7 @@
                           <p>Retiras el sabado</p>
                       </div>            
                   </div>
-                  <h4 class="precioretiro">$200</h4>
+                  <h4 class="precioretiro">$<%=buy.pickingPrice %></h4>
               </div>
           </article>
           <article>
