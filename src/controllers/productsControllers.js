@@ -296,7 +296,8 @@ let productsControllers = {
                         description : book.description,
                         price : book.price,
                         author : book.authors.name,
-                        category : book.categories.category
+                        category : book.categories.category,
+                        stock : book.stock
                     }
                 })
 
@@ -341,7 +342,8 @@ let productsControllers = {
                     author_id: authors.id,
                     price: req.body.price,
                     img: req.file.filename ? req.file.filename : '',
-                    description: req.body.productDetail
+                    description: req.body.productDetail,
+                    stock : req.body.stock
                 },
                     {
                         where: { id: req.params.id }
