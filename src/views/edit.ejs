@@ -5,7 +5,7 @@
     <body class="createBody editBody">
 
         <%- include('partials/header.ejs') %> 
-   <!--      <%- include('partials/lowerNavBar.ejs') %> -->
+        <%- include('partials/lowerNavBar.ejs') %>
 
         <main class = "mainform editMain">
 
@@ -18,18 +18,10 @@
 
                     <div class="formFields editFormFields">
                         <div class="editImageContainer">
-                        <img src="<%=edit.img %>" alt="imagen" class="editImage">
+                        <img src="/images/products/<%=edit.img %>" alt="imagen" class="editImage">
                     </div>
                         <label class="labelForm" for="">Cambiar Imagen</label>
                         <input class="inputForm inputNoBorder" type="file" name="img" id="" value="<%= edit.img %>">
-
-                    </div>
-
-                    <div class="formFields">
-
-                        <label class="labelForm" for="">ID</label>
-                        <input class="inputForm soloLectura" type="text" name="id" id="" readonly="true"
-                            value="<%= edit.id %>">
 
                     </div>
 

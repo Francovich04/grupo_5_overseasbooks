@@ -256,7 +256,7 @@ let productsControllers = {
                 });
             })
             .then((book) => {
-                res.redirect('/');
+                return res.redirect('/');
                 // return res.json({ message: 'Artículo creado con éxito' });
             })
             .catch((error) => {
@@ -349,7 +349,7 @@ let productsControllers = {
                         where: { id: req.params.id }
                     })
                     .then((book) => {
-                        return res.json({ message: 'Artículo editado con éxito' });
+                        return res.redirect("/")
                     })
                     .catch((error) => {
                         // console.log(error);
@@ -368,7 +368,7 @@ let productsControllers = {
             }
         })
             .then(resultado => {
-                return res.json({ message: 'Artículo eliminado con éxito' });
+                return res.redirect('/')
                 // res.redirect('/');
             })
             .catch(error => {
