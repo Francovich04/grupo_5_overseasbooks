@@ -2,7 +2,7 @@ const path = require('path');
 /* const books = require('../database/libros'); */
 
 
-let db = require('../../grupo_5_overseasbooks/models');
+let db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let fs = require('fs');
@@ -256,7 +256,7 @@ let productsControllers = {
                 });
             })
             .then((book) => {
-                res.redirect('/');
+                return res.redirect('/');
                 // return res.json({ message: 'Artículo creado con éxito' });
             })
             .catch((error) => {
@@ -296,7 +296,8 @@ let productsControllers = {
                         description : book.description,
                         price : book.price,
                         author : book.authors.name,
-                        category : book.categories.category
+                        category : book.categories.category,
+                        stock : book.stock
                     }
                 })
 
@@ -341,13 +342,14 @@ let productsControllers = {
                     author_id: authors.id,
                     price: req.body.price,
                     img: req.file.filename ? req.file.filename : '',
-                    description: req.body.productDetail
+                    description: req.body.productDetail,
+                    stock : req.body.stock
                 },
                     {
                         where: { id: req.params.id }
                     })
                     .then((book) => {
-                        return res.json({ message: 'Artículo editado con éxito' });
+                        return res.redirect("/")
                     })
                     .catch((error) => {
                         // console.log(error);
@@ -366,7 +368,7 @@ let productsControllers = {
             }
         })
             .then(resultado => {
-                return res.json({ message: 'Artículo eliminado con éxito' });
+                return res.redirect('/')
                 // res.redirect('/');
             })
             .catch(error => {
