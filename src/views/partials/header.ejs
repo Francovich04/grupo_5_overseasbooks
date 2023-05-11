@@ -4,10 +4,12 @@
     </div>
 
     <nav class="navBar">
-        <div class="contenedor">
-            <input class="searchBar" type="search" placeholder="Buscar...">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
+        <form class="contenedor" action="/products/search" method="POST">
+            <input name="search" class="searchBar" type="text" placeholder="Buscar...">
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
 
     </nav>
 
@@ -96,6 +98,7 @@
                     <% } %>
                         <% } %>
 
+                    <script src="/js/searchBar.js"></script>
 
 
 

@@ -22,8 +22,8 @@ module.exports = (sequelize, dataTypes) => {
         avatar : {
             type : dataTypes.STRING
         },
-        status : {
-            type : dataTypes.INTEGER
+        admin : {
+            type : dataTypes.STRING
         }
     };
 

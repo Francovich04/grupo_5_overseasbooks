@@ -205,6 +205,7 @@ const buy = (req, res) => {
 }
 
 
+
 // CRUD SEQUELIZE
 
 let productsControllers = {
@@ -231,52 +232,88 @@ let productsControllers = {
             })
     },
 
+    // CORREGIR NO FUNCIONA
+    search: (req, res) => {
+        const query = req.body.search;
+        console.log(query);
+
+        db.Book.findAll({
+            include: [
+                { association: "categories" },
+                { association: "authors" }
+            ],
+            where: {
+                title: { [Op.like]: `%${query}%` }
+            },
+            raw: true
+        }).then(function (books) {
+            console.log(books);
+            res.render(path.join(__dirname, '../views/searchBook'), { allBooks: books, categories: ['Best Sellers', 'Fiction', 'Science'] });
+        });
+    },
+
 
     // CREATE SEQUELIZE
 
     createBookSeq: (req, res) => {
-        Promise.all([
-            db.Author.findOrCreate({
-                where: { name: req.body.author },
-            }),
-            db.Category.findOrCreate({ where: { category: req.body.category } })
 
-        ])
-            .then(([authors, categories]) => {
-                // console.log(authors[0]);
+        const resultValidation = validationResult(req);
 
-                db.Book.create({
-                    title: req.body.titleEsp,
-                    category_id: categories[0].id,
-                    author_id: authors[0].id,
-                    price: req.body.price,
-                    img: req.file.filename ? req.file.filename : '',
-                    description: req.body.productDetail,
-                    color : req.body.color
+        if (resultValidation.isEmpty()) {
+            // Acá hacemos código de acceso a base de datos
+            Promise.all([
+                db.Author.findOrCreate({
+                    where: { name: req.body.author },
+                }),
+                db.Category.findOrCreate({ where: { category: req.body.category } })
+
+            ])
+                .then(([authors, categories]) => {
+                    // console.log(authors[0]);
+
+                    db.Book.create({
+                        title: req.body.titleEsp,
+                        category_id: categories[0].id,
+                        author_id: authors[0].id,
+                        price: req.body.price,
+                        img: req.file.filename ? req.file.filename : '',
+                        description: req.body.productDetail,
+                        color: req.body.color
+                    });
+                })
+                .then((book) => {
+                    return res.redirect('/');
+                    // return res.json({ message: 'Artículo creado con éxito' });
+                })
+                .catch((error) => {
+                    // console.log(error);
+                    res.status(500).json({ error: 'Error al crear libro' });
                 });
+
+        } else {
+            // Acá devolvemos los errores
+            res.render(path.join(__dirname, '../views/create.ejs'), {
+                errors: resultValidation.mapped(),
+                oldData: req.body
             })
-            .then((book) => {
-                return res.redirect('/');
-                // return res.json({ message: 'Artículo creado con éxito' });
-            })
-            .catch((error) => {
-                // console.log(error);
-                res.status(500).json({ error: 'Error al crear libro' });
-            });
+        }
+
+
+
 
 
     },
 
-    
+
     // Vista de edición múltiple
 
     editViewSeq: (req, res) => {
         db.Book.findAll(
             {
                 include: [
-                    {association: "categories"},
-                    {association: "authors"}
-                    ],
+                    { association: "categories" },
+                    { association: "authors" }
+                ],
 
                 order: [
                     ['id', "DESC"]
@@ -284,24 +321,24 @@ let productsControllers = {
                 // limit : 100
             }
         )
-        
+
             .then((books) => {
 
                 const allBooks = books.map(book => {
                     return {
-                        id : book.id,
-                        titleEsp : book.title,
-                        color : book.color,
-                        img : book.img,
-                        description : book.description,
-                        price : book.price,
-                        author : book.authors.name,
-                        category : book.categories.category,
-                        stock : book.stock
+                        id: book.id,
+                        titleEsp: book.title,
+                        color: book.color,
+                        img: book.img,
+                        description: book.description,
+                        price: book.price,
+                        author: book.authors.name,
+                        category: book.categories.category,
+                        stock: book.stock
                     }
                 })
 
-                res.render(path.join(__dirname, '../views/editView'), { 'allBooks': allBooks, categories: ["Best Sellers", "Science", "Fiction"]});
+                res.render(path.join(__dirname, '../views/editView'), { 'allBooks': allBooks, categories: ["Best Sellers", "Science", "Fiction"] });
             })
     }
     ,
@@ -343,7 +380,7 @@ let productsControllers = {
                     price: req.body.price,
                     img: req.file.filename ? req.file.filename : '',
                     description: req.body.productDetail,
-                    stock : req.body.stock
+                    stock: req.body.stock
                 },
                     {
                         where: { id: req.params.id }
