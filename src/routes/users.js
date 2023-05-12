@@ -6,7 +6,7 @@ const { login,
     processRegister,
     processLogin,
     userProfile,
-    userLogout } = require('../controllers/userControllers');
+    userLogout, userControllers } = require('../controllers/userControllers');
 const authMiddleware = require('../middlewares/authMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 // const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
@@ -21,7 +21,7 @@ routerLoginRegister.get('/user/login', guestMiddleware, login);
 routerLoginRegister.post('/user/login', validations.emailValidations, userLoggedMiddleware, processLogin);
 // routerLoginRegister.post('/user/login', validations.emailValidations, userLoggedMiddleware, processLogin);
 routerLoginRegister.get('/user/register', guestMiddleware, register);
-routerLoginRegister.post('/user/register', multerMiddleware.usersUpload.single('avatar'), validations.userValidations, processRegister);
+routerLoginRegister.post('/user/register', multerMiddleware.usersUpload.single('avatar'), validations.userValidations, userControllers.createUserSeq);
 routerLoginRegister.get('/user/passwordreset', passwordreset);
 routerLoginRegister.get('/user/profile', userProfile);
 routerLoginRegister.get('/user/logout', userLogout);

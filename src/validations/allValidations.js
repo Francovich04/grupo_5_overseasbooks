@@ -1,6 +1,8 @@
 const path = require('path');
 const { body, validationResult } = require('express-validator');
 
+
+
 const productValidations = [
     body('titleEng').notEmpty().withMessage('Escribí el titulo en Inglés'),
     body('titleEsp').notEmpty().withMessage('Escribí el titulo en Español'),
