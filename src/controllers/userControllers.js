@@ -10,12 +10,15 @@ const Op = db.Sequelize.Op;
 const login = (req, res) => {
     res.render(path.join(__dirname, '../views/login.ejs'));
 }
+
 const register = (req, res) => {
     res.render(path.join(__dirname, '../views/register.ejs'));
 }
+
 const passwordreset = (req, res) => {
     res.render(path.join(__dirname, '../views/passwordreset.ejs'));
 }
+
 const processRegister = (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
@@ -27,9 +30,6 @@ const processRegister = (req, res) => {
             oldData: req.body
         });
     }
-
-
-
 
     let userinDB = User.findByField('email', req.body.email);
 
@@ -109,69 +109,42 @@ let userControllers = {
     createUserSeq: (req, res) => {
 
         const resultValidation = validationResult(req);
-        if (resultValidation.isEmpty()) {
-            db.User.findOrCreate({
-                where: { email: req.body.email },
-            })
-                .then((users) => {
-                    // console.log(authors[0]);
-    
-                    db.User.create({
-                        first_name: req.body.nombre,
-                        last_name: req.body.apellido,
-                        email: req.body.email,
-                        password: bcryptjs.hashSync(req.body.password, 10),
-                        avatar: req.file.filename
-
-                    });
-                })
-                .then((user) => {
-                    return res.redirect('/');
-                    // return res.json({ message: 'Artículo creado con éxito' });
-                })
-                .catch((error) => {
-                    // console.log(error);
-                    res.status(500).json({ error: 'Error al crear libro' });
-                });
-        } else {
-            // Acá devolvemos los errores
-            res.render(path.join(__dirname, '../views/register.ejs'), {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })
+    if (resultValidation.errors.length > 0) {
+        if (req.file) {
+            fs.unlinkSync(path.join(__dirname, '../../public/images/avatars', req.file.filename))
         }
-
-        // Lógica de registración
-
-        let userinDB = db.User.findAll({where : { email : req.body.email }});
-
-    if (userinDB) {
         return res.render(path.join(__dirname, '../views/register.ejs'), {
-            errors: { email: { msg: 'Este email ya esta registrado' } },
+            errors: resultValidation.mapped(),
             oldData: req.body
         });
     }
-
-    let userToCreate = {
-
+    
+    
+    let userinDB = db.User.findAll({where : { email: req.body.email }})
+    
+        if (userinDB) {
+            return res.render(path.join(__dirname, '../views/register.ejs'), {
+                errors: { email: { msg: 'Este email ya esta registrado'}},
+                oldData: req.body
+            })
+        }
+    
+    db.User.create({
         first_name: req.body.nombre,
         last_name: req.body.apellido,
         email: req.body.email,
         password: bcryptjs.hashSync(req.body.password, 10),
         avatar: req.file.filename
-    }
-    let userCreated = db.User.create(userToCreate);
-
-    return res.redirect('/user/login')
+    })
+    .then((user) => {
+            return res.redirect('/user/login');
+            // return res.json({ message: 'Artículo creado con éxito' });
+        })
+        .catch((error) => {
+            // console.log(error);
+            res.status(500).json({ error: 'Error al crear usuario' });
+        });
 }
-
-
 }
-
-
-
-
-
-;
 
 module.exports = { login, register, passwordreset, processRegister, processLogin, userProfile, userLogout, userControllers };
