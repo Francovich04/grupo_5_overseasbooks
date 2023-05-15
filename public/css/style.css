@@ -1702,6 +1702,7 @@ li.carouselCard::marker {
     display: none;
     font-size: 20px;
     position: relative;
+    text-align: center;
 
 }
 
