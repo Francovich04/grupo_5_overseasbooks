@@ -1726,3 +1726,7 @@ li.carouselCard::marker {
     padding: 20px;
 
 }
+
+.errores {
+    color: red
+}

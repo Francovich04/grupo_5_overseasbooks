@@ -11,14 +11,15 @@ window.addEventListener('load', function() {
         } else {campoNombre.value.lenght < 3} {
             errores.push('El titulo del libro debe tener al menos 4 caracteres')
         }
-        console.log(errores)
+        // console.log(errores)
         if (errores.length > 0) {
             e.preventDefault();
 
-            let ulErrores = document.querySelector('div.errores ul')
+            let ulErrores = document.querySelector('.errores ul')
+            // console.log(ulErrores)
+            ulErrores.innerHTML = ''
             for (let i = 0; i < errores.length; i++) {
-                ulErrores.innerHTML += '<li>' + errores[i] + '<li>'
-                ulErrores.style.color = 'red'
+                ulErrores.innerHTML += '<li>' + errores[i] + '</li>'
             }
         }
     })
