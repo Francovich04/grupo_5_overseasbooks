@@ -1630,21 +1630,10 @@ li.carouselCard::marker {
 .imglogo {
     width: 100%;
 }
-/*   FOOTER INVISIBLE */
-#quienesSomos {
-    background-color:rgb(113, 161, 167);
-    display: none;
-    font-size: 20px;
-    position: relative;
-}
 
-#trabajaConNosotros {
 
-    background-color:rgb(129, 225, 237);
-    display: none;
-    font-size: 20px;
-    position: relative;
-
+.libroBuscado {
+    font-size: 50px;
 }
 
 #buttonHide {

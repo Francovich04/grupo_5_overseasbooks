@@ -234,8 +234,8 @@ let productsControllers = {
 
     // CORREGIR NO FUNCIONA
     search: (req, res) => {
-        const query = req.body.search;
-        // console.log(query);
+        const {search} = req.body;
+        // console.log(search, 'soy query');
 
         db.Book.findAll({
             include: [
@@ -243,12 +243,13 @@ let productsControllers = {
                 { association: "authors" }
             ],
             where: {
-                title: { [Op.like]: `%${query}%` }
+                title: { [Op.like]: `%${search}%` }
             },
             raw: true
         }).then(function (books) {
             // console.log(books);
-            res.render(path.join(__dirname, '../views/searchBook'), { allBooks: books, categories: ['Best Sellers', 'Fiction', 'Science'] });
+            res.render(path.join(__dirname, '../views/searchBook'), { books, categories: ['Best Sellers', 'Fiction', 'Science'] })
+            console.log(books)
         });
     },
 
@@ -286,8 +287,9 @@ let productsControllers = {
                     // return res.json({ message: 'Artículo creado con éxito' });
                 })
                 .catch((error) => {
-                    // console.log(error);
+                    console.log(error);
                     res.status(500).json({ error: 'Error al crear libro' });
+    
                 });
 
         } else {

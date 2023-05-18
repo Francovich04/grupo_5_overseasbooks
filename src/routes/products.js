@@ -22,7 +22,7 @@ const { mainControllers } = require('../controllers/mainControllers');
 
 // Saco middlewares para probar ruta get de "create" productos (adminMiddleware,authMiddleware)
 routerProducts.get('/products/create',create);
-routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img'), validations.productValidations,productsControllers.createBookSeq);
+routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img'), productsControllers.createBookSeq);
 routerProducts.post('/products/search',productsControllers.search);
 
 

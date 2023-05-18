@@ -10,12 +10,15 @@ const Op = db.Sequelize.Op;
 const login = (req, res) => {
     res.render(path.join(__dirname, '../views/login.ejs'));
 }
+
 const register = (req, res) => {
     res.render(path.join(__dirname, '../views/register.ejs'));
 }
+
 const passwordreset = (req, res) => {
     res.render(path.join(__dirname, '../views/passwordreset.ejs'));
 }
+
 const processRegister = (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
@@ -27,9 +30,6 @@ const processRegister = (req, res) => {
             oldData: req.body
         });
     }
-
-
-
 
     let userinDB = User.findByField('email', req.body.email);
 

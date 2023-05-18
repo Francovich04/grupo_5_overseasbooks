@@ -8,7 +8,10 @@
         <%- include('partials/lowerNavBar.ejs') %>
 
         <main class="mainform editMain">
-
+            
+            <div class="erorres">
+                <ul></ul>
+            </div>
             <h1 class="createTitle">Cargar Libro Nuevo</h1>
 
             <div class="formContainer editFormContainer">
@@ -20,7 +23,7 @@
 
                         <label class="labelForm" for="">Titulo en Español</label>
                         <input type="text" name="titleEsp" id=""
-                            class="inputForm  <%= locals.errors && errors.titleEsp ? 'is-invalid' : null %>"
+                            class="titleEsp inputForm  <%= locals.errors && errors.titleEsp ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.titleEsp : null %>">
 
                         <% if (locals.errors && errors.titleEsp) {%>
@@ -165,6 +168,8 @@
             </div>
 
         </main>
+
+        <script src="/js/validation-front.js"></script>
 
     </body>
 
