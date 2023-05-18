@@ -25,7 +25,7 @@ routerLoginRegister.get('/user/profile', userProfile);
 routerLoginRegister.get('/user/logout', userLogout);
 
 // Endpoints API
-routerLoginRegister.get('/api/users',apiEndpoints.listProducts);
+// routerLoginRegister.get('/api/users',apiEndpoints.);
 
 
 module.exports = routerLoginRegister;
