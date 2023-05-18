@@ -1631,9 +1631,21 @@ li.carouselCard::marker {
     width: 100%;
 }
 
+/*   FOOTER INVISIBLE */
+#quienesSomos {
+    background-color:rgb(113, 161, 167);
+    display: none;
+    font-size: 20px;
+    position: relative;
+}
 
-.libroBuscado {
-    font-size: 50px;
+#trabajaConNosotros {
+
+    background-color:rgb(129, 225, 237);
+    display: none;
+    font-size: 20px;
+    position: relative;
+
 }
 
 #buttonHide {
@@ -1714,6 +1726,3 @@ li.carouselCard::marker {
     padding: 20px;
 
 }
-
-/* Agrego FALOPITA */
-
