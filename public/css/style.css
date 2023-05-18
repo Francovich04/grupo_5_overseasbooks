@@ -522,7 +522,7 @@ header .userIcon {
 }
 
 .carouselContainer .carousel .card .cardTop {
-    background-color: #e6fcff;
+    background-color: #ffffff;
     height: 75px; /* esto cambia en responsive */
     position: relative;
 }
@@ -553,7 +553,7 @@ header .userIcon {
 
 .carouselContainer .carousel .card .pastelAzul {
     background-color: #8383ac;
-}
+} 
 
 .carouselContainer {
     padding-top: 40px;
