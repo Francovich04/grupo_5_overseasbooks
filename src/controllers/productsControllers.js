@@ -18,7 +18,7 @@ const { mainControllers } = require('./mainControllers');
 const create = (req, res) => {
     db.Category.findAll()
         .then((categories) => {
-            console.log(categories);
+            // console.log(categories);
             return res.render(path.join(__dirname, '../views/create.ejs'), { categories })
         })
 }
@@ -266,11 +266,11 @@ let productsControllers = {
                 db.Author.findOrCreate({
                     where: { name: req.body.author },
                 }),
-                db.Category.findOrCreate({ where: { category: req.body.category } })
+                db.Category.findOrCreate({ where: { category: req.body.category } }),
+                
 
             ])
                 .then(([authors, categories]) => {
-                    // console.log(authors[0]);
 
                     db.Book.create({
                         title: req.body.titleEsp,
@@ -299,10 +299,6 @@ let productsControllers = {
                 oldData: req.body
             })
         }
-
-
-
-
 
     },
 
@@ -399,7 +395,6 @@ let productsControllers = {
     },
 
     // DELETE SEQUELIZE
-
     deleteBookSeq: (req, res) => {
         db.Book.destroy({
             where: {
@@ -417,6 +412,26 @@ let productsControllers = {
     }
 };
 
+// API ENDPOINTS
+
+let apiEndpoints = {
+    // Listado de productos
+    listProducts : (req, res) => {
+        db.Book.findAll()
+            .then( books => {
+                return res.status(200).json({
+                    count : books.length,
+                    countByCategory : {} ,
+                    data : books,
+                    status : 200
+                })
+            })
+    },
+
+    
+
+};
+
 
 
 module.exports = {
@@ -430,5 +445,6 @@ module.exports = {
     editView,
     shoppingCart,
     buy,
-    productsControllers
+    productsControllers,
+    apiEndpoints
 };

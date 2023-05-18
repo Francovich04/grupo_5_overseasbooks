@@ -10,7 +10,8 @@ const { create,
     editView,
     shoppingCart,
     buy,
-    productsControllers
+    productsControllers,
+    apiEndpoints
  } = require('../controllers/productsControllers');
 const multerMiddleware = require('../middlewares/multerMiddleware');
 const validations = require('../validations/allValidations');
@@ -39,6 +40,10 @@ routerProducts.get('/database',adminMiddleware, database);
 routerProducts.get('/products/cart', authMiddleware, shoppingCart );
 
 routerProducts.get('/products/cart/:id', authMiddleware, buy);
+
+// Endpoints API
+routerProducts.get('/api/products',apiEndpoints.listProducts);
+
 
 
 module.exports = routerProducts;

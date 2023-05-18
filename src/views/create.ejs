@@ -109,6 +109,23 @@
 
                                     </div>
 
+                                    <!--  -->
+                                    <div class="formFields">
+
+                                        <label class="labelForm" for="">Descripción</label>
+                                        <input type="text" name="productDetail" id=""
+                                            class="inputForm  <%= locals.errors && errors.description ? 'is-invalid' : null %>"
+                                            value="<%= locals.oldData ? oldData.description : null %>">
+
+                                        <% if (locals.errors && errors.description) {%>
+                                            <div class="text_errors">
+                                                <%= errors.description.msg %>
+                                            </div>
+
+                                            <% } %>
+                                    </div>
+
+
                                     <div class="formFields">
 
                                         <label class="labelForm" for="">Precio</label>
