@@ -1630,3 +1630,8 @@ li.carouselCard::marker {
 .imglogo {
     width: 100%;
 }
+
+
+.libroBuscado {
+    font-size: 50px;
+}
