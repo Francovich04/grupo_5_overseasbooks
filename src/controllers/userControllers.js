@@ -60,7 +60,7 @@ const processLogin = (req, res) => {
     }
 
     let userToLogin = User.findByField('email', req.body.email);
-    
+
     /* return res.send(userToLogin); */
 
 
@@ -110,28 +110,33 @@ let userControllers = {
 
         const resultValidation = validationResult(req);
         if (resultValidation.isEmpty()) {
-            db.User.findOrCreate({
-                where: { email: req.body.email },
+            db.User.findAll({
+                where: { email: req.body.email }
             })
                 .then((users) => {
-                    // console.log(authors[0]);
-    
-                    db.User.create({
-                        first_name: req.body.nombre,
-                        last_name: req.body.apellido,
-                        email: req.body.email,
-                        password: bcryptjs.hashSync(req.body.password, 10),
-                        avatar: req.file.filename
 
-                    });
+                    // En caso de existir email registrado, se rechaza la promesa
+                    if (users.length > 0) {
+                        return Promise.reject('El email ya está registrado');
+                    } else {
+                        return db.User.create({
+                            first_name: req.body.nombre,
+                            last_name: req.body.apellido,
+                            email: req.body.email,
+                            password: bcryptjs.hashSync(req.body.password, 10),
+                            avatar: req.file.filename
+                        });
+                    }
                 })
                 .then((user) => {
                     return res.redirect('/');
                     // return res.json({ message: 'Artículo creado con éxito' });
                 })
                 .catch((error) => {
-                    // console.log(error);
-                    res.status(500).json({ error: 'Error al crear libro' });
+                    res.render(path.join(__dirname, '../views/register.ejs'), {
+                        errors: { email: { msg: 'Este email ya está registrado' } },
+                        oldData: req.body,
+                    });
                 });
         } else {
             // Acá devolvemos los errores
@@ -140,38 +145,50 @@ let userControllers = {
                 oldData: req.body
             })
         }
+    },
 
-        // Lógica de registración
+    // DELETE USER SEQUELIZE
+    /* Se debe utilizar con Postman */
 
-        let userinDB = db.User.findAll({where : { email : req.body.email }});
+    deleteUserSeq: (req, res) => {
+        db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(resultado => {
+                return res.status(200).json({ message: 'Usuario eliminado con éxito' });
+                // return res.redirect('/')
+            })
+            .catch(error => {
+                // console.error(error);
+                return res.status(500).json({ message: 'Internal server error' });
+            })
+    },
 
-    if (userinDB) {
-        return res.render(path.join(__dirname, '../views/register.ejs'), {
-            errors: { email: { msg: 'Este email ya esta registrado' } },
-            oldData: req.body
-        });
-    }
+            // Listado de users
+            listUsers: (req, res) => {
+                db.User.findAll()
+                    .then(users => {
+                        return res.status(200).json({
+                            count: users.length,
+                            countByCategory: {},
+                            data: users,
+                            status: 200
+                        })
+                    })
+            }
 
-    let userToCreate = {
 
-        first_name: req.body.nombre,
-        last_name: req.body.apellido,
-        email: req.body.email,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        avatar: req.file.filename
-    }
-    let userCreated = db.User.create(userToCreate);
 
-    return res.redirect('/user/login')
+
+
 }
 
 
-}
 
 
 
-
-
-;
+    ;
 
 module.exports = { login, register, passwordreset, processRegister, processLogin, userProfile, userLogout, userControllers };

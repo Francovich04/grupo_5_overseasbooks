@@ -4,12 +4,12 @@ const { body, validationResult } = require('express-validator');
 
 
 const productValidations = [
-    body('titleEng').notEmpty().withMessage('Escribí el titulo en Inglés'),
     body('titleEsp').notEmpty().withMessage('Escribí el titulo en Español'),
     body('color').notEmpty().withMessage('Selecioná un color de encabezado de tarjeta'),
     body('author').notEmpty().withMessage('Escribí un autor'),
     body('category').notEmpty().withMessage('Seleciona una categoría'),
     body('price').notEmpty().withMessage('Escribí un precio válido'),
+    body('productDetail').notEmpty().withMessage('Escribí una descripción válida'),
      body('img').custom((value, { req }) => {
         let file = req.file;
         let validExtensions = ['.jpg', '.jpeg', '.png'];
