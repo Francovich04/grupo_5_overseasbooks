@@ -9,14 +9,14 @@
 
         <main class="mainform editMain">
             
-            <div class="errores">
-                <ul></ul>
-            </div>
             <h1 class="createTitle">Cargar Libro Nuevo</h1>
-
+            
             <div class="formContainer editFormContainer">
                 <form method="POST" action="/products/create" class="formulario-crear" enctype="multipart/form-data">
-
+                    
+                    <div class="errores">
+                        <ul></ul>
+                    </div>
                  
 
                     <div class="formFields">
@@ -38,7 +38,7 @@
 
                         <label class="labelForm" for="">Color de Encabezado</label>
                         <select name="color"
-                            class="inputForm  <%= locals.errors && errors.color ? 'is-invalid' : null %>"
+                            class="color inputForm  <%= locals.errors && errors.color ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.color : null %>">
 
                             <option value="">Elegi un color de tarjeta</option>
@@ -70,7 +70,7 @@
 
                                 <label class="labelForm" for="">Autor/a</label>
                                 <input type="text" name="author" id=""
-                                    class="inputForm  <%= locals.errors && errors.author ? 'is-invalid' : null %>"
+                                    class="autor inputForm  <%= locals.errors && errors.author ? 'is-invalid' : null %>"
                                     value="<%= locals.oldData ? oldData.author : null %>">
 
                                 <% if (locals.errors && errors.author) {%>
@@ -85,7 +85,7 @@
 
                                 <label class="labelForm" for="">Categoria</label>
                                 <select name="category"
-                                    class="inputForm  <%= locals.errors && errors.category ? 'is-invalid' : null %>"
+                                    class="categoria inputForm  <%= locals.errors && errors.category ? 'is-invalid' : null %>"
                                     value="<%= locals.oldData ? oldData.category : null %>">
 
                                     <option value="">Elegi una categoría</option>
@@ -114,12 +114,12 @@
 
                                         <label class="labelForm" for="">Descripción</label>
                                         <input type="text" name="productDetail" id=""
-                                            class="inputForm  <%= locals.errors && errors.description ? 'is-invalid' : null %>"
-                                            value="<%= locals.oldData ? oldData.description : null %>">
+                                            class="descripcion inputForm  <%= locals.errors && errors.productDetail ? 'is-invalid' : null %>"
+                                            value="<%= locals.oldData ? oldData.productDetail : null %>">
 
-                                        <% if (locals.errors && errors.description) {%>
+                                        <% if (locals.errors && errors.productDetail) {%>
                                             <div class="text_errors">
-                                                <%= errors.description.msg %>
+                                                <%= errors.productDetail.msg %>
                                             </div>
 
                                             <% } %>
@@ -130,7 +130,7 @@
 
                                         <label class="labelForm" for="">Precio</label>
                                         <input type="number" name="price" id=""
-                                            class="inputForm  <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+                                            class="precio inputForm  <%= locals.errors && errors.price ? 'is-invalid' : null %>"
                                             value="<%= locals.oldData ? oldData.price : null %>">
 
                                         <% if (locals.errors && errors.price) {%>
@@ -169,7 +169,7 @@
 
         </main>
 
-        <!-- <script src="/js/validation-front.js"></script> -->
+        <script src="/js/validationcreate-front.js"></script>
 
     </body>
 

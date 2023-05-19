@@ -376,7 +376,7 @@ let productsControllers = {
                     category_id: categories.id,
                     author_id: authors.id,
                     price: req.body.price,
-                    img: req.file.filename ? req.file.filename : '',
+                    img: req.file ? req.file.filename : '',
                     description: req.body.productDetail,
                     stock: req.body.stock
                 },

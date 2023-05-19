@@ -1,17 +1,20 @@
 window.addEventListener('load', function() {
-    let formulario = document.querySelector('form.formulario-crear')
+    let formulario = document.querySelector('form.formulario')
 
     formulario.addEventListener('submit', function (e) {
         
         let errores = []
         
-        let campoNombre = document.querySelector('input.titleEsp')
-        if(campoNombre.value == '') {
-            errores.push('Debes escribir un titulo del libro')
-        } else {campoNombre.value.lenght < 3} {
-            errores.push('El titulo del libro debe tener al menos 4 caracteres')
+        let campoEmail = document.querySelector('input.mail')
+        if (campoEmail.value == '') {
+            errores.push('Debes escribir tu mail')
         }
-        // console.log(errores)
+
+        let campoPassword = document.querySelector('input.password')
+        if (campoPassword.value == '') {
+            errores.push('Debes escribir tu contraseña')
+        }
+        console.log(errores)
         if (errores.length > 0) {
             e.preventDefault();
 

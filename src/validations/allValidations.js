@@ -1,8 +1,6 @@
 const path = require('path');
 const { body, validationResult } = require('express-validator');
 
-
-
 const productValidations = [
     body('titleEsp').notEmpty().withMessage('Escribí el titulo en Español'),
     body('color').notEmpty().withMessage('Selecioná un color de encabezado de tarjeta'),
@@ -60,5 +58,4 @@ module.exports = {
     productValidations,
     userValidations,
     emailValidations,
-    eval
 }

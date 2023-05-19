@@ -146,7 +146,6 @@ let userControllers = {
             })
         }
     },
-
     // DELETE USER SEQUELIZE
     /* Se debe utilizar con Postman */
 
@@ -178,17 +177,6 @@ let userControllers = {
                         })
                     })
             }
-
-
-
-
-
-}
-
-
-
-
-
-    ;
+        }
 
 module.exports = { login, register, passwordreset, processRegister, processLogin, userProfile, userLogout, userControllers };

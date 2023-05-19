@@ -20,21 +20,21 @@ const { mainControllers } = require('../controllers/mainControllers');
 
 
 // Saco middlewares para probar ruta get de "create" productos (adminMiddleware,authMiddleware)
-routerProducts.get('/products/create',create);
-routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img'), validations.productValidations,productsControllers.createBookSeq);
+routerProducts.get('/products/create', adminMiddleware, authMiddleware, create);
+routerProducts.post('/products/create',multerMiddleware.productsUpload.single('img'), validations.productValidations, productsControllers.createBookSeq);
 routerProducts.post('/products/search',productsControllers.search);
 
 
-routerProducts.get('/products/edit/', /*adminMiddleware,authMiddleware,*/ productsControllers.editViewSeq);
+routerProducts.get('/products/edit/', adminMiddleware,authMiddleware, productsControllers.editViewSeq);
 
-routerProducts.get('/products/edit/:id', /*adminMiddleware,authMiddleware,*/ productsControllers.editBookSeq);
-routerProducts.post('/products/edit/:id',multerMiddleware.productsUpload.single('img'), productsControllers.updateBookSeq);
+routerProducts.get('/products/edit/:id', adminMiddleware, authMiddleware, productsControllers.editBookSeq);
+routerProducts.post('/products/edit/:id', multerMiddleware.productsUpload.single('img'), productsControllers.updateBookSeq);
 // adminMiddleware poner middleware linea de abajo
-routerProducts.delete('/products/edit/delete/:id', productsControllers.deleteBookSeq);
+routerProducts.delete('/products/edit/delete/:id', adminMiddleware, authMiddleware, productsControllers.deleteBookSeq);
 
 routerProducts.get('/products/details/:id', productsControllers.detailCompleto);
 
-routerProducts.get('/database',adminMiddleware, database);
+routerProducts.get('/database', adminMiddleware, database);
 
 routerProducts.get('/products/cart', authMiddleware, shoppingCart );
 
