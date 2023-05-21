@@ -1728,5 +1728,11 @@ li.carouselCard::marker {
 }
 
 .errores {
-    color: red
+    color: red;
+}
+
+#libroBuscado {
+    padding: 30px;
+    font-size: 30px;
+   
 }

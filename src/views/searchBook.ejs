@@ -12,9 +12,22 @@
                 <%- include('partials/banner.ejs') %>
 
                     <main>
-                        <div class="libroBuscado">
-                        <%= books[0].title %><br>
-                        <%= books[0].price %>
+                        <div id="libroBuscado">
+                            
+
+                                <% if (books.length > 0 && books[0].title) { %>
+                                    
+                                    
+                                      <a href="/products/details/<%=books[0].id %>"> <%= books[0].title %><br></a>  
+                                           
+                                    
+                                    <% } else { %>
+
+                                        <p style="color:red;">Oops, Libro no encontrado</p>
+
+                                                    <% } %>
+                                    
+                             
                         </div>
                     </main>
 
