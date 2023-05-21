@@ -11,7 +11,7 @@ window.addEventListener('load', function() {
         }
 
         let campoColor = document.querySelector('select.color')
-        if (campoColor == null) {
+        if (campoColor.value === '') {
             errores.push('Debes seleccionar un color de encabezado')
         }
 
@@ -21,7 +21,7 @@ window.addEventListener('load', function() {
         }
 
         let campoCategoria = document.querySelector('select.categoria')
-        if (campoCategoria.value == null) {
+        if (campoCategoria.value === '') {
             errores.push('Debes seleccionar una categoria')
         }
 
@@ -33,6 +33,11 @@ window.addEventListener('load', function() {
         let campoPrecio = document.querySelector('input.precio')
         if (campoPrecio.value == '') {
             errores.push('Debes escribir un precio del libro')
+        }
+
+        let campoImg = document.querySelector('input.img')
+        if (campoImg.value === '') {
+            errores.push('Debes seleccionar una imagen')
         }
         // console.log(errores)
         if (errores.length > 0) {

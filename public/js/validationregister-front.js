@@ -25,10 +25,10 @@ window.addEventListener('load', function() {
             errores.push('Debes escribir tu contraseña')
         }
 
-        // let campoImg = document.querySelector('input.img')
-        // if (campoImg.value == null) {
-        //     errores.push('Debes escribir tu nombre')
-        // }
+        let campoImg = document.querySelector('input.img')
+        if (campoImg.value === '') {
+            errores.push('Debes seleccionar una imagen')
+        }
         if (errores.length > 0) {
             e.preventDefault();
 
