@@ -52,7 +52,7 @@ const processRegister = (req, res) => {
 const processLogin = (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
-        console.log(resultValidation.errors)
+        // console.log(resultValidation.errors)
         return res.render(path.join(__dirname, '../views/login.ejs'), {
             errors: resultValidation.mapped(),
             oldData: req.body
@@ -167,7 +167,7 @@ let userControllers = {
     },
 
             // Listado de users
-            listUsers: (req, res) => {
+            listUsersAPI: (req, res) => {
                 db.User.findAll()
                     .then(users => {
                         return res.status(200).json({
@@ -177,8 +177,18 @@ let userControllers = {
                             status: 200
                         })
                     })
-            }
+            },
 
+            // User details
+            listUserDetailAPI: (req, res) => {
+                db.User.findByPk(req.params.id)
+                    .then(user => {
+                        return res.status(200).json({
+                            data: user,
+                            status: 200
+                        })
+                    })
+            },
 
 
 

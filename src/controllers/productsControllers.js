@@ -249,7 +249,7 @@ let productsControllers = {
         }).then(function (books) {
             // console.log(books);
             res.render(path.join(__dirname, '../views/searchBook'), { books, categories: ['Best Sellers', 'Fiction', 'Science'] })
-            console.log(books)
+
         });
     },
 
@@ -277,7 +277,7 @@ let productsControllers = {
                         category_id: categories[0].id,
                         author_id: authors[0].id,
                         price: req.body.price,
-                        img: req.file.filename ? req.file.filename : '',
+                        img: req.file ? req.file.filename : '',
                         description: req.body.productDetail,
                         color: req.body.color
                     });
@@ -287,7 +287,7 @@ let productsControllers = {
                     // return res.json({ message: 'Artículo creado con éxito' });
                 })
                 .catch((error) => {
-                    console.log(error);
+                    // console.log(error);
                     res.status(500).json({ error: 'Error al crear libro' });
     
                 });
@@ -376,7 +376,7 @@ let productsControllers = {
                     category_id: categories.id,
                     author_id: authors.id,
                     price: req.body.price,
-                    img: req.file.filename ? req.file.filename : '',
+                    img: req.file ? req.file.filename : '',
                     description: req.body.productDetail,
                     stock: req.body.stock
                 },
@@ -428,6 +428,43 @@ let apiEndpoints = {
             })
     },
 
+    // Product detail
+    listProductDetail : (req, res) => {
+        db.Book.findByPk(req.params.id)
+            .then( book => {
+                return res.status(200).json({
+                    data : book,
+                    status : 200
+                })
+            })
+    },
+
+    // Product Search
+    productSearch : (req, res) => {
+        db.Book.findAll({
+            where : {
+                title : {
+                    [Op.like] : '%' + req.query.keyword + '%'
+                }
+            }
+        })
+        .then(books => {
+            if (books.length === 0) {
+                return res.status(404).json({ message: "No se encontraron libros con ese título" });
+            }
+            
+            return res.status(200).json(books);
+        })
+        .catch(error => {
+            console.error("Error en la búsqueda de productos:", error);
+            return res.status(500).json({ message: "Error en el servidor" });
+        });
+    }
+    
+    
+    
+    
+    
     
 
 };

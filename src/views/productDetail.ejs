@@ -66,7 +66,7 @@
                     <div class="deliveryDate">
                         <p>
                             <i class="fa-solid fa-truck"></i>
-                            Llega el <strong>Miércoles, 11 de Enero</strong>
+                            Llega el <strong>Lunes, 29 de Mayo</strong>
                         </p>
                     </div>
                     <div class="deliveryLocation">
@@ -76,7 +76,7 @@
                         </p>
                     </div>
                     <div class="stockDisponible">
-                        <p>
+                        <p class=<%= books[i].stock > 0 ? 'stockDisponibleP' : 'outOfStockP' %>>
                             Stock Disponible
                         </p>
                     </div>
@@ -84,9 +84,11 @@
                         <span class="cantidadTexto">Cantidad:</span>
                         <div class="divCantidad">
                             <form action="">
-                                <span class="cantNumero"><input type="number" min="0" max="50" value="1"></span>
+                                <span class="cantNumero"><input type="number" min="0" max="500" value="1"></span>
                             </form>
-                            <span class="cantDisponible">(<%= books[i].stock %> disponibles)</span>
+                            <div class="divCantidadArticulosDisponibles">
+                                <span class=<%= books[i].stock > 0 ? 'cantDisponible' : 'sinArticulosDisponibles' %>>(<%= books[i].stock %> disponibles)</span>
+                            </div>
                         </div>
                     </div>
                     <div class="divBotonCarrito">
@@ -94,7 +96,7 @@
                             <span class="botonCarritoInterior">Añadir al carrito</span>
                         </button>
                     </div>
-                    <div class="divBotonCompra">
+                    <div class="divBotonCompra" <% if (books[i].stock < 1) { %> onclick="event.preventDefault(); alert('No hay stock disponible');" <% } %> >
                             <a href="/products/cart/<%= books[i].id %>">
                             <button type="submit" class="botonCompra">
                                 <a href="/products/cart/<%= books[i].id %>" style="text-decoration:none;color:black"><span class="botonInterior">Comprar ahora</span></a>
@@ -171,6 +173,7 @@
                 </div>
 
                 <script src="/js/js-footer.js"></script>
+                <script src="/js/js-productDetail.js"></script>
                
 </body>
 

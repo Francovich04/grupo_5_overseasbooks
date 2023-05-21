@@ -43,6 +43,8 @@ routerProducts.get('/products/cart/:id', authMiddleware, buy);
 
 // Endpoints API
 routerProducts.get('/api/products',apiEndpoints.listProducts);
+routerProducts.get('/api/products/:id',apiEndpoints.listProductDetail);
+// routerProducts.get('/api/products/search',apiEndpoints.productSearch);
 
 
 
