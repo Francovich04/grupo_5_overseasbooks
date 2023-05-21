@@ -146,7 +146,6 @@ let userControllers = {
             })
         }
     },
-
     // DELETE USER SEQUELIZE
     /* Se debe utilizar con Postman */
 

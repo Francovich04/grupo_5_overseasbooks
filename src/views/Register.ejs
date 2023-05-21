@@ -5,13 +5,17 @@
 <body class="body-login">
     <%- include('partials/header.ejs') %>
  <form class="formulario" method="POST" action="/user/register" enctype="multipart/form-data">
-    
-    <h1 class="h1-login">Registrate</h1>
+
+     <h1 class="h1-login">Registrate</h1>
      <div class="contenedor">
-     
+         
+         <div class="errores">
+             <ul></ul>
+         </div>
+         
      <div class="input-contenedor">
         <i class="fas fa-user icon"></i>
-        <input class="input-register" type="text" placeholder="Nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+        <input class="nombre input-register" type="text" placeholder="Nombre" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
     </div>
         <% if (locals.errors && errors.nombre) { %>
             <div class="text-danger">
@@ -21,7 +25,7 @@
 
     <div class="input-contenedor">
         <i class="fas fa-user icon"></i>
-        <input class="input-register" type="text" placeholder="Apellido" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
+        <input class="apellido input-register" type="text" placeholder="Apellido" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
     </div>
     <% if (locals.errors && errors.apellido) { %>
         <div class="text-danger">
@@ -31,7 +35,7 @@
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input class="input-register" type="text" placeholder="Correo Electronico" name="email" value="<%= locals.oldData ? oldData.email : null %>">
+         <input class="mail input-register" type="text" placeholder="Correo Electronico" name="email" value="<%= locals.oldData ? oldData.email : null %>">
          </div>
          <% if (locals.errors && errors.email) { %>
             <div class="text-danger">
@@ -41,7 +45,7 @@
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input class="input-register" type="password" placeholder="Contraseña" name="password">
+         <input class="password input-register" type="password" placeholder="Contraseña" name="password">
          </div>
          <% if (locals.errors && errors.password) { %>
             <div class="text-danger">
@@ -51,7 +55,7 @@
 
          <div class="input-contenedor">
             <i class="fa-solid fa-image icon"></i>
-             <input class="input-register" type="file" placeholder="imagen" name="avatar" value="<%= locals.oldData ? oldData.avatar : null %>">
+             <input class="img input-register" type="file" placeholder="imagen" name="avatar" value="<%= locals.oldData ? oldData.avatar : null %>">
          </div>
 
          <% if (locals.errors && errors.avatar) { %>
@@ -78,7 +82,6 @@
         <%- include('partials/terminos.ejs') %>
         <%- include('partials/cookies.ejs') %>
     </div>
-
     <script src="/js/js-footer.js"></script>
 </body>
 </html>
