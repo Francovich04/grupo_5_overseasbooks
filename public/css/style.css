@@ -1732,3 +1732,9 @@ li.carouselCard::marker {
     color: red;
     padding: 15px
 }
+
+#libroBuscado {
+    padding: 30px;
+    font-size: 30px;
+   
+}
