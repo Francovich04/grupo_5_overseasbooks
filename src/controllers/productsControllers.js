@@ -377,7 +377,7 @@ let productsControllers = {
                     author_id: authors.id,
                     price: req.body.price,
                     img: req.file ? req.file.filename : '',
-                    description: req.body.productDetail,
+                    description: req.body.description,
                     stock: req.body.stock
                 },
                     {

@@ -155,6 +155,20 @@
                                             <% } %>
 
                                     </div>
+                                    <div class="formFields">
+
+<label class="labelForm" for="">Stock</label>
+<input type="number" name="stock" id=""
+    class="precio inputForm  <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
+    value="<%= locals.oldData ? oldData.stock : null %>">
+
+<% if (locals.errors && errors.stock) {%>
+    <div class="text_errors">
+        <%= errors.stock.msg %>
+    </div>
+
+    <% } %>
+</div>
                                     <div class="buttonFormContainer">
                                         <button class="buttonForm" type="submit">Submit</button>
                                         <button class="buttonForm" type="reset">Reset</button>
