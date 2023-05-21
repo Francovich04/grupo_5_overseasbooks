@@ -27,7 +27,8 @@ const productValidations = [
         }
 
         return true;
-    }) 
+    }),
+    body('stock').notEmpty().withMessage('Escribí un stock valido')
 ]
 
 const userValidations = [

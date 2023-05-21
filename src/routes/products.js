@@ -10,7 +10,8 @@ const { create,
     editView,
     shoppingCart,
     buy,
-    productsControllers
+    productsControllers,
+    apiEndpoints
  } = require('../controllers/productsControllers');
 const multerMiddleware = require('../middlewares/multerMiddleware');
 const validations = require('../validations/allValidations');
