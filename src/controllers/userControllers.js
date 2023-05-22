@@ -165,30 +165,63 @@ let userControllers = {
             })
     },
 
-            // Listado de users
-            listUsersAPI: (req, res) => {
-                db.User.findAll()
-                    .then(users => {
-                        return res.status(200).json({
-                            count: users.length,
-                            countByCategory: {},
-                            data: users,
-                            status: 200
-                        })
-                    })
-            },
+    // Listado de users
+    listUsersAPI: (req, res) => {
+        db.User.findAll({
+            attributes: { exclude: ['password'] } // Excluir el atributo 'password'
+        }
+        )
+            .then(users => {
+                return res.status(200).json({
+                    count: users.length,
+                    countByCategory: {},
+                    data: users,
+                    status: 200
+                })
+            })
+    },
 
-            // User details
-            listUserDetailAPI: (req, res) => {
-                db.User.findByPk(req.params.id)
-                    .then(user => {
-                        return res.status(200).json({
-                            data: user,
-                            status: 200
-                        })
-                    })
-            },
+    // User details
+    listUserDetailAPI: (req, res) => {
+        db.User.findByPk(req.params.id, {
+            attributes: { exclude: ['password'] } // Excluir el atributo 'password'
+        })
+            .then(user => {
+                return res.status(200).json({
+                    data: user,
+                    status: 200
+                })
+            })
+    },
 
+    // User search
+
+    userSearchAPI: (req, res) => {
+        const { search } = req.query;
+        // console.log(search, 'soy query');
+
+        db.User.findAll({
+            where: {
+                [Op.or]: [
+                    { first_name: { [Op.like]: `%${search}%` } },
+                    { last_name: { [Op.like]: `%${search}%` } }
+                ]
+            },
+            attributes: { exclude: ['password'] } // Excluir el atributo 'password'
+
+        }).then(function (users) {
+            if (users.length == 0) {
+                // No se encontraron usuarios con ese nombre
+                return res.status(404).json({ message: "No se encontraron usuarios con ese nombre" });
+            }
+            // Se encontraron usuarios con ese nombre
+            return res.status(200).json(users);
+        }).catch(error => {
+            console.error("Error en la búsqueda de usuarios:", error);
+            return res.status(500).json({ message: "Error en el servidor" });
+        });
+
+    }
 
 
 

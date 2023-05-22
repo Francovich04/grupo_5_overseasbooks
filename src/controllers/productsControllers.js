@@ -212,29 +212,47 @@ let productsControllers = {
 
     // Vista Product Detail
 
+
     detailCompleto: (req, res) => {
         let idBook = req.params.id;
-        db.Book.findAll(
-            {
-                include: [
-                    { association: "categories" },
-                    { association: "authors" }
-                ],
-
-                order: [
-                    ['id', "DESC"]
-                ],
-                // limit : 100
-            }
-        )
-            .then(function (books) {
-                res.render(path.join(__dirname, '../views/productDetail'), { books, idBook });
+        db.Book.findByPk(idBook, {
+            include: [
+                { association: "categories" },
+                { association: "authors" }
+            ]
+        })
+            .then(function (currentBook) {
+                if (!currentBook) {
+                    // Manejo del caso en que no se encuentra el libro actual
+                    return res.status(404).send("Libro no encontrado");
+                }
+                db.Book.findAll({
+                    where: {
+                        id: {
+                            [Op.ne]: currentBook.id // Excluir el libro actual
+                        },
+                        category_id: currentBook.category_id // Filtrar por la misma categoría
+                    },
+                    include: [
+                        { association: "categories" },
+                        { association: "authors" }
+                    ],
+                    limit: 4 // Limitar a 4 resultados
+                })
+                    .then(function (relatedBooks) {
+                        res.render(path.join(__dirname, '../views/productDetail'), { currentBook, relatedBooks, idBook });
+                    });
             })
+            .catch(function (error) {
+                // Manejo del error en la consulta del libro actual
+                console.error(error);
+                res.status(500).send("Error al obtener los detalles del libro");
+            });
     },
-
+   
     // CORREGIR NO FUNCIONA
     search: (req, res) => {
-        const {search} = req.body;
+        const { search } = req.body;
         // console.log(search, 'soy query');
 
         db.Book.findAll({
@@ -267,7 +285,7 @@ let productsControllers = {
                     where: { name: req.body.author },
                 }),
                 db.Category.findOrCreate({ where: { category: req.body.category } }),
-                
+
 
             ])
                 .then(([authors, categories]) => {
@@ -289,7 +307,7 @@ let productsControllers = {
                 .catch((error) => {
                     // console.log(error);
                     res.status(500).json({ error: 'Error al crear libro' });
-    
+
                 });
 
         } else {
@@ -416,56 +434,68 @@ let productsControllers = {
 
 let apiEndpoints = {
     // Listado de productos
-    listProducts : (req, res) => {
-        db.Book.findAll()
-            .then( books => {
+    listProductsAPI: (req, res) => {
+        db.Book.findAll({
+            include: [
+                { association: "categories" },
+                { association: "authors" }
+            ]
+        })
+            .then(books => {
                 return res.status(200).json({
-                    count : books.length,
-                    countByCategory : {} ,
-                    data : books,
-                    status : 200
-                })
+                    count: books.length,
+                    countByCategory: {},
+                    data: books,
+                    status: 200
+                })  
             })
     },
 
     // Product detail
-    listProductDetail : (req, res) => {
+    listProductDetailAPI: (req, res) => {
         db.Book.findByPk(req.params.id)
-            .then( book => {
+            .then(book => {
                 return res.status(200).json({
-                    data : book,
-                    status : 200
+                    data: book,
+                    status: 200
                 })
             })
     },
 
     // Product Search
-    productSearch : (req, res) => {
+
+    productSearchAPI: (req, res) => {
+        const { search } = req.query;
+        // console.log(search, 'soy query');
+
         db.Book.findAll({
-            where : {
-                title : {
-                    [Op.like] : '%' + req.query.keyword + '%'
-                }
+            include: [
+                { association: "categories" },
+                { association: "authors" }
+            ],
+            where: {
+                title: { [Op.like]: `%${search}%` }
             }
-        })
-        .then(books => {
-            if (books.length === 0) {
+        }).then(function (books) {
+            if (books.length == 0) {
                 return res.status(404).json({ message: "No se encontraron libros con ese título" });
             }
-            
+
             return res.status(200).json(books);
+
         })
         .catch(error => {
             console.error("Error en la búsqueda de productos:", error);
             return res.status(500).json({ message: "Error en el servidor" });
         });
     }
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 
 };
 
