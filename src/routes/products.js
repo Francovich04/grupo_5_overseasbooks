@@ -42,9 +42,9 @@ routerProducts.get('/products/cart', authMiddleware, shoppingCart );
 routerProducts.get('/products/cart/:id', authMiddleware, buy);
 
 // Endpoints API
-routerProducts.get('/api/products',apiEndpoints.listProducts);
-routerProducts.get('/api/products/:id',apiEndpoints.listProductDetail);
-// routerProducts.get('/api/products/search',apiEndpoints.productSearch);
+routerProducts.get('/api/products',apiEndpoints.listProductsAPI);
+routerProducts.get('/api/products/searchProduct',apiEndpoints.productSearchAPI);
+routerProducts.get('/api/products/:id',apiEndpoints.listProductDetailAPI);
 
 
 

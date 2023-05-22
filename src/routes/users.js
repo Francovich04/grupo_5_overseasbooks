@@ -26,6 +26,7 @@ routerLoginRegister.get('/user/logout', userLogout);
 
 // Endpoints API
 routerLoginRegister.get('/api/users',userControllers.listUsersAPI);
+routerLoginRegister.get('/api/users/searchUser',userControllers.userSearchAPI);
 routerLoginRegister.get('/api/users/:id',userControllers.listUserDetailAPI);
 
 

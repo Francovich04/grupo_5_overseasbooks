@@ -5,176 +5,170 @@
 
 <body class="body">
     <%- include('partials/header.ejs') %>
-         <%- include('partials/lowerNavBar.ejs') %> 
-            <br>
-            <br>
+    <%- include('partials/lowerNavBar.ejs') %> 
+    <br>
+    <br>
 
-            <main>
-                <% for (let i=0; i < books.length; i++) { %>
-                    <% if(idBook == books[i].id){ %>
-                <section>
-                    <div class="contenedor">
-                        <div class="columna-a-derecha">
-                            <h1 class="productTitle">
-                                <%= books[i].title %>
-                            </h1>
-                            <div class="rating">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span>(99)</span>
+    <main>
+        
+        <section>
+            <div class="contenedor">
+                <div class="columna-a-derecha">
+                    <h1 class="productTitle">
+                        <%= currentBook.title %>
+                    </h1>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span>(99)</span>
+                    </div>
+                    <div class="columna-a-izquierda">
+                        <div class="compartirIcono">
+                            <span class="material-symbols-outlined">
+                                share
+                            </span>
+                        </div>
+                        <div class="divImagen">
+                            <img class="imagenProducto" src="/images/products/<%= currentBook.img %>" alt="imagen">
+                        </div>
+                    </div>
+
+
+                    <div class="cajaResumen">
+
+                        <section class="resumenLibro">
+                            <div class="resumenTitulo">
+                                <span>Resumen del Libro</span>
                             </div>
-                            <div class="columna-a-izquierda">
-                                <div class="compartirIcono">
-                                    <span class="material-symbols-outlined">
-                                        share
-                                    </span>
-                                </div>
-                                <div class="divImagen">
-                                    <img class="imagenProducto" src="/images/products/<%= books[i].img %>" alt="imagen">
-                                </div>
-                            </div>
+                            
+                            <p>
+                                <span class="pNegrita">
+                                    <%= currentBook.description %>
+                                </span>
+                            </p>
 
-
-                            <div class="cajaResumen">
-
-                                <section class="resumenLibro">
-                                    <div class="resumenTitulo">
-                                        <span>Resumen del Libro</span>
-                                    </div>
-                                    
-                                    <p>
-                                        <span class="pNegrita">
-                                            <%= books[i].description %>
-                                        </span>
-                                    </p>
-
-                                </section>
-                                <br>
-                            </div>
                         </section>
-                       
-                <br>
-                <div class="line"></div>
-                <br>
-                <div class="contenedor">
-                    <div class="price">
-                        <h2>$<%= books[i].price %></h2>
+                        <br>
                     </div>
-                    <div class="deliveryDate">
-                        <p>
-                            <i class="fa-solid fa-truck"></i>
-                            Llega el <strong>Lunes, 29 de Mayo</strong>
-                        </p>
+                </section>
+                
+        <br>
+        <div class="line"></div>
+        <br>
+        <div class="contenedor">
+            <div class="price">
+                <h2>$<%= currentBook.price %></h2>
+            </div>
+            <div class="deliveryDate">
+                <p>
+                    <i class="fa-solid fa-truck"></i>
+                    Llega el <strong>Lunes, 29 de Mayo</strong>
+                </p>
+            </div>
+            <div class="deliveryLocation">
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Enviar a Buenos Aires, Argentina
+                </p>
+            </div>
+            <div class="stockDisponible">
+                <p class=<%= currentBook.stock > 0 ? 'stockDisponibleP' : 'outOfStockP' %>>
+                    Stock Disponible
+                </p>
+            </div>
+            <div class="cantidad">
+                <span class="cantidadTexto">Cantidad:</span>
+                <div class="divCantidad">
+                    <form action="">
+                        <span class="cantNumero"><input type="number" min="0" max="<%= currentBook.stock %>" value="1" ></span>
+                    </form>
+                    <div class="divCantidadArticulosDisponibles">
+                        <span class=<%= currentBook.stock > 0 ? 'cantDisponible' : 'sinArticulosDisponibles' %>>(<%= currentBook.stock %> disponibles)</span>
                     </div>
-                    <div class="deliveryLocation">
-                        <p>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Enviar a Buenos Aires, Argentina
-                        </p>
-                    </div>
-                    <div class="stockDisponible">
-                        <p class=<%= books[i].stock > 0 ? 'stockDisponibleP' : 'outOfStockP' %>>
-                            Stock Disponible
-                        </p>
-                    </div>
-                    <div class="cantidad">
-                        <span class="cantidadTexto">Cantidad:</span>
-                        <div class="divCantidad">
-                            <form action="">
-                                <span class="cantNumero"><input type="number" min="0" max="<%= books[i].stock %>" value="1" ></span>
-                            </form>
-                            <div class="divCantidadArticulosDisponibles">
-                                <span class=<%= books[i].stock > 0 ? 'cantDisponible' : 'sinArticulosDisponibles' %>>(<%= books[i].stock %> disponibles)</span>
+                </div>
+            </div>
+            <div class="divBotonCarrito">
+                <button type="submit" class="botonCarrito">
+                    <span class="botonCarritoInterior">Añadir al carrito</span>
+                </button>
+            </div>
+            <div class="divBotonCompra" data-stock="<%= currentBook.stock %>" <% if (currentBook.stock < 1 ) { %> onclick="event.preventDefault(); alert('No hay stock disponible');" <% } %> >
+                <a href="/products/cart/<%= currentBook.id %>">
+                    <button type="submit" class="botonCompra">
+                        <a href="/products/cart/<%= currentBook.id %>" style="text-decoration:none;color:black"><span class="botonInterior">Comprar ahora</span></a>
+                    </button>
+                </a>
+            </div>
+            <br>
+            <div class="transaccionSegura">
+                <i class="fa-solid fa-lock"></i>
+                <span>Compra Protegida</span>
+            </div>
+        </div>
+      
+
+        <!-- Haciendo carousel de libros recomendados -->
+
+        <div class="contenedor">
+            <h2>Libros que podrían gustarte</h2>
+            <br>
+        </div>
+
+        <!-- Colocar script carousel aquí -->
+        <div class="carousel">
+            <ol role="list" width="2310px">
+                <% for (let i = 0; i < (relatedBooks.length >= 4 ? 4 : relatedBooks.length); i++) {
+                    if (relatedBooks[i].id != currentBook.id && relatedBooks[i].category == currentBook.category) { %>
+                        <!-- Verifica que el libro no sea el mismo -->
+                        <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
+                            <div>
+                                <a href="/products/details/<%= relatedBooks[i].id %>" style="text-decoration: none; text-decoration-style: none;">
+                                    <div>
+                                        <img src="/images/products/<%= relatedBooks[i].img %>" alt="" style="max-height: 150px;">
+                                    </div>
+                                </a>
+                                <a href="/products/details/<%= relatedBooks[i].id %>">
+                                    <div class="tituloLibro"> <%= relatedBooks[i].title %></div>
+                                    <div class="rating">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <div class="reviews">318 reviews</div>
+                                    <div class="precio">$ <%= relatedBooks[i].price %></div>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="divBotonCarrito">
-                        <button type="submit" class="botonCarrito">
-                            <span class="botonCarritoInterior">Añadir al carrito</span>
-                        </button>
-                    </div>
-                    <div class="divBotonCompra" data-stock="<%= books[i].stock %>" <% if (books[i].stock < 1 ) { %> onclick="event.preventDefault(); alert('No hay stock disponible');" <% } %> >
-                        <a href="/products/cart/<%= books[i].id %>">
-                            <button type="submit" class="botonCompra">
-                                <a href="/products/cart/<%= books[i].id %>" style="text-decoration:none;color:black"><span class="botonInterior">Comprar ahora</span></a>
-                            </button>
-                        </a>
-                        </div>
-                    <br>
-                    <div class="transaccionSegura">
-                        <i class="fa-solid fa-lock"></i>
-                        <span>Compra Protegida</span>
-                    </div>
-                </div>
-                <% } %>
-                <% } %>
+                        </li>
+                <% }
+                } %>
+            </ol>
+        </div>
 
-         
+        <!-- Sección Resumen del Libro -->
+        
+    </main>
+    <!-- Footer Uli -->
+    <div onclick="pressButton(event)">
+        <%- include('partials/footer.ejs') %>
 
-                <!-- Haciendo carousel de libros recomendados -->
+        <%- include('partials/lowerFooter.ejs') %>
 
+        <%- include('partials/quienesSomos.ejs') %>
 
-                <div class="contenedor">
-                    <h2>Libros que podrían gustarte</h2>
-                    <br>
-                </div>
+        <%- include('partials/trabaja.ejs') %>
+        <%- include('partials/contacto.ejs') %>
+        <%- include('partials/terminos.ejs') %>
+        <%- include('partials/cookies.ejs') %>
+    </div>
 
-                <!-- Colocar script carousel aquí -->
-                <div class="carousel">
-                    <ol role="list" width="2310px">
-                        <% for(let i = 0; i < (books.length >= 4 ? 4 : books.length); i++){%>
-
-                            <li class="carouselCard" role="listitem" style="width: 150px; margin-left: 15px;">
-                                <div>
-                                    <a href="/products/details/<%= books[i].id %>" style="text-decoration: none; text-decoration-style: none;">
-                                        <div>
-                                            <img src="/images/products/<%= books[i].img %>"
-                                                alt="" style="max-height: 150px;">
-                                        </div>
-                                    </a>
-                                    <a href="/products/details/<%= books[i].id %>">
-                                        <div class="tituloLibro"> <%= books[i].title %></div>
-                                        <div class="rating">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                        </div>
-                                        <div class="reviews">318 reviews</div>
-                                        <div class="precio">$ <%= books[i].price %></div>
-                                    </a>
-                                </div>
-                            </li>
-                            <% } %>
-                    </ol>
-                </div> 
-
-                
-
-                <!-- Sección Resumen del Libro -->
-                
-            </main>
-            <!-- Footer Uli -->
-            <div onclick="pressButton(event)">
-                <%- include('partials/footer.ejs') %>
-
-                    <%- include('partials/lowerFooter.ejs') %>
-
-                    <%- include('partials/quienesSomos.ejs') %>
-
-                    <%- include('partials/trabaja.ejs') %>
-                    <%- include('partials/contacto.ejs') %>
-                    <%- include('partials/terminos.ejs') %>
-                    <%- include('partials/cookies.ejs') %>
-                </div>
-
-                <script src="/js/js-footer.js"></script>
-                <script src="/js/js-productDetail.js" data-books="<%= JSON.stringify(books) %>"></script>
-               
+    <script src="/js/js-footer.js"></script>
+    <script src="/js/js-productDetail.js" data-books="<%= JSON.stringify(relatedBooks) %>"></script>
+   
 </body>
 
 </html>
