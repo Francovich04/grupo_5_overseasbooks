@@ -63,8 +63,8 @@ const processLogin = (req, res) => {
         where: { email: req.body.email },
     })
     .then((user) => {
-        // console.log(user.dataValues)
-        if (user.dataValues) {
+        console.log(user)
+        if (user && user.dataValues) {
             let comparePassword = bcryptjs.compareSync(req.body.password, user.dataValues.password)
             if (comparePassword) {
                 req.session.userLogged = user.dataValues
