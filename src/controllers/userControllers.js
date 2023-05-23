@@ -31,7 +31,7 @@ const processRegister = (req, res) => {
         });
     }
 
-    let userinDB = User.findByField('email', req.body.email);
+    let userinDB = db.User.findByField('email', req.body.email);
 
     if (userinDB) {
         return res.render(path.join(__dirname, '../views/register.ejs'), {
@@ -59,32 +59,37 @@ const processLogin = (req, res) => {
         });
     }
 
-    let userToLogin = User.findByField('email', req.body.email);
-
+    db.User.findOne({
+        where: { email: req.body.email },
+    })
+    .then((user) => {
+        // console.log(user.dataValues)
+        if (user.dataValues) {
+            let comparePassword = bcryptjs.compareSync(req.body.password, user.dataValues.password)
+            if (comparePassword) {
+                req.session.userLogged = user.dataValues
+    
+                if (req.body.botonremember) {
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000000 * 90) * 4 })
+                }
+    
+                return res.redirect('/user/profile')
+            }
+            return res.render(path.join(__dirname, '../views/login.ejs'), {
+                errors: { password: { msg: 'La contraseña ingresada no es correcta' } },
+                oldData: req.body
+            });
+        } else {
+            res.render(path.join(__dirname, '../views/login.ejs'), {
+                errors: { email: { msg: 'El email ingresado no esta registrado' } },
+                oldData: req.body
+            });
+        }
+    })
+    
     /* return res.send(userToLogin); */
 
 
-    if (userToLogin) {
-        let comparePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
-        if (comparePassword) {
-            req.session.userLogged = userToLogin
-
-            if (req.body.botonremember) {
-                res.cookie('userEmail', req.body.email, { maxAge: (1000000 * 90) * 4 })
-            }
-
-            return res.redirect('/user/profile')
-        }
-        return res.render(path.join(__dirname, '../views/login.ejs'), {
-            errors: { password: { msg: 'La contraseña ingresada no es correcta' } },
-            oldData: req.body
-        });
-    } else {
-        res.render(path.join(__dirname, '../views/login.ejs'), {
-            errors: { email: { msg: 'El email ingresado no esta registrado' } },
-            oldData: req.body
-        });
-    }
 }
 
 const userProfile = (req, res) => {
