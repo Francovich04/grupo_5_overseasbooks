@@ -86,10 +86,6 @@ const processLogin = (req, res) => {
             });
         }
     })
-    
-    /* return res.send(userToLogin); */
-
-
 }
 
 const userProfile = (req, res) => {
