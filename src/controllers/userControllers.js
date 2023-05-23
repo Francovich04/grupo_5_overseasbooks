@@ -31,23 +31,29 @@ const processRegister = (req, res) => {
         });
     }
 
-    let userinDB = db.User.findByField('email', req.body.email);
+    db.User.findOne({
+        where: { email: req.body.email },
+    })
+    .then((user) => {
+        if (user.dataValues) {
+            return res.render(path.join(__dirname, '../views/register.ejs'), {
+                errors: { email: { msg: 'Este email ya esta registrado' } },
+                oldData: req.body
+            });
+        } else {
+            let userToCreate = {
+                ...req.body,
+                password: bcryptjs.hashSync(req.body.password, 10),
+                avatar: req.file.filename
+            }
+            let userCreated = User.create(userToCreate);
+        
+            return res.redirect('/user/login')
+        }
 
-    if (userinDB) {
-        return res.render(path.join(__dirname, '../views/register.ejs'), {
-            errors: { email: { msg: 'Este email ya esta registrado' } },
-            oldData: req.body
-        });
-    }
+    })
 
-    let userToCreate = {
-        ...req.body,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        avatar: req.file.filename
-    }
-    let userCreated = User.create(userToCreate);
 
-    return res.redirect('/user/login')
 }
 const processLogin = (req, res) => {
     const resultValidation = validationResult(req);
