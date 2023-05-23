@@ -1,4 +1,13 @@
+function hide() {
+    document.getElementById("quienesSomos").style.display = "none";
+    document.getElementById("trabajaConNosotros").style.display = "none";
+    document.getElementById("contactoFooter").style.display = "none";
+    document.getElementById("terminos").style.display = "none";
+    document.getElementById("cookiesExplained").style.display = "none";
+}
+
 function pressButton(event) {
+    hide()
     let target = event.target.id;
     if (target == "quienes") {
         document.getElementById("quienesSomos").style.display = "grid"; 
@@ -19,11 +28,5 @@ function pressButton(event) {
 
 
 
-function hide() {
-    document.getElementById("quienesSomos").style.display = "none";
-    document.getElementById("trabajaConNosotros").style.display = "none";
-    document.getElementById("contactoFooter").style.display = "none";
-    document.getElementById("terminos").style.display = "none";
-    document.getElementById("cookiesExplained").style.display = "none";
-}
+
 
