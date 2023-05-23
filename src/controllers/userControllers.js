@@ -150,6 +150,7 @@ let userControllers = {
                 oldData: req.body
             })
         }
+        return res.redirect('/user/login')
     },
     // DELETE USER SEQUELIZE
     /* Se debe utilizar con Postman */
