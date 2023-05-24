@@ -384,17 +384,17 @@ let productsControllers = {
             db.Author.findOne({
                 where: { name: req.body.author },
             }),
-            db.Category.findOne({ where: { category: req.body.category } })
-
+            db.Category.findOne({ where: { category: req.body.category } }),
+            db.Book.findOne ({where:{id:id}})
         ])
-            .then(([authors, categories]) => {
+            .then(([authors, categories, book]) => {
 
                 db.Book.update({
                     title: req.body.titleEsp,
                     category_id: categories.id,
                     author_id: authors.id,
                     price: req.body.price,
-                    img: req.file ? req.file.filename : '',
+                    img: req.file ? req.file.filename : book.img,
                     description: req.body.description,
                     stock: req.body.stock
                 },
