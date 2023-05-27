@@ -40,8 +40,7 @@ const processRegister = (req, res) => {
                 errors: { email: { msg: 'Este email ya esta registrado' } },
                 oldData: req.body
             });
-        } else {
-            let userToCreate = {
+        } else {let userToCreate = {
                 ...req.body,
                 password: bcryptjs.hashSync(req.body.password, 10),
                 avatar: req.file.filename
