@@ -39,13 +39,23 @@ module.exports = (sequelize, dataTypes) => {
         },
         pickingPrice : {
             type : dataTypes.DECIMAL(10,2)
-        }
+        },
+        createdAt: {
+            type: dataTypes.DATE,
+            defaultValue: dataTypes.NOW
+          },
+        updatedAt: {
+            type: dataTypes.DATE,
+            defaultValue: dataTypes.NOW
+          }
 
     };
 
+    
+
     let config = {
         tableName : "books",
-        timestamps : false 
+        timestamps : true 
     };
 
     const Book = sequelize.define(alias, cols, config);

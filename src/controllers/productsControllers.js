@@ -249,8 +249,8 @@ let productsControllers = {
                 res.status(500).send("Error al obtener los detalles del libro");
             });
     },
-   
-    // CORREGIR NO FUNCIONA
+
+    // Función Search
     search: (req, res) => {
         const { search } = req.body;
         // console.log(search, 'soy query');
@@ -295,9 +295,12 @@ let productsControllers = {
                         category_id: categories[0].id,
                         author_id: authors[0].id,
                         price: req.body.price,
-                        img: req.file ? req.file.filename : '',
-                        description: req.body.productDetail,
-                        color: req.body.color
+                        img: req.file ? req.file.filename : null,
+                        description: req.body.description,
+                        stock: req.body.stock,
+                        color: req.body.color,
+                        // createdAt: new Date()
+
                     });
                 })
                 .then((book) => {
@@ -377,40 +380,47 @@ let productsControllers = {
     // UPDATE SEQUELIZE
 
     updateBookSeq: (req, res) => {
-
         let { id } = req.params;
 
-        Promise.all([
-            db.Author.findOne({
-                where: { name: req.body.author },
-            }),
-            db.Category.findOne({ where: { category: req.body.category } })
+        db.Book.findOne({ where: { id: id } })
+            .then((book) => {
+                if (!book) {
+                    return res.status(404).json({ error: 'Libro no encontrado' });
+                }
 
-        ])
-            .then(([authors, categories]) => {
 
-                db.Book.update({
-                    title: req.body.titleEsp,
-                    category_id: categories.id,
-                    author_id: authors.id,
-                    price: req.body.price,
-                    img: req.file ? req.file.filename : '',
-                    description: req.body.description,
-                    stock: req.body.stock
-                },
-                    {
-                        where: { id: req.params.id }
-                    })
-                    .then((book) => {
-                        return res.redirect("/")
-                    })
-                    .catch((error) => {
-                        // console.log(error);
-                        return res.status(500).json({ error: 'Error al editar libro' });
-                    })
-
-            })
-    },
+                Promise.all([
+                    db.Author.findOrCreate({ where: { name: req.body.author } }),
+                    db.Category.findOne({ where: { category: req.body.category } })
+                ])
+                    .then(([author, categories]) => {
+                        // console.log(author);
+                        // Verificar si se encontró un autor en la base de datos
+                        if (!author) {
+                            return res.status(404).json({ error: 'Autor no encontrado' });
+                        }
+                            book.title = req.body.titleEsp,
+                            book.category_id = categories.id,
+                            book.author_id = author[0].id,
+                            book.price = req.body.price,
+                            book.img = req.file ? req.file.filename : book.img,
+                            book.description = req.body.description,
+                            book.stock = req.body.stock,
+                            book.title = req.body.titleEsp,
+                            book.color = req.body.color,
+                            // console.log(book);
+                            // console.log(author);
+                            book.save()
+                                .then((book) => {
+                                    return res.redirect('/');
+                                })
+                                .catch((error) => {
+                                    return res.status(500).json({ error: 'Error al editar libro' });
+                                });
+                    });
+            });
+    }
+    ,
 
     // DELETE SEQUELIZE
     deleteBookSeq: (req, res) => {
@@ -430,6 +440,7 @@ let productsControllers = {
     }
 };
 
+// DESARROLLO API PRODUCTS
 // API ENDPOINTS
 
 let apiEndpoints = {
@@ -439,17 +450,43 @@ let apiEndpoints = {
             include: [
                 { association: "categories" },
                 { association: "authors" }
-            ]
+            ],
+            order: [['createdAt', 'DESC']] // Orden descendente por createdAt
+
         })
             .then(books => {
+                // Contar las categorías
+                let categoriesCount = {};
+                books.forEach(book => {
+                    const categoryName = book.categories.category;
+                    if (!categoriesCount[categoryName]) {
+                        categoriesCount[categoryName] = 1;
+                    } else {
+                        categoriesCount[categoryName]++;
+                    }
+                });
+
+                // Obtener el total de categorías
+                const totalCategories = Object.keys(categoriesCount).length;
+
                 return res.status(200).json({
                     count: books.length,
-                    countByCategory: {},
+                    countByCategory: categoriesCount,
+                    totalCategories: totalCategories,
                     data: books,
                     status: 200
-                })  
+                });
             })
-    },
+            .catch(error => {
+                console.log(error);
+                return res.status(500).json({
+                    error: "Internal Server Error",
+                    status: 500
+                });
+            });
+    }
+
+    ,
 
     // Product detail
     listProductDetailAPI: (req, res) => {
@@ -484,10 +521,10 @@ let apiEndpoints = {
             return res.status(200).json(books);
 
         })
-        .catch(error => {
-            console.error("Error en la búsqueda de productos:", error);
-            return res.status(500).json({ message: "Error en el servidor" });
-        });
+            .catch(error => {
+                console.error("Error en la búsqueda de productos:", error);
+                return res.status(500).json({ message: "Error en el servidor" });
+            });
     }
 
 

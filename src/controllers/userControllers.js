@@ -19,84 +19,128 @@ const passwordreset = (req, res) => {
     res.render(path.join(__dirname, '../views/passwordreset.ejs'));
 }
 
-const processRegister = (req, res) => {
+// const processRegister = (req, res) => {
+//     const resultValidation = validationResult(req);
+//     if (resultValidation.errors.length > 0) {
+//         if (req.file) {
+//             fs.unlinkSync(path.join(__dirname, '../../public/images/avatars', req.file.filename))
+//         }
+//         return res.render(path.join(__dirname, '../views/register.ejs'), {
+//             errors: resultValidation.mapped(),
+//             oldData: req.body
+//         });
+//     }
+
+    // let userinDB = User.findByField('email', req.body.email);
+
+    // if (userinDB) {
+    //     return res.render(path.join(__dirname, '../views/register.ejs'), {
+    //         errors: { email: { msg: 'Este email ya esta registrado' } },
+    //         oldData: req.body
+    //     });
+    // }
+
+    // let userToCreate = {
+    //     ...req.body,
+    //     password: bcryptjs.hashSync(req.body.password, 10),
+    //     avatar: req.file.filename
+    // }
+    // let userCreated = User.create(userToCreate);
+
+    // return res.redirect('/user/login')
+// }
+// const processLogin = (req, res) => {
+//     const resultValidation = validationResult(req);
+//     if (resultValidation.errors.length > 0) {
+//         // console.log(resultValidation.errors)
+//         return res.render(path.join(__dirname, '../views/login.ejs'), {
+//             errors: resultValidation.mapped(),
+//             oldData: req.body
+//         });
+//     }
+
+//     let userToLogin = db.User.findOne({ where: { email: req.body.email }});
+//     // console.log(userToLogin)
+
+//     /* return res.send(userToLogin); */
+
+
+//     if (userToLogin) {
+//         let comparePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
+//         if (comparePassword) {
+//             req.session.userLogged = userToLogin
+
+//             if (req.body.botonremember) {
+//                 res.cookie('userEmail', req.body.email, { maxAge: (1000000 * 90) * 4 })
+//             }
+
+//             return res.redirect('/user/profile')
+//         }
+//         return res.render(path.join(__dirname, '../views/login.ejs'), {
+//             errors: { password: { msg: 'La contraseña ingresada no es correcta' } },
+//             oldData: req.body
+//         });
+//     } else {
+//         res.render(path.join(__dirname, '../views/login.ejs'), {
+//             errors: { email: { msg: 'El email ingresado no esta registrado' } },
+//             oldData: req.body
+//         });
+//     }
+// }
+
+const processLogin = async (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
-        if (req.file) {
-            fs.unlinkSync(path.join(__dirname, '../../public/images/avatars', req.file.filename))
-        }
-        return res.render(path.join(__dirname, '../views/register.ejs'), {
-            errors: resultValidation.mapped(),
-            oldData: req.body
-        });
+      return res.render(path.join(__dirname, '../views/login.ejs'), {
+        errors: resultValidation.mapped(),
+        oldData: req.body
+      });
     }
-
-    db.User.findOne({
-        where: { email: req.body.email },
-    })
-    .then((user) => {
-        if (user.dataValues) {
-            return res.render(path.join(__dirname, '../views/register.ejs'), {
-                errors: { email: { msg: 'Este email ya esta registrado' } },
-                oldData: req.body
-            });
-        } else {let userToCreate = {
-                ...req.body,
-                password: bcryptjs.hashSync(req.body.password, 10),
-                avatar: req.file.filename
-            }
-            let userCreated = User.create(userToCreate);
+  
+    try {
+      const userToLogin = await db.User.findOne({ where: { email: req.body.email } });
+  
+      if (userToLogin) {
+        const comparePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
         
-            return res.redirect('/user/login')
+        if (comparePassword) {
+          req.session.userLogged = userToLogin;
+  
+          if (req.body.botonremember) {
+            res.cookie('userEmail', req.body.email, { maxAge: (1000000 * 90) * 4 });
+          }
+  
+          return res.redirect('/user/profile');
         }
-
-    })
-
-
-}
-const processLogin = (req, res) => {
-    const resultValidation = validationResult(req);
-    if (resultValidation.errors.length > 0) {
-        // console.log(resultValidation.errors)
+  
         return res.render(path.join(__dirname, '../views/login.ejs'), {
-            errors: resultValidation.mapped(),
-            oldData: req.body
+          errors: { password: { msg: 'La contraseña ingresada no es correcta' } },
+          oldData: req.body
         });
+      } else {
+        return res.render(path.join(__dirname, '../views/login.ejs'), {
+          errors: { email: { msg: 'El email ingresado no está registrado' } },
+          oldData: req.body
+        });
+      }
+    } catch (error) {
+      // Manejar errores en caso de que ocurra un problema con la base de datos
+      console.log(error);
+      return res.status(500).json({ error: 'Error en el servidor' });
     }
+  };
+  
 
-    db.User.findOne({
-        where: { email: req.body.email },
-    })
-    .then((user) => {
-        console.log(user)
-        if (user && user.dataValues) {
-            let comparePassword = bcryptjs.compareSync(req.body.password, user.dataValues.password)
-            if (comparePassword) {
-                req.session.userLogged = user.dataValues
-    
-                if (req.body.botonremember) {
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000000 * 90) * 4 })
-                }
-    
-                return res.redirect('/user/profile')
-            }
-            return res.render(path.join(__dirname, '../views/login.ejs'), {
-                errors: { password: { msg: 'La contraseña ingresada no es correcta' } },
-                oldData: req.body
-            });
-        } else {
-            res.render(path.join(__dirname, '../views/login.ejs'), {
-                errors: { email: { msg: 'El email ingresado no esta registrado' } },
-                oldData: req.body
-            });
-        }
-    })
-}
 
 const userProfile = (req, res) => {
-    return res.render(path.join(__dirname, '../views/userProfile.ejs'), {
-        user: req.session.userLogged
-    });
+    let user = req.session.userLogged
+    if(user) {
+        return res.render(path.join(__dirname, '../views/userProfile.ejs'), {
+            user: user
+        });
+    } else {
+        return res.redirect('/user/login');
+    }
 }
 
 const userLogout = (req, res) => {
@@ -172,10 +216,12 @@ let userControllers = {
             })
     },
 
+    // DESARROLLO API USERS
     // Listado de users
     listUsersAPI: (req, res) => {
         db.User.findAll({
-            attributes: { exclude: ['password'] } // Excluir el atributo 'password'
+            attributes: { exclude: ['password'] }, // Excluir el atributo 'password'
+            order: [['createdAt', 'DESC']] // Orden descendente por createdAt
         }
         )
             .then(users => {
@@ -240,4 +286,4 @@ let userControllers = {
 
     ;
 
-module.exports = { login, register, passwordreset, processRegister, processLogin, userProfile, userLogout, userControllers };
+module.exports = { login, register, passwordreset,/*  processRegister, */ processLogin, userProfile, userLogout, userControllers };
