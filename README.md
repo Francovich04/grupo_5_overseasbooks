@@ -21,3 +21,9 @@ Ulises: Mi nombre es Ulises, tengo 41 años, soy docente de Ingles y un aficiona
 Juana: Soy Juana Mayorga, tengo 21 años y trabajo en consultorio médico y hace unos meses me empecé a interesar por la programación. Me gustaría poder trabajar de esto ya que lo poco que vi, me fascinó.
 David: Mi nombre es David, tengo 23 años, me encuentro trabajando en el área contable y financiera. Tengo un gran interés por la programación debido a que considero que puede aplicarse a practicamente todas las disciplinas, para poder simplificar y optimizar todo tipo de procesos.
 
+
+USUARIO ADMIN : juanamayorga2001@gmail.com
+CONTRASEÑA ADMIN : 12345
+
+
+
