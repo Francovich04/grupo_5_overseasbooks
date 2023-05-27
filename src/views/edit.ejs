@@ -5,7 +5,7 @@
     <body class="createBody editBody">
 
         <%- include('partials/header.ejs') %> 
-   <!--      <%- include('partials/lowerNavBar.ejs') %> -->
+        <%- include('partials/lowerNavBar.ejs') %>
 
         <main class = "mainform editMain">
 
@@ -14,36 +14,28 @@
 
            
             <div class="formContainer editFormContainer">
-                <form method="POST" action="/products/edit/<%= edit.id%>?_method=PUT" class="formulario-crear" enctype="multipart/form-data">
+                <form method="POST" action="/products/edit/<%= edit.id%>" class="formulario-crear" enctype="multipart/form-data">
 
                     <div class="formFields editFormFields">
                         <div class="editImageContainer">
-                        <img src="<%=edit.img %>" alt="imagen" class="editImage">
+                        <img src="/images/products/<%=edit.img %>" alt="imagen" class="editImage">
                     </div>
                         <label class="labelForm" for="">Cambiar Imagen</label>
                         <input class="inputForm inputNoBorder" type="file" name="img" id="" value="<%= edit.img %>">
 
                     </div>
 
-                    <div class="formFields">
-
-                        <label class="labelForm" for="">ID</label>
-                        <input class="inputForm soloLectura" type="text" name="id" id="" readonly="true"
-                            value="<%= edit.id %>">
-
-                    </div>
-
-                    <div class="formFields">
+                    <!-- <div class="formFields">
 
                         <label class="labelForm" for="">Titulo en Inglés</label>
                         <input class="inputForm editInput" type="text" name="titleEng" id="" value="<%= edit.titleEng %>">
 
-                    </div>
+                    </div> -->
 
                     <div class="formFields">
 
                         <label class="labelForm" for="">Titulo en Español</label>
-                        <input class="inputForm" type="text" name="titleEsp" id="" value="<%= edit.titleEsp %>">
+                        <input class="inputForm" type="text" name="titleEsp" id="" value="<%= edit.title %>">
 
                     </div>
 
@@ -68,7 +60,7 @@
                     <div class="formFields">
 
                         <label class="labelForm" for="">Autor/a</label>
-                        <input class="inputForm" type="text" name="author" id="" value="<%= edit.author %>">
+                        <input class="inputForm" type="text" name="author" id="" value="<%= edit.authors.name %>">
 
                     </div>
 
@@ -76,7 +68,7 @@
 
                         <label class="labelForm" for="">Categoria Original</label>
                         <input class="inputForm soloLectura" type="text" id="" readonly="true"
-                            value="<%= edit.category %>">
+                            value="<%= edit.categories.category %>">
                         <label class="labelForm" for="">Cambiar / Confirmar:</label>
                         <select name="category" class="inputForm">
                             <option value="Best Sellers">Best Sellers</option>
@@ -93,15 +85,20 @@
 
                     </div>
 
+                    <div class="formFields">
 
+                        <label class="labelForm" for="">Descripción</label>
+                        <input class="inputForm" type="text" name="description" id="" value="<%= edit.description %>">
+
+                    </div>
 
                     <div class="formFields">
 
-                        <label class="labelForm" for="">Detalle</label>
-                        <input class="inputForm soloLectura" type="text" name="productDetail" id=""
-                            value="<%= edit.productDetail %>" readonly="true">
+                        <label class="labelForm" for="">Stock</label>
+                        <input class="inputForm" type="text" name="stock" id="" value="<%= edit.stock %>">
 
                     </div>
+
 
                     <div class="buttonFormContainer">
                         <button class="buttonForm" type="submit">Submit</button>

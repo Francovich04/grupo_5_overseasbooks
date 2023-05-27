@@ -522,7 +522,7 @@ header .userIcon {
 }
 
 .carouselContainer .carousel .card .cardTop {
-    background-color: #e6fcff;
+    background-color: #ffffff;
     height: 75px; /* esto cambia en responsive */
     position: relative;
 }
@@ -553,7 +553,7 @@ header .userIcon {
 
 .carouselContainer .carousel .card .pastelAzul {
     background-color: #8383ac;
-}
+} 
 
 .carouselContainer {
     padding-top: 40px;
@@ -1169,7 +1169,8 @@ input::-webkit-inner-spin-button {
 }
 
 .price {
-    margin-bottom: 2px;
+    margin-bottom: 12px;
+    text-align: center;
 }
 
 .line {
@@ -1629,4 +1630,111 @@ li.carouselCard::marker {
 
 .imglogo {
     width: 100%;
+}
+
+/*   FOOTER INVISIBLE */
+#quienesSomos {
+    background-color:rgb(113, 161, 167);
+    display: none;
+    font-size: 20px;
+    position: relative;
+}
+
+#trabajaConNosotros {
+
+    background-color:rgb(129, 225, 237);
+    display: none;
+    font-size: 20px;
+    position: relative;
+
+}
+
+#buttonHide {
+    border-radius: 50px;
+    width: 40px;
+    position: absolute;
+    font-size: 20px;
+    left: 10px;
+    border: none;
+    background-color: lightcoral;
+    top: 10px;
+    
+}
+
+#buttonHide:hover {
+    background-color: rgb(234, 85, 85);
+    color: rgb(227, 222, 222);
+}
+.formTrabajarContenedor {
+    margin: auto;
+    text-align: center;
+}
+.formTrabajar {
+    margin: auto;
+    width: 500px;
+}
+
+.inputTrabajar{
+    width:auto;
+    font-size: 20px;
+}
+
+.fieldsetTrabajar {
+    border: none;
+}
+
+.textComments {
+    padding: 5px;
+    font-size: 18px;
+}
+
+#submitButtonFormWork {
+    font-size: 20px;
+    border-radius: 20px;
+    width: 105px;
+    border: none;
+}
+#submitButtonFormWork:hover {
+    background-color:rgb(192, 192, 192);
+}
+
+#contactoFooter {
+
+    background-color:rgb(152, 238, 185);
+    display: none;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+
+}
+
+#terminos {
+    background-color:rgb(163, 152, 238);
+    display: none;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+#cookiesExplained {
+    
+    background-color:rgb(238, 152, 228);
+    display: none;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.errores {
+    color: red;
+    padding: 15px
+}
+
+#libroBuscado {
+    padding: 30px;
+    font-size: 30px;
+   
 }

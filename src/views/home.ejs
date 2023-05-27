@@ -32,11 +32,11 @@
 
                                 <article class="carouselContainer">
 
-                                    <div class="arrows">
+                                   <!--  <div class="arrows">
                                         <i class="fa-solid fa-circle-chevron-left"></i>
                                         <i class="fa-solid fa-circle-chevron-right"></i>
                                     </div>
-
+ -->
                                     <div class="carousel">
 
                                         <% for (let j=0; j< allBooks.length; j++) {%>
@@ -49,7 +49,7 @@
 
                                                     <div class="cardTop <%= allBooks[j].color %>">
                                                         <a href="products/details/<%= allBooks[j].id %>"><img
-                                                                class="bookCover" src="<%= allBooks[j].img %>"
+                                                                class="bookCover" src="/images/products<%= allBooks[j].img %>"
                                                                 alt="libro"></a>
 
                                                     </div>
@@ -78,7 +78,6 @@
                                                 </div>
 
                                                 <%}%>
-
                                                     <%}%>
 
                                     </div>
@@ -89,12 +88,25 @@
 
                             <%}%>
 
-                    </main>
 
+                    </main>
+                    <div onclick="pressButton(event)">
                     <%- include('partials/footer.ejs') %>
 
                         <%- include('partials/lowerFooter.ejs') %>
 
+                        <%- include('partials/quienesSomos.ejs') %>
+
+                        <%- include('partials/trabaja.ejs') %>
+                        <%- include('partials/contacto.ejs') %>
+                        <%- include('partials/terminos.ejs') %>
+                        <%- include('partials/cookies.ejs') %>
+                    </div>
+
+                      
+   
+    
+    <script src="/js/js-footer.js"></script>
     </body>
 
 </html>

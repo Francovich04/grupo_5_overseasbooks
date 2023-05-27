@@ -1,4 +1,6 @@
+require('dotenv').config()
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const path = require('path')
 const publicPath = path.resolve(__dirname, './public')
@@ -11,6 +13,11 @@ const methodOverride = require('method-override');
 const session = require('express-session')
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
 const cookies = require('cookie-parser')
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    optionsSuccessStatus: 200
+  }));
 
 
 app.listen(port, () => console.log(`Server running in port ${port}...`));

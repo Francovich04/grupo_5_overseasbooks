@@ -5,15 +5,19 @@
 <body class="body-login">
     <%- include('partials/header.ejs') %>
     <form class="formulario" method="POST" action="/user/login">
-    
-    <h1 class="h1-login">Login</h1>
-     <div class="contenedor">
-     
+
+        
+        <h1 class="h1-login">Login</h1>
+        <div class="contenedor">
+            
+            <div class="errores">
+                <ul></ul>
+            </div>
      
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input class="input-register" type="text" placeholder="Correo Electronico" name="email" value="<%= locals.oldData ? oldData.email : null %>">
+         <input class="mail input-register" type="text" placeholder="Correo Electronico" name="email" value="<%= locals.oldData ? oldData.email : null %>">
          </div>
          <% if (locals.errors && errors.email) { %>
             <div class="text-danger">
@@ -23,7 +27,7 @@
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input  class="input-register" type="password" placeholder="Contraseña" name="password">
+         <input  class="password input-register" type="password" placeholder="Contraseña" name="password">
          </div>
          <% if (locals.errors && errors.password) { %>
             <div class="text-danger">
@@ -37,9 +41,21 @@
          <p>¿Olvidaste tu contraseña? <a class="link" href="/user/passwordreset">Recuperala aqui </a></p>
      </div>
     </form>
-    <%- include('partials/footer.ejs') %>
+    <!-- Footer Uli -->
+    <div onclick="pressButton(event)">
+        <%- include('partials/footer.ejs') %>
 
-    <%- include('partials/lowerFooter.ejs') %>
+            <%- include('partials/lowerFooter.ejs') %>
+
+            <%- include('partials/quienesSomos.ejs') %>
+
+            <%- include('partials/trabaja.ejs') %>
+            <%- include('partials/contacto.ejs') %>
+            <%- include('partials/terminos.ejs') %>
+            <%- include('partials/cookies.ejs') %>
+        </div>
+        <script src="/js/validationlogin-front.js"></script>
+        <script src="/js/js-footer.js"></script>
 </body>
 </html>
 
