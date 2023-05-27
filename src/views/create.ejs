@@ -113,13 +113,13 @@
                                     <div class="formFields">
 
                                         <label class="labelForm" for="">Descripción</label>
-                                        <input type="text" name="productDetail" id=""
-                                            class="descripcion inputForm  <%= locals.errors && errors.productDetail ? 'is-invalid' : null %>"
-                                            value="<%= locals.oldData ? oldData.productDetail : null %>">
+                                        <input type="text" name="description" id=""
+                                            class="descripcion inputForm  <%= locals.errors && errors.description ? 'is-invalid' : null %>"
+                                            value="<%= locals.oldData ? oldData.description : null %>">
 
-                                        <% if (locals.errors && errors.productDetail) {%>
+                                        <% if (locals.errors && errors.description) {%>
                                             <div class="text_errors">
-                                                <%= errors.productDetail.msg %>
+                                                <%= errors.description.msg %>
                                             </div>
 
                                             <% } %>

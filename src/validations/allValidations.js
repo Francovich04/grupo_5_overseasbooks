@@ -7,7 +7,7 @@ const productValidations = [
     body('author').notEmpty().withMessage('Escribí un autor'),
     body('category').notEmpty().withMessage('Seleciona una categoría'),
     body('price').notEmpty().withMessage('Escribí un precio válido'),
-    body('productDetail').notEmpty().withMessage('Escribí una descripción válida'),
+    body('description').notEmpty().withMessage('Escribí una descripción válida'),
     body('stock').notEmpty().withMessage('Escribí un stock válido'),
      body('img').custom((value, { req }) => {
         let file = req.file;
