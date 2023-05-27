@@ -16,7 +16,7 @@ function userLoggedMiddleware(req, res, next) {
         console.log(res.locals.userLogged.admin);
 
         // Verificamos si el usuario tiene role "admin" y lo guardamos en locals para usarlo en las vistas
-        if (res.locals.userLogged.admin == true) {
+        if (res.locals.userLogged.admin == 'true') {
             res.locals.isAdmin = true;
         } else {
             res.locals.isAdmin = false;
