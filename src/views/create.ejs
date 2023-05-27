@@ -159,7 +159,7 @@
 
 <label class="labelForm" for="">Stock</label>
 <input type="number" name="stock" id=""
-    class="precio inputForm  <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
+    class="stock inputForm  <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
     value="<%= locals.oldData ? oldData.stock : null %>">
 
 <% if (locals.errors && errors.stock) {%>
@@ -182,6 +182,8 @@
             </div>
 
         </main>
+
+        <script src="/js/validationcreate-front.js"></script>
 
     </body>
 

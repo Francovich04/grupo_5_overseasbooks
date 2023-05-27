@@ -39,6 +39,11 @@ window.addEventListener('load', function() {
         if (campoImg.value === '') {
             errores.push('Debes seleccionar una imagen')
         }
+
+        let campoStock = document.querySelector('input.stock')
+        if (campoStock.value == '') {
+            errores.push('Debes escribir un stock')
+        }
         // console.log(errores)
         if (errores.length > 0) {
             e.preventDefault();
