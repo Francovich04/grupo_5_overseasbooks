@@ -6,16 +6,16 @@ module.exports = {
     "database": process.env.DATABASE,
     "host": process.env.DBHOST,
     "dialect": process.env.DIALECT
-  }
-// pruebaaaa
+  },
+  // pruebaaaa
 
-  // "test": {
-  //   "username": "root",
-  //   "password": "root",
-  //   "database": "mydb",
-  //   "host": "127.0.0.1",
-  //   "dialect": "mysql"
-  // },
+  "development": {
+    "username": process.env.DBUSER,
+    "password": process.env.DBPASSWORD,
+    "database": process.env.DATABASE,
+    "host": process.env.DBHOST,
+    "dialect": process.env.DIALECT
+  }
   // "production": {
   //   "username": "root",
   //   "password": "root",
