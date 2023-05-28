@@ -9,7 +9,7 @@ module.exports = {
   },
   // pruebaaaa
 
-  "development": {
+  "test": {
     "username": process.env.DBUSER,
     "password": process.env.DBPASSWORD,
     "database": process.env.DATABASE,
