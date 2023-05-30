@@ -19,6 +19,7 @@ const passwordreset = (req, res) => {
     res.render(path.join(__dirname, '../views/passwordreset.ejs'));
 }
 
+//agregocomentario
 // const processRegister = (req, res) => {
 //     const resultValidation = validationResult(req);
 //     if (resultValidation.errors.length > 0) {
